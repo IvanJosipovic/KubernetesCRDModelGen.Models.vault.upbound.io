@@ -7,11 +7,11 @@ metadata:
 spec:
   group: identity.vault.m.upbound.io
   names:
+    kind: EntityPolicies
     categories:
     - crossplane
     - managed
     - vault
-    kind: EntityPolicies
     listKind: EntityPoliciesList
     plural: entitypolicies
     singular: entitypolicies

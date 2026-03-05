@@ -7,11 +7,11 @@ metadata:
 spec:
   group: transform.vault.m.upbound.io
   names:
+    kind: Alphabet
     categories:
     - crossplane
     - managed
     - vault
-    kind: Alphabet
     listKind: AlphabetList
     plural: alphabets
     singular: alphabet

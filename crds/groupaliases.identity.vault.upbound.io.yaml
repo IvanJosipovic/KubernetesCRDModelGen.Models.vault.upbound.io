@@ -7,11 +7,11 @@ metadata:
 spec:
   group: identity.vault.upbound.io
   names:
+    kind: GroupAlias
     categories:
     - crossplane
     - managed
     - vault
-    kind: GroupAlias
     listKind: GroupAliasList
     plural: groupaliases
     singular: groupalias

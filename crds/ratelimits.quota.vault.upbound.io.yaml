@@ -7,11 +7,11 @@ metadata:
 spec:
   group: quota.vault.upbound.io
   names:
+    kind: RateLimit
     categories:
     - crossplane
     - managed
     - vault
-    kind: RateLimit
     listKind: RateLimitList
     plural: ratelimits
     singular: ratelimit

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: transform.vault.upbound.io
   names:
+    kind: Transformation
     categories:
     - crossplane
     - managed
     - vault
-    kind: Transformation
     listKind: TransformationList
     plural: transformations
     singular: transformation

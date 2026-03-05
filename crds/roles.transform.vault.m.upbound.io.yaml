@@ -7,11 +7,11 @@ metadata:
 spec:
   group: transform.vault.m.upbound.io
   names:
+    kind: Role
     categories:
     - crossplane
     - managed
     - vault
-    kind: Role
     listKind: RoleList
     plural: roles
     singular: role

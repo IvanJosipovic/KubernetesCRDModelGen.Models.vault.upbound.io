@@ -7,11 +7,11 @@ metadata:
 spec:
   group: generic.vault.upbound.io
   names:
+    kind: Endpoint
     categories:
     - crossplane
     - managed
     - vault
-    kind: Endpoint
     listKind: EndpointList
     plural: endpoints
     singular: endpoint

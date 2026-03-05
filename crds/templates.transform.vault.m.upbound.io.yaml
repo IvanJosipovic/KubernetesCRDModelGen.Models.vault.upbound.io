@@ -7,11 +7,11 @@ metadata:
 spec:
   group: transform.vault.m.upbound.io
   names:
+    kind: Template
     categories:
     - crossplane
     - managed
     - vault
-    kind: Template
     listKind: TemplateList
     plural: templates
     singular: template

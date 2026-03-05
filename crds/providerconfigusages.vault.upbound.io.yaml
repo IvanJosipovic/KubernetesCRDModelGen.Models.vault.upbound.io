@@ -7,11 +7,11 @@ metadata:
 spec:
   group: vault.upbound.io
   names:
+    kind: ProviderConfigUsage
     categories:
     - crossplane
     - provider
     - vault
-    kind: ProviderConfigUsage
     listKind: ProviderConfigUsageList
     plural: providerconfigusages
     singular: providerconfigusage

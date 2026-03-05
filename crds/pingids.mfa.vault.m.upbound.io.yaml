@@ -7,11 +7,11 @@ metadata:
 spec:
   group: mfa.vault.m.upbound.io
   names:
+    kind: Pingid
     categories:
     - crossplane
     - managed
     - vault
-    kind: Pingid
     listKind: PingidList
     plural: pingids
     singular: pingid

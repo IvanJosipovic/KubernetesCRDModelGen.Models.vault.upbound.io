@@ -7,11 +7,11 @@ metadata:
 spec:
   group: vault.vault.upbound.io
   names:
+    kind: Audit
     categories:
     - crossplane
     - managed
     - vault
-    kind: Audit
     listKind: AuditList
     plural: audits
     singular: audit

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: ldap.vault.m.upbound.io
   names:
+    kind: AuthBackendUser
     categories:
     - crossplane
     - managed
     - vault
-    kind: AuthBackendUser
     listKind: AuthBackendUserList
     plural: authbackendusers
     singular: authbackenduser

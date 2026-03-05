@@ -7,11 +7,11 @@ metadata:
 spec:
   group: identity.vault.m.upbound.io
   names:
+    kind: MfaTotp
     categories:
     - crossplane
     - managed
     - vault
-    kind: MfaTotp
     listKind: MfaTotpList
     plural: mfatotps
     singular: mfatotp

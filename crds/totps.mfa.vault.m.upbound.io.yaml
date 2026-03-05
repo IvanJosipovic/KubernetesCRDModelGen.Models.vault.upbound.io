@@ -7,11 +7,11 @@ metadata:
 spec:
   group: mfa.vault.m.upbound.io
   names:
+    kind: Totp
     categories:
     - crossplane
     - managed
     - vault
-    kind: Totp
     listKind: TotpList
     plural: totps
     singular: totp

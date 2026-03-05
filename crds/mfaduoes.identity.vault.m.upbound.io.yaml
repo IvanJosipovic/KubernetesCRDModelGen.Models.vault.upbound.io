@@ -7,11 +7,11 @@ metadata:
 spec:
   group: identity.vault.m.upbound.io
   names:
+    kind: MfaDuo
     categories:
     - crossplane
     - managed
     - vault
-    kind: MfaDuo
     listKind: MfaDuoList
     plural: mfaduoes
     singular: mfaduo

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: identity.vault.upbound.io
   names:
+    kind: GroupMemberEntityIds
     categories:
     - crossplane
     - managed
     - vault
-    kind: GroupMemberEntityIds
     listKind: GroupMemberEntityIdsList
     plural: groupmemberentityidsidses
     singular: groupmemberentityids

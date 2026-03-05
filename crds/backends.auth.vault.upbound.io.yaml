@@ -7,11 +7,11 @@ metadata:
 spec:
   group: auth.vault.upbound.io
   names:
+    kind: Backend
     categories:
     - crossplane
     - managed
     - vault
-    kind: Backend
     listKind: BackendList
     plural: backends
     singular: backend
