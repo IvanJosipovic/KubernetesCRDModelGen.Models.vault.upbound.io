@@ -7,11 +7,11 @@ metadata:
 spec:
   group: cert.vault.upbound.io
   names:
+    kind: AuthBackendRole
     categories:
     - crossplane
     - managed
     - vault
-    kind: AuthBackendRole
     listKind: AuthBackendRoleList
     plural: authbackendroles
     singular: authbackendrole

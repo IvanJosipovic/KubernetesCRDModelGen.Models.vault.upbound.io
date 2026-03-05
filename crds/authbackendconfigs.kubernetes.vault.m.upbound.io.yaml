@@ -7,11 +7,11 @@ metadata:
 spec:
   group: kubernetes.vault.m.upbound.io
   names:
+    kind: AuthBackendConfig
     categories:
     - crossplane
     - managed
     - vault
-    kind: AuthBackendConfig
     listKind: AuthBackendConfigList
     plural: authbackendconfigs
     singular: authbackendconfig

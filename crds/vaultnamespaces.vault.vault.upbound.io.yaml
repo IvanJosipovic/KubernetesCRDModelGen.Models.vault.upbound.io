@@ -7,11 +7,11 @@ metadata:
 spec:
   group: vault.vault.upbound.io
   names:
+    kind: VaultNamespace
     categories:
     - crossplane
     - managed
     - vault
-    kind: VaultNamespace
     listKind: VaultNamespaceList
     plural: vaultnamespaces
     singular: vaultnamespace

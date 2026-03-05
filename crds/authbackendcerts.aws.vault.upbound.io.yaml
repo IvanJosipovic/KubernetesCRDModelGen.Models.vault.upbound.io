@@ -7,11 +7,11 @@ metadata:
 spec:
   group: aws.vault.upbound.io
   names:
+    kind: AuthBackendCert
     categories:
     - crossplane
     - managed
     - vault
-    kind: AuthBackendCert
     listKind: AuthBackendCertList
     plural: authbackendcerts
     singular: authbackendcert

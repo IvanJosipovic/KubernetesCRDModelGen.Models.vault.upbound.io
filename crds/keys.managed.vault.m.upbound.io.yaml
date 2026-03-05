@@ -7,11 +7,11 @@ metadata:
 spec:
   group: managed.vault.m.upbound.io
   names:
+    kind: Keys
     categories:
     - crossplane
     - managed
     - vault
-    kind: Keys
     listKind: KeysList
     plural: keys
     singular: keys

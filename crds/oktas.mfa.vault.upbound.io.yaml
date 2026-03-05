@@ -7,11 +7,11 @@ metadata:
 spec:
   group: mfa.vault.upbound.io
   names:
+    kind: Okta
     categories:
     - crossplane
     - managed
     - vault
-    kind: Okta
     listKind: OktaList
     plural: oktas
     singular: okta

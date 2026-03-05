@@ -7,11 +7,11 @@ metadata:
 spec:
   group: rgp.vault.upbound.io
   names:
+    kind: Policy
     categories:
     - crossplane
     - managed
     - vault
-    kind: Policy
     listKind: PolicyList
     plural: policies
     singular: policy

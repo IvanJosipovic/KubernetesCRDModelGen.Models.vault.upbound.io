@@ -7,11 +7,11 @@ metadata:
 spec:
   group: aws.vault.m.upbound.io
   names:
+    kind: AuthBackendConfigIdentity
     categories:
     - crossplane
     - managed
     - vault
-    kind: AuthBackendConfigIdentity
     listKind: AuthBackendConfigIdentityList
     plural: authbackendconfigidentities
     singular: authbackendconfigidentity

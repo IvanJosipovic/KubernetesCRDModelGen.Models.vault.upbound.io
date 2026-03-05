@@ -7,11 +7,11 @@ metadata:
 spec:
   group: audit.vault.upbound.io
   names:
+    kind: RequestHeader
     categories:
     - crossplane
     - managed
     - vault
-    kind: RequestHeader
     listKind: RequestHeaderList
     plural: requestheaders
     singular: requestheader

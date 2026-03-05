@@ -7,11 +7,11 @@ metadata:
 spec:
   group: aws.vault.m.upbound.io
   names:
+    kind: AuthBackendRoleTag
     categories:
     - crossplane
     - managed
     - vault
-    kind: AuthBackendRoleTag
     listKind: AuthBackendRoleTagList
     plural: authbackendroletags
     singular: authbackendroletag

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: raft.vault.upbound.io
   names:
+    kind: SnapshotAgentConfig
     categories:
     - crossplane
     - managed
     - vault
-    kind: SnapshotAgentConfig
     listKind: SnapshotAgentConfigList
     plural: snapshotagentconfigs
     singular: snapshotagentconfig

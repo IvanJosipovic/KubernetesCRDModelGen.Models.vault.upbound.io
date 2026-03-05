@@ -7,11 +7,11 @@ metadata:
 spec:
   group: identity.vault.m.upbound.io
   names:
+    kind: OidcKeyAllowedClientID
     categories:
     - crossplane
     - managed
     - vault
-    kind: OidcKeyAllowedClientID
     listKind: OidcKeyAllowedClientIDList
     plural: oidckeyallowedclientids
     singular: oidckeyallowedclientid

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: identity.vault.upbound.io
   names:
+    kind: Oidc
     categories:
     - crossplane
     - managed
     - vault
-    kind: Oidc
     listKind: OidcList
     plural: oidcs
     singular: oidc

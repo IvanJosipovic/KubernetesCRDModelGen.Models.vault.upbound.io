@@ -7,11 +7,11 @@ metadata:
 spec:
   group: quota.vault.upbound.io
   names:
+    kind: LeaseCount
     categories:
     - crossplane
     - managed
     - vault
-    kind: LeaseCount
     listKind: LeaseCountList
     plural: leasecounts
     singular: leasecount
