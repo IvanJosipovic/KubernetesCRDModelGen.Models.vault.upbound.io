@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.pki.vault.upbound.io;
 /// <summary>SecretBackendRootSignIntermediate is the Schema for the SecretBackendRootSignIntermediates API. &lt;no value&gt;</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1alpha1SecretBackendRootSignIntermediateList : IKubernetesObject<V1ListMeta>, IItems<V1alpha1SecretBackendRootSignIntermediate>
@@ -33,7 +33,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateList : IKubernetes
 
     /// <summary>List of V1alpha1SecretBackendRootSignIntermediate objects.</summary>
     [JsonPropertyName("items")]
-    public IList<V1alpha1SecretBackendRootSignIntermediate>? Items { get; set; }
+    public required IList<V1alpha1SecretBackendRootSignIntermediate> Items { get; set; }
 }
 
 /// <summary>
@@ -45,7 +45,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateList : IKubernetes
 /// non-default values would be honored if the feature flag is enabled.
 /// See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1alpha1SecretBackendRootSignIntermediateSpecDeletionPolicyEnum>))]
 public enum V1alpha1SecretBackendRootSignIntermediateSpecDeletionPolicyEnum
 {
@@ -55,7 +55,7 @@ public enum V1alpha1SecretBackendRootSignIntermediateSpecDeletionPolicyEnum
     Delete
 }
 
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateSpecForProvider
 {
@@ -222,7 +222,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateSpecForProvider
 /// for example because of an external controller is managing them, like an
 /// autoscaler.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateSpecInitProvider
 {
@@ -381,7 +381,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateSpecInitProvider
 /// A ManagementAction represents an action that the Crossplane controllers
 /// can take on an external resource.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1alpha1SecretBackendRootSignIntermediateSpecManagementPoliciesEnum>))]
 public enum V1alpha1SecretBackendRootSignIntermediateSpecManagementPoliciesEnum
 {
@@ -405,7 +405,7 @@ public enum V1alpha1SecretBackendRootSignIntermediateSpecManagementPoliciesEnum
 /// reference cannot be resolved. &apos;Optional&apos; means this reference will be
 /// a no-op if it cannot be resolved.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRefPolicyResolutionEnum>))]
 public enum V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRefPolicyResolutionEnum
 {
@@ -421,7 +421,7 @@ public enum V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRefPolicy
 /// the corresponding field is not present. Use &apos;Always&apos; to resolve the
 /// reference on every reconcile.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRefPolicyResolveEnum>))]
 public enum V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRefPolicyResolveEnum
 {
@@ -432,7 +432,7 @@ public enum V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRefPolicy
 }
 
 /// <summary>Policies for referencing.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRefPolicy
 {
@@ -460,7 +460,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateSpecProviderConfig
 /// create, observe, update, and delete this managed resource should be
 /// configured.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateSpecProviderConfigRef
 {
@@ -479,7 +479,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateSpecProviderConfig
 /// be written. Connection details frequently include the endpoint, username,
 /// and password required to connect to the managed resource.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateSpecWriteConnectionSecretToRef
 {
@@ -493,7 +493,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateSpecWriteConnectio
 }
 
 /// <summary>SecretBackendRootSignIntermediateSpec defines the desired state of SecretBackendRootSignIntermediate</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateSpec
 {
@@ -560,7 +560,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateSpec
     public V1alpha1SecretBackendRootSignIntermediateSpecWriteConnectionSecretToRef? WriteConnectionSecretToRef { get; set; }
 }
 
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateStatusAtProvider
 {
@@ -739,7 +739,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateStatusAtProvider
 }
 
 /// <summary>A Condition that may apply to a resource.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateStatusConditions
 {
@@ -782,7 +782,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateStatusConditions
 }
 
 /// <summary>SecretBackendRootSignIntermediateStatus defines the observed state of SecretBackendRootSignIntermediate.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendRootSignIntermediateStatus
 {
@@ -803,7 +803,7 @@ public partial class V1alpha1SecretBackendRootSignIntermediateStatus
 }
 
 /// <summary>SecretBackendRootSignIntermediate is the Schema for the SecretBackendRootSignIntermediates API. &lt;no value&gt;</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1alpha1SecretBackendRootSignIntermediate : IKubernetesObject<V1ObjectMeta>, ISpec<V1alpha1SecretBackendRootSignIntermediateSpec>, IStatus<V1alpha1SecretBackendRootSignIntermediateStatus?>
