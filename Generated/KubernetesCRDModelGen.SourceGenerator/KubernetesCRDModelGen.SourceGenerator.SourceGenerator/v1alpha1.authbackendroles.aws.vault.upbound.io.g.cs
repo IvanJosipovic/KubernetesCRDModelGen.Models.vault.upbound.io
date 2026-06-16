@@ -207,6 +207,15 @@ public partial class V1alpha1AuthBackendRoleSpecForProviderBackendSelector
 public partial class V1alpha1AuthBackendRoleSpecForProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// If set to true, allows migration of
     /// the underlying instance where the client resides.
     /// When true, allows migration of the underlying instance where the client resides. Use with caution.
@@ -642,6 +651,15 @@ public partial class V1alpha1AuthBackendRoleSpecInitProviderBackendSelector
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendRoleSpecInitProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>
     /// If set to true, allows migration of
     /// the underlying instance where the client resides.
@@ -1102,6 +1120,15 @@ public partial class V1alpha1AuthBackendRoleSpec
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendRoleStatusAtProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>
     /// If set to true, allows migration of
     /// the underlying instance where the client resides.

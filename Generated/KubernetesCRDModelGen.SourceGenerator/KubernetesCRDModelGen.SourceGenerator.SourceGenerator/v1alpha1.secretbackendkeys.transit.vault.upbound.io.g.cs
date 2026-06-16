@@ -237,6 +237,13 @@ public partial class V1alpha1SecretBackendKeySpecForProvider
     public V1alpha1SecretBackendKeySpecForProviderBackendSelector? BackendSelector { get; set; }
 
     /// <summary>
+    /// Base64 encoded context for key derivation. Required if derived is set to true. This provides additional entropy for key derivation and should be consistent across operations that need to use the same derived key.
+    /// Base64 encoded context for key derivation. Required if derived is set to true.
+    /// </summary>
+    [JsonPropertyName("context")]
+    public string? Context { get; set; }
+
+    /// <summary>
     /// Whether or not to support convergent encryption, where the same plaintext creates the same ciphertext. This requires derived to be set to true.
     /// Whether or not to support convergent encryption, where the same plaintext creates the same ciphertext. This requires derived to be set to true.
     /// </summary>
@@ -286,6 +293,20 @@ public partial class V1alpha1SecretBackendKeySpecForProvider
     /// </summary>
     [JsonPropertyName("keySize")]
     public double? KeySize { get; set; }
+
+    /// <summary>
+    /// The UUID of the managed key to use when the key type is managed_key. This is the unique identifier of a previously configured managed key. When type is managed_key, either managed_key_name or managed_key_id must be specified.
+    /// The UUID of the managed key to use when the key type is managed_key.
+    /// </summary>
+    [JsonPropertyName("managedKeyId")]
+    public string? ManagedKeyId { get; set; }
+
+    /// <summary>
+    /// The name of the managed key to use when the key type is managed_key. This references a previously configured managed key in Vault (e.g., AWS KMS, Azure Key Vault, PKCS#11, etc.). When type is managed_key, either managed_key_name or managed_key_id must be specified.
+    /// The name of the managed key to use when the key type is managed_key.
+    /// </summary>
+    [JsonPropertyName("managedKeyName")]
+    public string? ManagedKeyName { get; set; }
 
     /// <summary>
     /// Minimum key version to use for decryption.
@@ -532,6 +553,13 @@ public partial class V1alpha1SecretBackendKeySpecInitProvider
     public V1alpha1SecretBackendKeySpecInitProviderBackendSelector? BackendSelector { get; set; }
 
     /// <summary>
+    /// Base64 encoded context for key derivation. Required if derived is set to true. This provides additional entropy for key derivation and should be consistent across operations that need to use the same derived key.
+    /// Base64 encoded context for key derivation. Required if derived is set to true.
+    /// </summary>
+    [JsonPropertyName("context")]
+    public string? Context { get; set; }
+
+    /// <summary>
     /// Whether or not to support convergent encryption, where the same plaintext creates the same ciphertext. This requires derived to be set to true.
     /// Whether or not to support convergent encryption, where the same plaintext creates the same ciphertext. This requires derived to be set to true.
     /// </summary>
@@ -581,6 +609,20 @@ public partial class V1alpha1SecretBackendKeySpecInitProvider
     /// </summary>
     [JsonPropertyName("keySize")]
     public double? KeySize { get; set; }
+
+    /// <summary>
+    /// The UUID of the managed key to use when the key type is managed_key. This is the unique identifier of a previously configured managed key. When type is managed_key, either managed_key_name or managed_key_id must be specified.
+    /// The UUID of the managed key to use when the key type is managed_key.
+    /// </summary>
+    [JsonPropertyName("managedKeyId")]
+    public string? ManagedKeyId { get; set; }
+
+    /// <summary>
+    /// The name of the managed key to use when the key type is managed_key. This references a previously configured managed key in Vault (e.g., AWS KMS, Azure Key Vault, PKCS#11, etc.). When type is managed_key, either managed_key_name or managed_key_id must be specified.
+    /// The name of the managed key to use when the key type is managed_key.
+    /// </summary>
+    [JsonPropertyName("managedKeyName")]
+    public string? ManagedKeyName { get; set; }
 
     /// <summary>
     /// Minimum key version to use for decryption.
@@ -843,6 +885,13 @@ public partial class V1alpha1SecretBackendKeyStatusAtProvider
     public string? Backend { get; set; }
 
     /// <summary>
+    /// Base64 encoded context for key derivation. Required if derived is set to true. This provides additional entropy for key derivation and should be consistent across operations that need to use the same derived key.
+    /// Base64 encoded context for key derivation. Required if derived is set to true.
+    /// </summary>
+    [JsonPropertyName("context")]
+    public string? Context { get; set; }
+
+    /// <summary>
     /// Whether or not to support convergent encryption, where the same plaintext creates the same ciphertext. This requires derived to be set to true.
     /// Whether or not to support convergent encryption, where the same plaintext creates the same ciphertext. This requires derived to be set to true.
     /// </summary>
@@ -909,6 +958,20 @@ public partial class V1alpha1SecretBackendKeyStatusAtProvider
     /// </summary>
     [JsonPropertyName("latestVersion")]
     public double? LatestVersion { get; set; }
+
+    /// <summary>
+    /// The UUID of the managed key to use when the key type is managed_key. This is the unique identifier of a previously configured managed key. When type is managed_key, either managed_key_name or managed_key_id must be specified.
+    /// The UUID of the managed key to use when the key type is managed_key.
+    /// </summary>
+    [JsonPropertyName("managedKeyId")]
+    public string? ManagedKeyId { get; set; }
+
+    /// <summary>
+    /// The name of the managed key to use when the key type is managed_key. This references a previously configured managed key in Vault (e.g., AWS KMS, Azure Key Vault, PKCS#11, etc.). When type is managed_key, either managed_key_name or managed_key_id must be specified.
+    /// The name of the managed key to use when the key type is managed_key.
+    /// </summary>
+    [JsonPropertyName("managedKeyName")]
+    public string? ManagedKeyName { get; set; }
 
     /// <summary>
     /// Minimum key version available for use. If keys have been archived by increasing min_decryption_version, this attribute will reflect that change.

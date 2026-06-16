@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.18.0
+    controller-gen.kubebuilder.io/version: v0.20.0
   name: authbackends.ldap.vault.m.upbound.io
 spec:
   group: ldap.vault.m.upbound.io
@@ -57,6 +57,17 @@ spec:
             properties:
               forProvider:
                 properties:
+                  aliasMetadata:
+                    additionalProperties:
+                      type: string
+                    description: |-
+                      The metadata to be tied to generated entity alias.
+                      This should be a list or map containing the metadata in key value pairs.
+                    type: object
+                    x-kubernetes-map-type: granular
+                  anonymousGroupSearch:
+                    description: Allows anonymous group searches.
+                    type: boolean
                   binddn:
                     type: string
                   bindpassSecretRef:
@@ -73,6 +84,21 @@ spec:
                     - key
                     - name
                     type: object
+                  bindpassWoSecretRef:
+                    description: Write-only bind password to use for LDAP authentication.
+                    properties:
+                      key:
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    type: object
+                  bindpassWoVersion:
+                    description: Version counter for write-only bind password.
+                    type: number
                   caseSensitiveNames:
                     type: boolean
                   certificate:
@@ -97,6 +123,9 @@ spec:
                     type: number
                   denyNullBind:
                     type: boolean
+                  dereferenceAliases:
+                    description: Specifies how aliases are dereferenced during LDAP searches. Valid values are 'never','searching','finding', and 'always'.
+                    type: string
                   description:
                     type: string
                   disableAutomatedRotation:
@@ -106,6 +135,9 @@ spec:
                     description: If set, opts out of mount migration on path updates.
                     type: boolean
                   discoverdn:
+                    type: boolean
+                  enableSamaccountnameLogin:
+                    description: Enables login using the sAMAccountName attribute.
                     type: boolean
                   groupattr:
                     type: string
@@ -125,6 +157,9 @@ spec:
                     type: string
                   path:
                     type: string
+                  requestTimeout:
+                    description: The timeout(in sec) for requests to the LDAP server.
+                    type: number
                   rotationPeriod:
                     description: The period of time in seconds between each rotation of the root credential. Cannot be used with rotation_schedule.
                     type: number
@@ -173,6 +208,35 @@ spec:
                   tokenType:
                     description: The type of token to generate, service or batch
                     type: string
+                  tune:
+                    items:
+                      properties:
+                        allowedResponseHeaders:
+                          items:
+                            type: string
+                          type: array
+                        auditNonHmacRequestKeys:
+                          items:
+                            type: string
+                          type: array
+                        auditNonHmacResponseKeys:
+                          items:
+                            type: string
+                          type: array
+                        defaultLeaseTtl:
+                          type: string
+                        listingVisibility:
+                          type: string
+                        maxLeaseTtl:
+                          type: string
+                        passthroughRequestHeaders:
+                          items:
+                            type: string
+                          type: array
+                        tokenType:
+                          type: string
+                      type: object
+                    type: array
                   upndomain:
                     type: string
                   url:
@@ -202,6 +266,17 @@ spec:
                   for example because of an external controller is managing them, like an
                   autoscaler.
                 properties:
+                  aliasMetadata:
+                    additionalProperties:
+                      type: string
+                    description: |-
+                      The metadata to be tied to generated entity alias.
+                      This should be a list or map containing the metadata in key value pairs.
+                    type: object
+                    x-kubernetes-map-type: granular
+                  anonymousGroupSearch:
+                    description: Allows anonymous group searches.
+                    type: boolean
                   binddn:
                     type: string
                   bindpassSecretRef:
@@ -218,6 +293,21 @@ spec:
                     - key
                     - name
                     type: object
+                  bindpassWoSecretRef:
+                    description: Write-only bind password to use for LDAP authentication.
+                    properties:
+                      key:
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    type: object
+                  bindpassWoVersion:
+                    description: Version counter for write-only bind password.
+                    type: number
                   caseSensitiveNames:
                     type: boolean
                   certificate:
@@ -242,6 +332,9 @@ spec:
                     type: number
                   denyNullBind:
                     type: boolean
+                  dereferenceAliases:
+                    description: Specifies how aliases are dereferenced during LDAP searches. Valid values are 'never','searching','finding', and 'always'.
+                    type: string
                   description:
                     type: string
                   disableAutomatedRotation:
@@ -251,6 +344,9 @@ spec:
                     description: If set, opts out of mount migration on path updates.
                     type: boolean
                   discoverdn:
+                    type: boolean
+                  enableSamaccountnameLogin:
+                    description: Enables login using the sAMAccountName attribute.
                     type: boolean
                   groupattr:
                     type: string
@@ -270,6 +366,9 @@ spec:
                     type: string
                   path:
                     type: string
+                  requestTimeout:
+                    description: The timeout(in sec) for requests to the LDAP server.
+                    type: number
                   rotationPeriod:
                     description: The period of time in seconds between each rotation of the root credential. Cannot be used with rotation_schedule.
                     type: number
@@ -318,6 +417,35 @@ spec:
                   tokenType:
                     description: The type of token to generate, service or batch
                     type: string
+                  tune:
+                    items:
+                      properties:
+                        allowedResponseHeaders:
+                          items:
+                            type: string
+                          type: array
+                        auditNonHmacRequestKeys:
+                          items:
+                            type: string
+                          type: array
+                        auditNonHmacResponseKeys:
+                          items:
+                            type: string
+                          type: array
+                        defaultLeaseTtl:
+                          type: string
+                        listingVisibility:
+                          type: string
+                        maxLeaseTtl:
+                          type: string
+                        passthroughRequestHeaders:
+                          items:
+                            type: string
+                          type: array
+                        tokenType:
+                          type: string
+                      type: object
+                    type: array
                   upndomain:
                     type: string
                   url:
@@ -403,8 +531,22 @@ spec:
                   accessor:
                     description: The accessor of the LDAP auth backend
                     type: string
+                  aliasMetadata:
+                    additionalProperties:
+                      type: string
+                    description: |-
+                      The metadata to be tied to generated entity alias.
+                      This should be a list or map containing the metadata in key value pairs.
+                    type: object
+                    x-kubernetes-map-type: granular
+                  anonymousGroupSearch:
+                    description: Allows anonymous group searches.
+                    type: boolean
                   binddn:
                     type: string
+                  bindpassWoVersion:
+                    description: Version counter for write-only bind password.
+                    type: number
                   caseSensitiveNames:
                     type: boolean
                   certificate:
@@ -415,6 +557,9 @@ spec:
                     type: number
                   denyNullBind:
                     type: boolean
+                  dereferenceAliases:
+                    description: Specifies how aliases are dereferenced during LDAP searches. Valid values are 'never','searching','finding', and 'always'.
+                    type: string
                   description:
                     type: string
                   disableAutomatedRotation:
@@ -424,6 +569,9 @@ spec:
                     description: If set, opts out of mount migration on path updates.
                     type: boolean
                   discoverdn:
+                    type: boolean
+                  enableSamaccountnameLogin:
+                    description: Enables login using the sAMAccountName attribute.
                     type: boolean
                   groupattr:
                     type: string
@@ -445,6 +593,9 @@ spec:
                     type: string
                   path:
                     type: string
+                  requestTimeout:
+                    description: The timeout(in sec) for requests to the LDAP server.
+                    type: number
                   rotationPeriod:
                     description: The period of time in seconds between each rotation of the root credential. Cannot be used with rotation_schedule.
                     type: number
@@ -493,6 +644,35 @@ spec:
                   tokenType:
                     description: The type of token to generate, service or batch
                     type: string
+                  tune:
+                    items:
+                      properties:
+                        allowedResponseHeaders:
+                          items:
+                            type: string
+                          type: array
+                        auditNonHmacRequestKeys:
+                          items:
+                            type: string
+                          type: array
+                        auditNonHmacResponseKeys:
+                          items:
+                            type: string
+                          type: array
+                        defaultLeaseTtl:
+                          type: string
+                        listingVisibility:
+                          type: string
+                        maxLeaseTtl:
+                          type: string
+                        passthroughRequestHeaders:
+                          items:
+                            type: string
+                          type: array
+                        tokenType:
+                          type: string
+                      type: object
+                    type: array
                   upndomain:
                     type: string
                   url:

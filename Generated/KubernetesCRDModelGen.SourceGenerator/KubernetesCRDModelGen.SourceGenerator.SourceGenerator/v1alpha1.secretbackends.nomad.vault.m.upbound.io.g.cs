@@ -54,6 +54,7 @@ public partial class V1alpha1SecretBackendSpecForProviderClientCertSecretRef
 
 /// <summary>
 /// Client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+/// Conflicts with client_key_wo.
 /// Client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -69,12 +70,48 @@ public partial class V1alpha1SecretBackendSpecForProviderClientKeySecretRef
 }
 
 /// <summary>
-/// Specifies the Nomad Management token to use.
+/// Write-only client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+/// Use this for enhanced security when you don&apos;t want the client key to appear in state files. Requires client_key_wo_version. Conflicts with client_key.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderClientKeyWoSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// Specifies the Nomad Management token to use. Conflicts with token_wo.
 /// Specifies the Nomad Management token to use.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecForProviderTokenSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// Write-only Nomad Management token to use.
+/// Use this for enhanced security when you don&apos;t want the token to appear in state files. Requires token_wo_version. Conflicts with token.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only Nomad Management token to use.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderTokenWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -150,10 +187,28 @@ public partial class V1alpha1SecretBackendSpecForProvider
 
     /// <summary>
     /// Client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+    /// Conflicts with client_key_wo.
     /// Client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
     /// </summary>
     [JsonPropertyName("clientKeySecretRef")]
     public V1alpha1SecretBackendSpecForProviderClientKeySecretRef? ClientKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+    /// Use this for enhanced security when you don&apos;t want the client key to appear in state files. Requires client_key_wo_version. Conflicts with client_key.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderClientKeyWoSecretRef? ClientKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only client key. This must be incremented
+    /// each time the client_key_wo value is changed to trigger an update. Required when using client_key_wo.
+    /// Version counter for write-only client_key.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoVersion")]
+    public double? ClientKeyWoVersion { get; set; }
 
     /// <summary>
     /// Default lease duration for tokens and secrets in seconds
@@ -284,11 +339,28 @@ public partial class V1alpha1SecretBackendSpecForProvider
     public bool? SealWrap { get; set; }
 
     /// <summary>
-    /// Specifies the Nomad Management token to use.
+    /// Specifies the Nomad Management token to use. Conflicts with token_wo.
     /// Specifies the Nomad Management token to use.
     /// </summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1SecretBackendSpecForProviderTokenSecretRef? TokenSecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only Nomad Management token to use.
+    /// Use this for enhanced security when you don&apos;t want the token to appear in state files. Requires token_wo_version. Conflicts with token.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only Nomad Management token to use.
+    /// </summary>
+    [JsonPropertyName("tokenWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderTokenWoSecretRef? TokenWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only token. This must be incremented each time
+    /// the token_wo value is changed to trigger an update. Required when using token_wo.
+    /// Version counter for write-only token.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 
     /// <summary>
     /// Specifies the ttl of the lease for the generated token.
@@ -316,6 +388,7 @@ public partial class V1alpha1SecretBackendSpecInitProviderClientCertSecretRef
 
 /// <summary>
 /// Client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+/// Conflicts with client_key_wo.
 /// Client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -331,12 +404,48 @@ public partial class V1alpha1SecretBackendSpecInitProviderClientKeySecretRef
 }
 
 /// <summary>
-/// Specifies the Nomad Management token to use.
+/// Write-only client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+/// Use this for enhanced security when you don&apos;t want the client key to appear in state files. Requires client_key_wo_version. Conflicts with client_key.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderClientKeyWoSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// Specifies the Nomad Management token to use. Conflicts with token_wo.
 /// Specifies the Nomad Management token to use.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecInitProviderTokenSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// Write-only Nomad Management token to use.
+/// Use this for enhanced security when you don&apos;t want the token to appear in state files. Requires token_wo_version. Conflicts with token.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only Nomad Management token to use.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderTokenWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -424,10 +533,28 @@ public partial class V1alpha1SecretBackendSpecInitProvider
 
     /// <summary>
     /// Client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+    /// Conflicts with client_key_wo.
     /// Client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
     /// </summary>
     [JsonPropertyName("clientKeySecretRef")]
     public V1alpha1SecretBackendSpecInitProviderClientKeySecretRef? ClientKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only client certificate key to provide to the Nomad server, must be x509 PEM encoded.
+    /// Use this for enhanced security when you don&apos;t want the client key to appear in state files. Requires client_key_wo_version. Conflicts with client_key.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only client key used for Nomad&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderClientKeyWoSecretRef? ClientKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only client key. This must be incremented
+    /// each time the client_key_wo value is changed to trigger an update. Required when using client_key_wo.
+    /// Version counter for write-only client_key.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoVersion")]
+    public double? ClientKeyWoVersion { get; set; }
 
     /// <summary>
     /// Default lease duration for tokens and secrets in seconds
@@ -558,11 +685,28 @@ public partial class V1alpha1SecretBackendSpecInitProvider
     public bool? SealWrap { get; set; }
 
     /// <summary>
-    /// Specifies the Nomad Management token to use.
+    /// Specifies the Nomad Management token to use. Conflicts with token_wo.
     /// Specifies the Nomad Management token to use.
     /// </summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1SecretBackendSpecInitProviderTokenSecretRef? TokenSecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only Nomad Management token to use.
+    /// Use this for enhanced security when you don&apos;t want the token to appear in state files. Requires token_wo_version. Conflicts with token.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only Nomad Management token to use.
+    /// </summary>
+    [JsonPropertyName("tokenWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderTokenWoSecretRef? TokenWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only token. This must be incremented each time
+    /// the token_wo value is changed to trigger an update. Required when using token_wo.
+    /// Version counter for write-only token.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 
     /// <summary>
     /// Specifies the ttl of the lease for the generated token.
@@ -741,6 +885,14 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     public string? CaCert { get; set; }
 
     /// <summary>
+    /// Version counter for the write-only client key. This must be incremented
+    /// each time the client_key_wo value is changed to trigger an update. Required when using client_key_wo.
+    /// Version counter for write-only client_key.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoVersion")]
+    public double? ClientKeyWoVersion { get; set; }
+
+    /// <summary>
     /// Default lease duration for tokens and secrets in seconds
     /// Default lease duration for secrets in seconds.
     /// </summary>
@@ -870,6 +1022,14 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("sealWrap")]
     public bool? SealWrap { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only token. This must be incremented each time
+    /// the token_wo value is changed to trigger an update. Required when using token_wo.
+    /// Version counter for write-only token.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 
     /// <summary>
     /// Specifies the ttl of the lease for the generated token.

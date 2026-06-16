@@ -219,6 +219,20 @@ public partial class V1alpha1CloudSecretRoleSpecForProvider
     public V1alpha1CloudSecretRoleSpecForProviderBackendSelector? BackendSelector { get; set; }
 
     /// <summary>
+    /// The type of credential to generate. Valid values are &apos;team&apos;, &apos;team_legacy&apos;, &apos;user&apos;, or &apos;organization&apos;. Can only create multiple-team tokens with team.
+    /// The type of credential to generate. Valid values are &apos;team&apos;, &apos;team_legacy&apos;, &apos;user&apos;, or &apos;organization&apos;.
+    /// </summary>
+    [JsonPropertyName("credentialType")]
+    public string? CredentialType { get; set; }
+
+    /// <summary>
+    /// Description of the role. Only valid with team or user credential types.
+    /// Description of the role. Only valid with &apos;team&apos; or &apos;user&apos; credential types.
+    /// </summary>
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
+    /// <summary>
     /// Maximum TTL for leases associated with this role, in seconds.
     /// Maximum allowed lease for generated credentials. If not set or set to 0, will use system default.
     /// </summary>
@@ -439,6 +453,20 @@ public partial class V1alpha1CloudSecretRoleSpecInitProvider
     /// <summary>Selector for a CloudSecretBackend in terraform to populate backend.</summary>
     [JsonPropertyName("backendSelector")]
     public V1alpha1CloudSecretRoleSpecInitProviderBackendSelector? BackendSelector { get; set; }
+
+    /// <summary>
+    /// The type of credential to generate. Valid values are &apos;team&apos;, &apos;team_legacy&apos;, &apos;user&apos;, or &apos;organization&apos;. Can only create multiple-team tokens with team.
+    /// The type of credential to generate. Valid values are &apos;team&apos;, &apos;team_legacy&apos;, &apos;user&apos;, or &apos;organization&apos;.
+    /// </summary>
+    [JsonPropertyName("credentialType")]
+    public string? CredentialType { get; set; }
+
+    /// <summary>
+    /// Description of the role. Only valid with team or user credential types.
+    /// Description of the role. Only valid with &apos;team&apos; or &apos;user&apos; credential types.
+    /// </summary>
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
 
     /// <summary>
     /// Maximum TTL for leases associated with this role, in seconds.
@@ -677,6 +705,20 @@ public partial class V1alpha1CloudSecretRoleStatusAtProvider
     /// <summary>Must not begin or end with a /.</summary>
     [JsonPropertyName("backend")]
     public string? Backend { get; set; }
+
+    /// <summary>
+    /// The type of credential to generate. Valid values are &apos;team&apos;, &apos;team_legacy&apos;, &apos;user&apos;, or &apos;organization&apos;. Can only create multiple-team tokens with team.
+    /// The type of credential to generate. Valid values are &apos;team&apos;, &apos;team_legacy&apos;, &apos;user&apos;, or &apos;organization&apos;.
+    /// </summary>
+    [JsonPropertyName("credentialType")]
+    public string? CredentialType { get; set; }
+
+    /// <summary>
+    /// Description of the role. Only valid with team or user credential types.
+    /// Description of the role. Only valid with &apos;team&apos; or &apos;user&apos; credential types.
+    /// </summary>
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

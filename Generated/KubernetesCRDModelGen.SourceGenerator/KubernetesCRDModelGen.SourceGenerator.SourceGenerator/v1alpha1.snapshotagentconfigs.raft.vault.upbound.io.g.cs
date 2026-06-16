@@ -60,6 +60,14 @@ public enum V1alpha1SnapshotAgentConfigSpecDeletionPolicyEnum
 public partial class V1alpha1SnapshotAgentConfigSpecForProvider
 {
     /// <summary>
+    /// Have Vault automatically load the latest snapshot after it is written. This will replace the previously loaded snapshot. Note that this does not mean the snapshot is automatically applied to the cluster, it is just loaded and available for recovery operations.
+    /// Note: Not supported with storage_type = &quot;local&quot;.
+    /// Have Vault automatically load the latest snapshot after it is written. This will replace the previously loaded snapshot. Note that this does not mean the snapshot is automatically applied to the cluster, it is just loaded and available for recovery operations. Requires Vault Enterprise 1.21.0+. Not supported with storage_type = &quot;local&quot;.
+    /// </summary>
+    [JsonPropertyName("autoloadEnabled")]
+    public bool? AutoloadEnabled { get; set; }
+
+    /// <summary>
     /// AWS access key ID.
     /// AWS access key ID.
     /// </summary>
@@ -141,8 +149,8 @@ public partial class V1alpha1SnapshotAgentConfigSpecForProvider
     public string? AwsSessionToken { get; set; }
 
     /// <summary>
-    /// Azure account key.
-    /// Azure account key.
+    /// Azure account key. Required when azure_auth_mode = &quot;shared&quot;.
+    /// Azure account key. Required when azure_auth_mode is &apos;shared&apos;.
     /// </summary>
     [JsonPropertyName("azureAccountKey")]
     public string? AzureAccountKey { get; set; }
@@ -155,11 +163,26 @@ public partial class V1alpha1SnapshotAgentConfigSpecForProvider
     public string? AzureAccountName { get; set; }
 
     /// <summary>
+    /// Azure authentication mode. Required by Vault API when using storage_type = &quot;azure-blob&quot;. Possible values are:
+    /// Azure authentication mode. Required for azure-blob storage. Possible values are &apos;shared&apos;, &apos;managed&apos;, or &apos;environment&apos;. Requires Vault Enterprise 1.18.0+.
+    /// </summary>
+    [JsonPropertyName("azureAuthMode")]
+    public string? AzureAuthMode { get; set; }
+
+    /// <summary>
     /// Azure blob environment.
     /// Azure blob environment.
     /// </summary>
     [JsonPropertyName("azureBlobEnvironment")]
     public string? AzureBlobEnvironment { get; set; }
+
+    /// <summary>
+    /// Azure client ID for authentication. Required when azure_auth_mode = &quot;managed&quot;.
+    /// Requires Vault Enterprise 1.18.0+.
+    /// Azure client ID for authentication. Required when azure_auth_mode is &apos;managed&apos;. Requires Vault Enterprise 1.18.0+.
+    /// </summary>
+    [JsonPropertyName("azureClientId")]
+    public string? AzureClientId { get; set; }
 
     /// <summary>
     /// Azure container name to write
@@ -297,6 +320,14 @@ public partial class V1alpha1SnapshotAgentConfigSpecForProvider
 public partial class V1alpha1SnapshotAgentConfigSpecInitProvider
 {
     /// <summary>
+    /// Have Vault automatically load the latest snapshot after it is written. This will replace the previously loaded snapshot. Note that this does not mean the snapshot is automatically applied to the cluster, it is just loaded and available for recovery operations.
+    /// Note: Not supported with storage_type = &quot;local&quot;.
+    /// Have Vault automatically load the latest snapshot after it is written. This will replace the previously loaded snapshot. Note that this does not mean the snapshot is automatically applied to the cluster, it is just loaded and available for recovery operations. Requires Vault Enterprise 1.21.0+. Not supported with storage_type = &quot;local&quot;.
+    /// </summary>
+    [JsonPropertyName("autoloadEnabled")]
+    public bool? AutoloadEnabled { get; set; }
+
+    /// <summary>
     /// AWS access key ID.
     /// AWS access key ID.
     /// </summary>
@@ -378,8 +409,8 @@ public partial class V1alpha1SnapshotAgentConfigSpecInitProvider
     public string? AwsSessionToken { get; set; }
 
     /// <summary>
-    /// Azure account key.
-    /// Azure account key.
+    /// Azure account key. Required when azure_auth_mode = &quot;shared&quot;.
+    /// Azure account key. Required when azure_auth_mode is &apos;shared&apos;.
     /// </summary>
     [JsonPropertyName("azureAccountKey")]
     public string? AzureAccountKey { get; set; }
@@ -392,11 +423,26 @@ public partial class V1alpha1SnapshotAgentConfigSpecInitProvider
     public string? AzureAccountName { get; set; }
 
     /// <summary>
+    /// Azure authentication mode. Required by Vault API when using storage_type = &quot;azure-blob&quot;. Possible values are:
+    /// Azure authentication mode. Required for azure-blob storage. Possible values are &apos;shared&apos;, &apos;managed&apos;, or &apos;environment&apos;. Requires Vault Enterprise 1.18.0+.
+    /// </summary>
+    [JsonPropertyName("azureAuthMode")]
+    public string? AzureAuthMode { get; set; }
+
+    /// <summary>
     /// Azure blob environment.
     /// Azure blob environment.
     /// </summary>
     [JsonPropertyName("azureBlobEnvironment")]
     public string? AzureBlobEnvironment { get; set; }
+
+    /// <summary>
+    /// Azure client ID for authentication. Required when azure_auth_mode = &quot;managed&quot;.
+    /// Requires Vault Enterprise 1.18.0+.
+    /// Azure client ID for authentication. Required when azure_auth_mode is &apos;managed&apos;. Requires Vault Enterprise 1.18.0+.
+    /// </summary>
+    [JsonPropertyName("azureClientId")]
+    public string? AzureClientId { get; set; }
 
     /// <summary>
     /// Azure container name to write
@@ -705,6 +751,14 @@ public partial class V1alpha1SnapshotAgentConfigSpec
 public partial class V1alpha1SnapshotAgentConfigStatusAtProvider
 {
     /// <summary>
+    /// Have Vault automatically load the latest snapshot after it is written. This will replace the previously loaded snapshot. Note that this does not mean the snapshot is automatically applied to the cluster, it is just loaded and available for recovery operations.
+    /// Note: Not supported with storage_type = &quot;local&quot;.
+    /// Have Vault automatically load the latest snapshot after it is written. This will replace the previously loaded snapshot. Note that this does not mean the snapshot is automatically applied to the cluster, it is just loaded and available for recovery operations. Requires Vault Enterprise 1.21.0+. Not supported with storage_type = &quot;local&quot;.
+    /// </summary>
+    [JsonPropertyName("autoloadEnabled")]
+    public bool? AutoloadEnabled { get; set; }
+
+    /// <summary>
     /// AWS access key ID.
     /// AWS access key ID.
     /// </summary>
@@ -786,8 +840,8 @@ public partial class V1alpha1SnapshotAgentConfigStatusAtProvider
     public string? AwsSessionToken { get; set; }
 
     /// <summary>
-    /// Azure account key.
-    /// Azure account key.
+    /// Azure account key. Required when azure_auth_mode = &quot;shared&quot;.
+    /// Azure account key. Required when azure_auth_mode is &apos;shared&apos;.
     /// </summary>
     [JsonPropertyName("azureAccountKey")]
     public string? AzureAccountKey { get; set; }
@@ -800,11 +854,26 @@ public partial class V1alpha1SnapshotAgentConfigStatusAtProvider
     public string? AzureAccountName { get; set; }
 
     /// <summary>
+    /// Azure authentication mode. Required by Vault API when using storage_type = &quot;azure-blob&quot;. Possible values are:
+    /// Azure authentication mode. Required for azure-blob storage. Possible values are &apos;shared&apos;, &apos;managed&apos;, or &apos;environment&apos;. Requires Vault Enterprise 1.18.0+.
+    /// </summary>
+    [JsonPropertyName("azureAuthMode")]
+    public string? AzureAuthMode { get; set; }
+
+    /// <summary>
     /// Azure blob environment.
     /// Azure blob environment.
     /// </summary>
     [JsonPropertyName("azureBlobEnvironment")]
     public string? AzureBlobEnvironment { get; set; }
+
+    /// <summary>
+    /// Azure client ID for authentication. Required when azure_auth_mode = &quot;managed&quot;.
+    /// Requires Vault Enterprise 1.18.0+.
+    /// Azure client ID for authentication. Required when azure_auth_mode is &apos;managed&apos;. Requires Vault Enterprise 1.18.0+.
+    /// </summary>
+    [JsonPropertyName("azureClientId")]
+    public string? AzureClientId { get; set; }
 
     /// <summary>
     /// Azure container name to write

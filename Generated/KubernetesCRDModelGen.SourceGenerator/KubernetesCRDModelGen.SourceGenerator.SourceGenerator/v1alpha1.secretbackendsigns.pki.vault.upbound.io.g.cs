@@ -481,6 +481,13 @@ public partial class V1alpha1SecretBackendSignSpecForProvider
     public IList<string>? OtherSans { get; set; }
 
     /// <summary>
+    /// If set to true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store. Default false.
+    /// If true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store.
+    /// </summary>
+    [JsonPropertyName("removeRootsFromChain")]
+    public bool? RemoveRootsFromChain { get; set; }
+
+    /// <summary>
     /// Time to live
     /// Time to live.
     /// </summary>
@@ -933,6 +940,13 @@ public partial class V1alpha1SecretBackendSignSpecInitProvider
     public IList<string>? OtherSans { get; set; }
 
     /// <summary>
+    /// If set to true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store. Default false.
+    /// If true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store.
+    /// </summary>
+    [JsonPropertyName("removeRootsFromChain")]
+    public bool? RemoveRootsFromChain { get; set; }
+
+    /// <summary>
     /// Time to live
     /// Time to live.
     /// </summary>
@@ -1275,6 +1289,13 @@ public partial class V1alpha1SecretBackendSignStatusAtProvider
     /// </summary>
     [JsonPropertyName("otherSans")]
     public IList<string>? OtherSans { get; set; }
+
+    /// <summary>
+    /// If set to true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store. Default false.
+    /// If true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store.
+    /// </summary>
+    [JsonPropertyName("removeRootsFromChain")]
+    public bool? RemoveRootsFromChain { get; set; }
 
     /// <summary>
     /// true if the current time (during refresh) is after the start of the early renewal window declared by min_seconds_remaining, and false otherwise; if auto_renew is set to true then the provider will plan to replace the certificate once renewal is pending.

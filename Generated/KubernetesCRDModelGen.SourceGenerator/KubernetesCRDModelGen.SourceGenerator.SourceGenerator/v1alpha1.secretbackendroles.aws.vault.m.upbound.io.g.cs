@@ -269,6 +269,13 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     public double? MaxStsTtl { get; set; }
 
     /// <summary>
+    /// The ARN or hardware device number of the device configured to the IAM user for multi-factor authentication. Only required if the IAM user has an MFA device set up in AWS.
+    /// The ARN or hardware device number of the device configured to the IAM user for multi-factor authentication. Only required if the IAM user has an MFA device set up in AWS.
+    /// </summary>
+    [JsonPropertyName("mfaSerialNumber")]
+    public string? MfaSerialNumber { get; set; }
+
+    /// <summary>
     /// The name to identify this role within the backend.
     /// Must be unique within the backend.
     /// Unique name for the role.
@@ -592,6 +599,13 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     public double? MaxStsTtl { get; set; }
 
     /// <summary>
+    /// The ARN or hardware device number of the device configured to the IAM user for multi-factor authentication. Only required if the IAM user has an MFA device set up in AWS.
+    /// The ARN or hardware device number of the device configured to the IAM user for multi-factor authentication. Only required if the IAM user has an MFA device set up in AWS.
+    /// </summary>
+    [JsonPropertyName("mfaSerialNumber")]
+    public string? MfaSerialNumber { get; set; }
+
+    /// <summary>
     /// The name to identify this role within the backend.
     /// Must be unique within the backend.
     /// Unique name for the role.
@@ -848,6 +862,13 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     /// </summary>
     [JsonPropertyName("maxStsTtl")]
     public double? MaxStsTtl { get; set; }
+
+    /// <summary>
+    /// The ARN or hardware device number of the device configured to the IAM user for multi-factor authentication. Only required if the IAM user has an MFA device set up in AWS.
+    /// The ARN or hardware device number of the device configured to the IAM user for multi-factor authentication. Only required if the IAM user has an MFA device set up in AWS.
+    /// </summary>
+    [JsonPropertyName("mfaSerialNumber")]
+    public string? MfaSerialNumber { get; set; }
 
     /// <summary>
     /// The name to identify this role within the backend.

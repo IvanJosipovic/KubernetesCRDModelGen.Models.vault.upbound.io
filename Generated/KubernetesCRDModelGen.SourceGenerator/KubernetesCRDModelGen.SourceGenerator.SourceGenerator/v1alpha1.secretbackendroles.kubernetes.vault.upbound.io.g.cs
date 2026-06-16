@@ -320,6 +320,15 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     public string? ServiceAccountName { get; set; }
 
     /// <summary>
+    /// The default audiences for generated Kubernetes tokens.
+    /// If not set, defaults to the Kubernetes cluster&apos;s default audiences. This field requires
+    /// Vault 1.15 or later.
+    /// The default audiences for generated Kubernetes tokens. If not set, defaults to the Kubernetes cluster&apos;s default audiences. Requires Vault 1.15+.
+    /// </summary>
+    [JsonPropertyName("tokenDefaultAudiences")]
+    public IList<string>? TokenDefaultAudiences { get; set; }
+
+    /// <summary>
     /// The default TTL for generated Kubernetes tokens in seconds.
     /// The default TTL for generated Kubernetes tokens in seconds.
     /// </summary>
@@ -609,6 +618,15 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     /// </summary>
     [JsonPropertyName("serviceAccountName")]
     public string? ServiceAccountName { get; set; }
+
+    /// <summary>
+    /// The default audiences for generated Kubernetes tokens.
+    /// If not set, defaults to the Kubernetes cluster&apos;s default audiences. This field requires
+    /// Vault 1.15 or later.
+    /// The default audiences for generated Kubernetes tokens. If not set, defaults to the Kubernetes cluster&apos;s default audiences. Requires Vault 1.15+.
+    /// </summary>
+    [JsonPropertyName("tokenDefaultAudiences")]
+    public IList<string>? TokenDefaultAudiences { get; set; }
 
     /// <summary>
     /// The default TTL for generated Kubernetes tokens in seconds.
@@ -919,6 +937,15 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     /// </summary>
     [JsonPropertyName("serviceAccountName")]
     public string? ServiceAccountName { get; set; }
+
+    /// <summary>
+    /// The default audiences for generated Kubernetes tokens.
+    /// If not set, defaults to the Kubernetes cluster&apos;s default audiences. This field requires
+    /// Vault 1.15 or later.
+    /// The default audiences for generated Kubernetes tokens. If not set, defaults to the Kubernetes cluster&apos;s default audiences. Requires Vault 1.15+.
+    /// </summary>
+    [JsonPropertyName("tokenDefaultAudiences")]
+    public IList<string>? TokenDefaultAudiences { get; set; }
 
     /// <summary>
     /// The default TTL for generated Kubernetes tokens in seconds.

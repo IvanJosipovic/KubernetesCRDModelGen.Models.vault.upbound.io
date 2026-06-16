@@ -349,11 +349,28 @@ public partial class V1alpha1AuthBackendLoginSpecForProviderRoleIdSelector
 /// <summary>
 /// The secret ID of the role to log in with. Required
 /// unless bind_secret_id is set to false on the role.
-/// The SecretID to log in with.
+/// The SecretID to log in with. Required unless `bind_secret_id` is set to false on the role.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendLoginSpecForProviderSecretIdSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// The secret ID of the role to log in with. Write-only attribute that can accept ephemeral values. Required unless bind_secret_id is set to false on the role.
+/// Note: This property is write-only and will not be read from the API.
+/// The SecretID to log in with. Write-only attribute that can accept ephemeral values. Required unless `bind_secret_id` is set to false on the role.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendLoginSpecForProviderSecretIdWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -410,10 +427,25 @@ public partial class V1alpha1AuthBackendLoginSpecForProvider
     /// <summary>
     /// The secret ID of the role to log in with. Required
     /// unless bind_secret_id is set to false on the role.
-    /// The SecretID to log in with.
+    /// The SecretID to log in with. Required unless `bind_secret_id` is set to false on the role.
     /// </summary>
     [JsonPropertyName("secretIdSecretRef")]
     public V1alpha1AuthBackendLoginSpecForProviderSecretIdSecretRef? SecretIdSecretRef { get; set; }
+
+    /// <summary>
+    /// The secret ID of the role to log in with. Write-only attribute that can accept ephemeral values. Required unless bind_secret_id is set to false on the role.
+    /// Note: This property is write-only and will not be read from the API.
+    /// The SecretID to log in with. Write-only attribute that can accept ephemeral values. Required unless `bind_secret_id` is set to false on the role.
+    /// </summary>
+    [JsonPropertyName("secretIdWoSecretRef")]
+    public V1alpha1AuthBackendLoginSpecForProviderSecretIdWoSecretRef? SecretIdWoSecretRef { get; set; }
+
+    /// <summary>
+    /// The version of the secret_id_wo. For more info see updating write-only attributes.
+    /// Version counter for the write-only secret_id field. Increment this to trigger re-authentication with a new SecretID.
+    /// </summary>
+    [JsonPropertyName("secretIdWoVersion")]
+    public double? SecretIdWoVersion { get; set; }
 }
 
 /// <summary>
@@ -729,11 +761,28 @@ public partial class V1alpha1AuthBackendLoginSpecInitProviderRoleIdSelector
 /// <summary>
 /// The secret ID of the role to log in with. Required
 /// unless bind_secret_id is set to false on the role.
-/// The SecretID to log in with.
+/// The SecretID to log in with. Required unless `bind_secret_id` is set to false on the role.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendLoginSpecInitProviderSecretIdSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// The secret ID of the role to log in with. Write-only attribute that can accept ephemeral values. Required unless bind_secret_id is set to false on the role.
+/// Note: This property is write-only and will not be read from the API.
+/// The SecretID to log in with. Write-only attribute that can accept ephemeral values. Required unless `bind_secret_id` is set to false on the role.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendLoginSpecInitProviderSecretIdWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -802,10 +851,25 @@ public partial class V1alpha1AuthBackendLoginSpecInitProvider
     /// <summary>
     /// The secret ID of the role to log in with. Required
     /// unless bind_secret_id is set to false on the role.
-    /// The SecretID to log in with.
+    /// The SecretID to log in with. Required unless `bind_secret_id` is set to false on the role.
     /// </summary>
     [JsonPropertyName("secretIdSecretRef")]
     public V1alpha1AuthBackendLoginSpecInitProviderSecretIdSecretRef? SecretIdSecretRef { get; set; }
+
+    /// <summary>
+    /// The secret ID of the role to log in with. Write-only attribute that can accept ephemeral values. Required unless bind_secret_id is set to false on the role.
+    /// Note: This property is write-only and will not be read from the API.
+    /// The SecretID to log in with. Write-only attribute that can accept ephemeral values. Required unless `bind_secret_id` is set to false on the role.
+    /// </summary>
+    [JsonPropertyName("secretIdWoSecretRef")]
+    public V1alpha1AuthBackendLoginSpecInitProviderSecretIdWoSecretRef? SecretIdWoSecretRef { get; set; }
+
+    /// <summary>
+    /// The version of the secret_id_wo. For more info see updating write-only attributes.
+    /// Version counter for the write-only secret_id field. Increment this to trigger re-authentication with a new SecretID.
+    /// </summary>
+    [JsonPropertyName("secretIdWoVersion")]
+    public double? SecretIdWoVersion { get; set; }
 }
 
 /// <summary>
@@ -984,6 +1048,13 @@ public partial class V1alpha1AuthBackendLoginStatusAtProvider
     /// </summary>
     [JsonPropertyName("roleId")]
     public string? RoleId { get; set; }
+
+    /// <summary>
+    /// The version of the secret_id_wo. For more info see updating write-only attributes.
+    /// Version counter for the write-only secret_id field. Increment this to trigger re-authentication with a new SecretID.
+    /// </summary>
+    [JsonPropertyName("secretIdWoVersion")]
+    public double? SecretIdWoVersion { get; set; }
 }
 
 /// <summary>A Condition that may apply to a resource.</summary>

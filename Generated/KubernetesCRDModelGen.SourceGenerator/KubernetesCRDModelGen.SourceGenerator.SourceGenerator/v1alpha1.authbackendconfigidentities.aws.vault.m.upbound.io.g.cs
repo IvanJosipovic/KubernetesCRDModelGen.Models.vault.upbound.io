@@ -195,7 +195,11 @@ public partial class V1alpha1AuthBackendConfigIdentitySpecForProviderBackendSele
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendConfigIdentitySpecForProvider
 {
-    /// <summary>Unique name of the auth backend to configure.</summary>
+    /// <summary>
+    /// The path the AWS auth backend being configured was
+    /// mounted at.  Defaults to aws.
+    /// Unique name of the auth backend to configure.
+    /// </summary>
     [JsonPropertyName("backend")]
     public string? Backend { get; set; }
 
@@ -421,7 +425,11 @@ public partial class V1alpha1AuthBackendConfigIdentitySpecInitProviderBackendSel
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendConfigIdentitySpecInitProvider
 {
-    /// <summary>Unique name of the auth backend to configure.</summary>
+    /// <summary>
+    /// The path the AWS auth backend being configured was
+    /// mounted at.  Defaults to aws.
+    /// Unique name of the auth backend to configure.
+    /// </summary>
     [JsonPropertyName("backend")]
     public string? Backend { get; set; }
 
@@ -587,7 +595,11 @@ public partial class V1alpha1AuthBackendConfigIdentitySpec
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendConfigIdentityStatusAtProvider
 {
-    /// <summary>Unique name of the auth backend to configure.</summary>
+    /// <summary>
+    /// The path the AWS auth backend being configured was
+    /// mounted at.  Defaults to aws.
+    /// Unique name of the auth backend to configure.
+    /// </summary>
     [JsonPropertyName("backend")]
     public string? Backend { get; set; }
 

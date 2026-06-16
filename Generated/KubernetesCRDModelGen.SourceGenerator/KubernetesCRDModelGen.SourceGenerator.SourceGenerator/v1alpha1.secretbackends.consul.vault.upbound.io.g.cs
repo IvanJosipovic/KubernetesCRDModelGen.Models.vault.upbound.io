@@ -79,8 +79,8 @@ public partial class V1alpha1SecretBackendSpecForProviderClientCertSecretRef
 
 /// <summary>
 /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set
-/// you need to also set client_cert.
-/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+/// you need to also set client_cert. Mutually exclusive with client_key_wo. Consider using client_key_wo instead for enhanced security.
+/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert. Mutually exclusive with &apos;client_key_wo&apos;.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -100,13 +100,60 @@ public partial class V1alpha1SecretBackendSpecForProviderClientKeySecretRef
 }
 
 /// <summary>
+/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded, provided as a
+/// write-only field. Mutually exclusive with client_key. Must be
+/// used with client_key_wo_version.
+/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_key&apos;. Requires &apos;client_key_wo_version&apos; to trigger updates.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderClientKeyWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
 /// The Consul management token this backend should use to issue new tokens. This field is required
-/// when bootstrap is false.
-/// Specifies the Consul token to use when managing or issuing new tokens.
+/// when bootstrap is false. Mutually exclusive with token_wo.
+/// Consider using token_wo instead for enhanced security.
+/// Specifies the Consul token to use when managing or issuing new tokens. Mutually exclusive with &apos;token_wo&apos;.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecForProviderTokenSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// The Consul management token this backend should use to issue new tokens, provided as a
+/// write-only field. Mutually exclusive with token. Must be
+/// used with token_wo_version.
+/// Specifies the Consul token to use when managing or issuing new tokens. This field is write-only and will never be stored in state. Mutually exclusive with &apos;token&apos;. Requires &apos;token_wo_version&apos; to trigger updates.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderTokenWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -185,11 +232,28 @@ public partial class V1alpha1SecretBackendSpecForProvider
 
     /// <summary>
     /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set
-    /// you need to also set client_cert.
-    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+    /// you need to also set client_cert. Mutually exclusive with client_key_wo. Consider using client_key_wo instead for enhanced security.
+    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert. Mutually exclusive with &apos;client_key_wo&apos;.
     /// </summary>
     [JsonPropertyName("clientKeySecretRef")]
     public V1alpha1SecretBackendSpecForProviderClientKeySecretRef? ClientKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded, provided as a
+    /// write-only field. Mutually exclusive with client_key. Must be
+    /// used with client_key_wo_version.
+    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_key&apos;. Requires &apos;client_key_wo_version&apos; to trigger updates.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderClientKeyWoSecretRef? ClientKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only client key. Increment this value to trigger
+    /// an update of the client key in Vault. Required when using client_key_wo.
+    /// Version counter for the write-only client key. Increment this value to trigger rotation of the client key. Required when using &apos;client_key_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoVersion")]
+    public double? ClientKeyWoVersion { get; set; }
 
     /// <summary>
     /// Default lease duration for tokens and secrets in seconds
@@ -320,11 +384,29 @@ public partial class V1alpha1SecretBackendSpecForProvider
 
     /// <summary>
     /// The Consul management token this backend should use to issue new tokens. This field is required
-    /// when bootstrap is false.
-    /// Specifies the Consul token to use when managing or issuing new tokens.
+    /// when bootstrap is false. Mutually exclusive with token_wo.
+    /// Consider using token_wo instead for enhanced security.
+    /// Specifies the Consul token to use when managing or issuing new tokens. Mutually exclusive with &apos;token_wo&apos;.
     /// </summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1SecretBackendSpecForProviderTokenSecretRef? TokenSecretRef { get; set; }
+
+    /// <summary>
+    /// The Consul management token this backend should use to issue new tokens, provided as a
+    /// write-only field. Mutually exclusive with token. Must be
+    /// used with token_wo_version.
+    /// Specifies the Consul token to use when managing or issuing new tokens. This field is write-only and will never be stored in state. Mutually exclusive with &apos;token&apos;. Requires &apos;token_wo_version&apos; to trigger updates.
+    /// </summary>
+    [JsonPropertyName("tokenWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderTokenWoSecretRef? TokenWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only token. Increment this value to trigger an update
+    /// of the token in Vault. Required when using token_wo.
+    /// Version counter for the write-only token. Increment this value to trigger rotation of the token. Required when using &apos;token_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 }
 
 /// <summary>
@@ -351,8 +433,8 @@ public partial class V1alpha1SecretBackendSpecInitProviderClientCertSecretRef
 
 /// <summary>
 /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set
-/// you need to also set client_cert.
-/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+/// you need to also set client_cert. Mutually exclusive with client_key_wo. Consider using client_key_wo instead for enhanced security.
+/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert. Mutually exclusive with &apos;client_key_wo&apos;.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -372,13 +454,60 @@ public partial class V1alpha1SecretBackendSpecInitProviderClientKeySecretRef
 }
 
 /// <summary>
+/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded, provided as a
+/// write-only field. Mutually exclusive with client_key. Must be
+/// used with client_key_wo_version.
+/// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_key&apos;. Requires &apos;client_key_wo_version&apos; to trigger updates.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderClientKeyWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
 /// The Consul management token this backend should use to issue new tokens. This field is required
-/// when bootstrap is false.
-/// Specifies the Consul token to use when managing or issuing new tokens.
+/// when bootstrap is false. Mutually exclusive with token_wo.
+/// Consider using token_wo instead for enhanced security.
+/// Specifies the Consul token to use when managing or issuing new tokens. Mutually exclusive with &apos;token_wo&apos;.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecInitProviderTokenSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// The Consul management token this backend should use to issue new tokens, provided as a
+/// write-only field. Mutually exclusive with token. Must be
+/// used with token_wo_version.
+/// Specifies the Consul token to use when managing or issuing new tokens. This field is write-only and will never be stored in state. Mutually exclusive with &apos;token&apos;. Requires &apos;token_wo_version&apos; to trigger updates.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderTokenWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -469,11 +598,28 @@ public partial class V1alpha1SecretBackendSpecInitProvider
 
     /// <summary>
     /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set
-    /// you need to also set client_cert.
-    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert.
+    /// you need to also set client_cert. Mutually exclusive with client_key_wo. Consider using client_key_wo instead for enhanced security.
+    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded and if this is set you need to also set client_cert. Mutually exclusive with &apos;client_key_wo&apos;.
     /// </summary>
     [JsonPropertyName("clientKeySecretRef")]
     public V1alpha1SecretBackendSpecInitProviderClientKeySecretRef? ClientKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded, provided as a
+    /// write-only field. Mutually exclusive with client_key. Must be
+    /// used with client_key_wo_version.
+    /// Client key used for Consul&apos;s TLS communication, must be x509 PEM encoded. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_key&apos;. Requires &apos;client_key_wo_version&apos; to trigger updates.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderClientKeyWoSecretRef? ClientKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only client key. Increment this value to trigger
+    /// an update of the client key in Vault. Required when using client_key_wo.
+    /// Version counter for the write-only client key. Increment this value to trigger rotation of the client key. Required when using &apos;client_key_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoVersion")]
+    public double? ClientKeyWoVersion { get; set; }
 
     /// <summary>
     /// Default lease duration for tokens and secrets in seconds
@@ -604,11 +750,29 @@ public partial class V1alpha1SecretBackendSpecInitProvider
 
     /// <summary>
     /// The Consul management token this backend should use to issue new tokens. This field is required
-    /// when bootstrap is false.
-    /// Specifies the Consul token to use when managing or issuing new tokens.
+    /// when bootstrap is false. Mutually exclusive with token_wo.
+    /// Consider using token_wo instead for enhanced security.
+    /// Specifies the Consul token to use when managing or issuing new tokens. Mutually exclusive with &apos;token_wo&apos;.
     /// </summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1SecretBackendSpecInitProviderTokenSecretRef? TokenSecretRef { get; set; }
+
+    /// <summary>
+    /// The Consul management token this backend should use to issue new tokens, provided as a
+    /// write-only field. Mutually exclusive with token. Must be
+    /// used with token_wo_version.
+    /// Specifies the Consul token to use when managing or issuing new tokens. This field is write-only and will never be stored in state. Mutually exclusive with &apos;token&apos;. Requires &apos;token_wo_version&apos; to trigger updates.
+    /// </summary>
+    [JsonPropertyName("tokenWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderTokenWoSecretRef? TokenWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only token. Increment this value to trigger an update
+    /// of the token in Vault. Required when using token_wo.
+    /// Version counter for the write-only token. Increment this value to trigger rotation of the token. Required when using &apos;token_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 }
 
 /// <summary>
@@ -853,6 +1017,14 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     public string? CaCert { get; set; }
 
     /// <summary>
+    /// Version counter for the write-only client key. Increment this value to trigger
+    /// an update of the client key in Vault. Required when using client_key_wo.
+    /// Version counter for the write-only client key. Increment this value to trigger rotation of the client key. Required when using &apos;client_key_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("clientKeyWoVersion")]
+    public double? ClientKeyWoVersion { get; set; }
+
+    /// <summary>
     /// Default lease duration for tokens and secrets in seconds
     /// Default lease duration for secrets in seconds
     /// </summary>
@@ -981,6 +1153,14 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("sealWrap")]
     public bool? SealWrap { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only token. Increment this value to trigger an update
+    /// of the token in Vault. Required when using token_wo.
+    /// Version counter for the write-only token. Increment this value to trigger rotation of the token. Required when using &apos;token_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 }
 
 /// <summary>A Condition that may apply to a resource.</summary>

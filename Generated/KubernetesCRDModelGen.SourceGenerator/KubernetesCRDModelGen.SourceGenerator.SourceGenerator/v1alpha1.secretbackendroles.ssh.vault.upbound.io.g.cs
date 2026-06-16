@@ -320,9 +320,20 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     [JsonPropertyName("defaultCriticalOptions")]
     public IDictionary<string, string>? DefaultCriticalOptions { get; set; }
 
-    /// <summary>Specifies a map of extensions that certificates have when signed.</summary>
+    /// <summary>
+    /// Specifies a map of extensions that certificates have when signed.
+    /// Default extensions to include in SSH certificates. Only applicable for CA key type.
+    /// </summary>
     [JsonPropertyName("defaultExtensions")]
     public IDictionary<string, string>? DefaultExtensions { get; set; }
+
+    /// <summary>
+    /// Specifies if the default_extensions field supports templating.
+    /// When set to true, the extension values can use identity template policies. Defaults to false.
+    /// Specifies if the default_extensions field supports templating. Only applicable for CA key type.
+    /// </summary>
+    [JsonPropertyName("defaultExtensionsTemplate")]
+    public bool? DefaultExtensionsTemplate { get; set; }
 
     /// <summary>Specifies the default username for which a credential will be generated.</summary>
     [JsonPropertyName("defaultUser")]
@@ -331,6 +342,14 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     /// <summary>If set, default_users can be specified using identity template values. A non-templated user is also permitted.</summary>
     [JsonPropertyName("defaultUserTemplate")]
     public bool? DefaultUserTemplate { get; set; }
+
+    /// <summary>
+    /// Specifies a comma-separated list of CIDR blocks for which credentials cannot be created.
+    /// This is particularly useful for OTP key types to restrict credential generation to specific network ranges.
+    /// List of CIDR blocks for which credentials cannot be created. Applicable for OTP and dynamic key types.
+    /// </summary>
+    [JsonPropertyName("excludeCidrList")]
+    public IList<string>? ExcludeCidrList { get; set; }
 
     /// <summary>Specifies a custom format for the key id of a signed certificate.</summary>
     [JsonPropertyName("keyIdFormat")]
@@ -368,6 +387,14 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     /// </summary>
     [JsonPropertyName("notBeforeDuration")]
     public string? NotBeforeDuration { get; set; }
+
+    /// <summary>
+    /// Specifies the port number for SSH connections. Defaults to 22.
+    /// This is primarily used with OTP key types to specify the SSH port on target hosts.
+    /// Specifies the port number for SSH connections (default 22). Applicable for OTP and dynamic key types.
+    /// </summary>
+    [JsonPropertyName("port")]
+    public double? Port { get; set; }
 
     /// <summary>Specifies the Time To Live value.</summary>
     [JsonPropertyName("ttl")]
@@ -651,9 +678,20 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     [JsonPropertyName("defaultCriticalOptions")]
     public IDictionary<string, string>? DefaultCriticalOptions { get; set; }
 
-    /// <summary>Specifies a map of extensions that certificates have when signed.</summary>
+    /// <summary>
+    /// Specifies a map of extensions that certificates have when signed.
+    /// Default extensions to include in SSH certificates. Only applicable for CA key type.
+    /// </summary>
     [JsonPropertyName("defaultExtensions")]
     public IDictionary<string, string>? DefaultExtensions { get; set; }
+
+    /// <summary>
+    /// Specifies if the default_extensions field supports templating.
+    /// When set to true, the extension values can use identity template policies. Defaults to false.
+    /// Specifies if the default_extensions field supports templating. Only applicable for CA key type.
+    /// </summary>
+    [JsonPropertyName("defaultExtensionsTemplate")]
+    public bool? DefaultExtensionsTemplate { get; set; }
 
     /// <summary>Specifies the default username for which a credential will be generated.</summary>
     [JsonPropertyName("defaultUser")]
@@ -662,6 +700,14 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     /// <summary>If set, default_users can be specified using identity template values. A non-templated user is also permitted.</summary>
     [JsonPropertyName("defaultUserTemplate")]
     public bool? DefaultUserTemplate { get; set; }
+
+    /// <summary>
+    /// Specifies a comma-separated list of CIDR blocks for which credentials cannot be created.
+    /// This is particularly useful for OTP key types to restrict credential generation to specific network ranges.
+    /// List of CIDR blocks for which credentials cannot be created. Applicable for OTP and dynamic key types.
+    /// </summary>
+    [JsonPropertyName("excludeCidrList")]
+    public IList<string>? ExcludeCidrList { get; set; }
 
     /// <summary>Specifies a custom format for the key id of a signed certificate.</summary>
     [JsonPropertyName("keyIdFormat")]
@@ -699,6 +745,14 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     /// </summary>
     [JsonPropertyName("notBeforeDuration")]
     public string? NotBeforeDuration { get; set; }
+
+    /// <summary>
+    /// Specifies the port number for SSH connections. Defaults to 22.
+    /// This is primarily used with OTP key types to specify the SSH port on target hosts.
+    /// Specifies the port number for SSH connections (default 22). Applicable for OTP and dynamic key types.
+    /// </summary>
+    [JsonPropertyName("port")]
+    public double? Port { get; set; }
 
     /// <summary>Specifies the Time To Live value.</summary>
     [JsonPropertyName("ttl")]
@@ -998,9 +1052,20 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     [JsonPropertyName("defaultCriticalOptions")]
     public IDictionary<string, string>? DefaultCriticalOptions { get; set; }
 
-    /// <summary>Specifies a map of extensions that certificates have when signed.</summary>
+    /// <summary>
+    /// Specifies a map of extensions that certificates have when signed.
+    /// Default extensions to include in SSH certificates. Only applicable for CA key type.
+    /// </summary>
     [JsonPropertyName("defaultExtensions")]
     public IDictionary<string, string>? DefaultExtensions { get; set; }
+
+    /// <summary>
+    /// Specifies if the default_extensions field supports templating.
+    /// When set to true, the extension values can use identity template policies. Defaults to false.
+    /// Specifies if the default_extensions field supports templating. Only applicable for CA key type.
+    /// </summary>
+    [JsonPropertyName("defaultExtensionsTemplate")]
+    public bool? DefaultExtensionsTemplate { get; set; }
 
     /// <summary>Specifies the default username for which a credential will be generated.</summary>
     [JsonPropertyName("defaultUser")]
@@ -1009,6 +1074,14 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     /// <summary>If set, default_users can be specified using identity template values. A non-templated user is also permitted.</summary>
     [JsonPropertyName("defaultUserTemplate")]
     public bool? DefaultUserTemplate { get; set; }
+
+    /// <summary>
+    /// Specifies a comma-separated list of CIDR blocks for which credentials cannot be created.
+    /// This is particularly useful for OTP key types to restrict credential generation to specific network ranges.
+    /// List of CIDR blocks for which credentials cannot be created. Applicable for OTP and dynamic key types.
+    /// </summary>
+    [JsonPropertyName("excludeCidrList")]
+    public IList<string>? ExcludeCidrList { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -1049,6 +1122,14 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     /// </summary>
     [JsonPropertyName("notBeforeDuration")]
     public string? NotBeforeDuration { get; set; }
+
+    /// <summary>
+    /// Specifies the port number for SSH connections. Defaults to 22.
+    /// This is primarily used with OTP key types to specify the SSH port on target hosts.
+    /// Specifies the port number for SSH connections (default 22). Applicable for OTP and dynamic key types.
+    /// </summary>
+    [JsonPropertyName("port")]
+    public double? Port { get; set; }
 
     /// <summary>Specifies the Time To Live value.</summary>
     [JsonPropertyName("ttl")]

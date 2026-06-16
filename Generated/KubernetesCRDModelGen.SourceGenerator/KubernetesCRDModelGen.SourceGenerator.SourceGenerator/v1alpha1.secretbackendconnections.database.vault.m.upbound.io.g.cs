@@ -253,6 +253,13 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderCassandra
     public double? ConnectTimeout { get; set; }
 
     /// <summary>
+    /// Specifies the consistency option to use. See the gocql definition for valid options.
+    /// Cassandra consistency level.
+    /// </summary>
+    [JsonPropertyName("consistency")]
+    public string? Consistency { get; set; }
+
+    /// <summary>
     /// The hosts to connect to.
     /// Cassandra hosts to connect to.
     /// </summary>
@@ -266,6 +273,13 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderCassandra
     /// </summary>
     [JsonPropertyName("insecureTls")]
     public bool? InsecureTls { get; set; }
+
+    /// <summary>
+    /// If set, enables host selection policy which will prioritize and use hosts which are in the local datacenter before hosts in all other datacenters.
+    /// Cassandra local datacenter name.
+    /// </summary>
+    [JsonPropertyName("localDatacenter")]
+    public string? LocalDatacenter { get; set; }
 
     /// <summary>
     /// The password to authenticate with.
@@ -313,6 +327,13 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderCassandra
     public bool? SkipVerification { get; set; }
 
     /// <summary>
+    /// The keep-alive period for an active network connection. If zero, keep-alives are not enabled.
+    /// Enable TCP keepalive for Cassandra connections.
+    /// </summary>
+    [JsonPropertyName("socketKeepAlive")]
+    public string? SocketKeepAlive { get; set; }
+
+    /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
     /// Whether to use TLS when connecting to Cassandra.
     /// </summary>
@@ -320,11 +341,25 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderCassandra
     public bool? Tls { get; set; }
 
     /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
+    /// SNI host for TLS connections.
+    /// </summary>
+    [JsonPropertyName("tlsServerName")]
+    public string? TlsServerName { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The username to use when authenticating with Cassandra.
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template for dynamic Cassandra usernames.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 /// <summary>
@@ -484,7 +519,7 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderElasticsearch
     public V1alpha1SecretBackendConnectionSpecForProviderElasticsearchPasswordSecretRef? PasswordSecretRef { get; set; }
 
     /// <summary>
-    /// This, if set, is used to set the SNI host when connecting via TLS.
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
     /// This, if set, is used to set the SNI host when connecting via TLS
     /// </summary>
     [JsonPropertyName("tlsServerName")]
@@ -601,6 +636,13 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderHana
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Username generation template.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 /// <summary>
@@ -747,6 +789,22 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMongodbPasswo
     public required string Name { get; set; }
 }
 
+/// <summary>
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
+/// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendConnectionSpecForProviderMongodbTlsCertificateKeySecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendConnectionSpecForProviderMongodb
@@ -808,6 +866,20 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMongodb
     public double? PasswordWoVersion { get; set; }
 
     /// <summary>
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
+    /// The x509 CA file for validating the certificate presented by the MongoDB server. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCa")]
+    public string? TlsCa { get; set; }
+
+    /// <summary>
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
+    /// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCertificateKeySecretRef")]
+    public V1alpha1SecretBackendConnectionSpecForProviderMongodbTlsCertificateKeySecretRef? TlsCertificateKeySecretRef { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
@@ -820,6 +892,13 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMongodb
     /// </summary>
     [JsonPropertyName("usernameTemplate")]
     public string? UsernameTemplate { get; set; }
+
+    /// <summary>
+    /// A JSON string specifying the MongoDB write concern. For example: {&quot;wmode&quot;: &quot;majority&quot;, &quot;wtimeout&quot;: 5000}.
+    /// Specifies the MongoDB write concern for Vault management operations.
+    /// </summary>
+    [JsonPropertyName("writeConcern")]
+    public string? WriteConcern { get; set; }
 }
 
 /// <summary>
@@ -862,6 +941,13 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMongodbatlas
     /// </summary>
     [JsonPropertyName("publicKey")]
     public string? PublicKey { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template describing how dynamic usernames are generated.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 /// <summary>
@@ -1005,7 +1091,7 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysqlServiceA
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -1095,14 +1181,14 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysql
     public V1alpha1SecretBackendConnectionSpecForProviderMysqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -1156,7 +1242,7 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysqlAuroraSe
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -1246,14 +1332,14 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysqlAurora
     public V1alpha1SecretBackendConnectionSpecForProviderMysqlAuroraServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -1307,7 +1393,7 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysqlLegacySe
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -1397,14 +1483,14 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysqlLegacy
     public V1alpha1SecretBackendConnectionSpecForProviderMysqlLegacyServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -1458,7 +1544,7 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysqlRdsServi
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -1548,14 +1634,14 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderMysqlRds
     public V1alpha1SecretBackendConnectionSpecForProviderMysqlRdsServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -1658,6 +1744,15 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderOracle
     /// </summary>
     [JsonPropertyName("passwordWoVersion")]
     public double? PasswordWoVersion { get; set; }
+
+    /// <summary>
+    /// If set, allows onboarding static roles with a rootless
+    /// connection configuration. Mutually exclusive with username and password.
+    /// If set, will force verify_connection to be false. Requires Vault 1.18+ Enterprise.
+    /// If set, allows onboarding static roles with a rootless connection configuration.
+    /// </summary>
+    [JsonPropertyName("selfManaged")]
+    public bool? SelfManaged { get; set; }
 
     /// <summary>
     /// Enable spliting statements after semi-colons.
@@ -1836,7 +1931,7 @@ public partial class V1alpha1SecretBackendConnectionSpecForProviderPostgresql
     public V1alpha1SecretBackendConnectionSpecForProviderPostgresqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// The x509 CA file for validating the certificate presented by the PostgreSQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
@@ -2373,11 +2468,25 @@ public partial class V1alpha1SecretBackendConnectionSpecForProvider
     public IList<V1alpha1SecretBackendConnectionSpecForProviderOracle>? Oracle { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Specifies the semantic version of the plugin to use for this connection
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A nested block containing configuration options for PostgreSQL connections.
@@ -2435,6 +2544,13 @@ public partial class V1alpha1SecretBackendConnectionSpecForProvider
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This is can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// A nested block containing configuration options for Snowflake connections.
@@ -2669,6 +2785,13 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderCassandra
     public double? ConnectTimeout { get; set; }
 
     /// <summary>
+    /// Specifies the consistency option to use. See the gocql definition for valid options.
+    /// Cassandra consistency level.
+    /// </summary>
+    [JsonPropertyName("consistency")]
+    public string? Consistency { get; set; }
+
+    /// <summary>
     /// The hosts to connect to.
     /// Cassandra hosts to connect to.
     /// </summary>
@@ -2682,6 +2805,13 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderCassandra
     /// </summary>
     [JsonPropertyName("insecureTls")]
     public bool? InsecureTls { get; set; }
+
+    /// <summary>
+    /// If set, enables host selection policy which will prioritize and use hosts which are in the local datacenter before hosts in all other datacenters.
+    /// Cassandra local datacenter name.
+    /// </summary>
+    [JsonPropertyName("localDatacenter")]
+    public string? LocalDatacenter { get; set; }
 
     /// <summary>
     /// The password to authenticate with.
@@ -2729,6 +2859,13 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderCassandra
     public bool? SkipVerification { get; set; }
 
     /// <summary>
+    /// The keep-alive period for an active network connection. If zero, keep-alives are not enabled.
+    /// Enable TCP keepalive for Cassandra connections.
+    /// </summary>
+    [JsonPropertyName("socketKeepAlive")]
+    public string? SocketKeepAlive { get; set; }
+
+    /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
     /// Whether to use TLS when connecting to Cassandra.
     /// </summary>
@@ -2736,11 +2873,25 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderCassandra
     public bool? Tls { get; set; }
 
     /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
+    /// SNI host for TLS connections.
+    /// </summary>
+    [JsonPropertyName("tlsServerName")]
+    public string? TlsServerName { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The username to use when authenticating with Cassandra.
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template for dynamic Cassandra usernames.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 /// <summary>
@@ -2900,7 +3051,7 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderElasticsearc
     public required V1alpha1SecretBackendConnectionSpecInitProviderElasticsearchPasswordSecretRef PasswordSecretRef { get; set; }
 
     /// <summary>
-    /// This, if set, is used to set the SNI host when connecting via TLS.
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
     /// This, if set, is used to set the SNI host when connecting via TLS
     /// </summary>
     [JsonPropertyName("tlsServerName")]
@@ -3017,6 +3168,13 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderHana
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Username generation template.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 /// <summary>
@@ -3163,6 +3321,22 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMongodbPassw
     public required string Name { get; set; }
 }
 
+/// <summary>
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
+/// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendConnectionSpecInitProviderMongodbTlsCertificateKeySecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendConnectionSpecInitProviderMongodb
@@ -3224,6 +3398,20 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMongodb
     public double? PasswordWoVersion { get; set; }
 
     /// <summary>
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
+    /// The x509 CA file for validating the certificate presented by the MongoDB server. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCa")]
+    public string? TlsCa { get; set; }
+
+    /// <summary>
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
+    /// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCertificateKeySecretRef")]
+    public V1alpha1SecretBackendConnectionSpecInitProviderMongodbTlsCertificateKeySecretRef? TlsCertificateKeySecretRef { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
@@ -3236,6 +3424,13 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMongodb
     /// </summary>
     [JsonPropertyName("usernameTemplate")]
     public string? UsernameTemplate { get; set; }
+
+    /// <summary>
+    /// A JSON string specifying the MongoDB write concern. For example: {&quot;wmode&quot;: &quot;majority&quot;, &quot;wtimeout&quot;: 5000}.
+    /// Specifies the MongoDB write concern for Vault management operations.
+    /// </summary>
+    [JsonPropertyName("writeConcern")]
+    public string? WriteConcern { get; set; }
 }
 
 /// <summary>
@@ -3278,6 +3473,13 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMongodbatlas
     /// </summary>
     [JsonPropertyName("publicKey")]
     public string? PublicKey { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template describing how dynamic usernames are generated.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 /// <summary>
@@ -3421,7 +3623,7 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysqlService
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -3511,14 +3713,14 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysql
     public V1alpha1SecretBackendConnectionSpecInitProviderMysqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -3572,7 +3774,7 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysqlAuroraS
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -3662,14 +3864,14 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysqlAurora
     public V1alpha1SecretBackendConnectionSpecInitProviderMysqlAuroraServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -3723,7 +3925,7 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysqlLegacyS
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -3813,14 +4015,14 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysqlLegacy
     public V1alpha1SecretBackendConnectionSpecInitProviderMysqlLegacyServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -3874,7 +4076,7 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysqlRdsServ
 }
 
 /// <summary>
-/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
 /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -3964,14 +4166,14 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderMysqlRds
     public V1alpha1SecretBackendConnectionSpecInitProviderMysqlRdsServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
     public string? TlsCa { get; set; }
 
     /// <summary>
-    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The client certificate and private key (concatenated in PEM format) to use for TLS authentication with MongoDB. This is a sensitive field that will not be returned in API responses.
     /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
     /// </summary>
     [JsonPropertyName("tlsCertificateKeySecretRef")]
@@ -4074,6 +4276,15 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderOracle
     /// </summary>
     [JsonPropertyName("passwordWoVersion")]
     public double? PasswordWoVersion { get; set; }
+
+    /// <summary>
+    /// If set, allows onboarding static roles with a rootless
+    /// connection configuration. Mutually exclusive with username and password.
+    /// If set, will force verify_connection to be false. Requires Vault 1.18+ Enterprise.
+    /// If set, allows onboarding static roles with a rootless connection configuration.
+    /// </summary>
+    [JsonPropertyName("selfManaged")]
+    public bool? SelfManaged { get; set; }
 
     /// <summary>
     /// Enable spliting statements after semi-colons.
@@ -4252,7 +4463,7 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProviderPostgresql
     public V1alpha1SecretBackendConnectionSpecInitProviderPostgresqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// The x509 CA file for validating the certificate presented by the PostgreSQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
@@ -4801,11 +5012,25 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProvider
     public IList<V1alpha1SecretBackendConnectionSpecInitProviderOracle>? Oracle { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Specifies the semantic version of the plugin to use for this connection
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A nested block containing configuration options for PostgreSQL connections.
@@ -4863,6 +5088,13 @@ public partial class V1alpha1SecretBackendConnectionSpecInitProvider
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This is can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// A nested block containing configuration options for Snowflake connections.
@@ -5000,6 +5232,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderCassandra
     public double? ConnectTimeout { get; set; }
 
     /// <summary>
+    /// Specifies the consistency option to use. See the gocql definition for valid options.
+    /// Cassandra consistency level.
+    /// </summary>
+    [JsonPropertyName("consistency")]
+    public string? Consistency { get; set; }
+
+    /// <summary>
     /// The hosts to connect to.
     /// Cassandra hosts to connect to.
     /// </summary>
@@ -5013,6 +5252,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderCassandra
     /// </summary>
     [JsonPropertyName("insecureTls")]
     public bool? InsecureTls { get; set; }
+
+    /// <summary>
+    /// If set, enables host selection policy which will prioritize and use hosts which are in the local datacenter before hosts in all other datacenters.
+    /// Cassandra local datacenter name.
+    /// </summary>
+    [JsonPropertyName("localDatacenter")]
+    public string? LocalDatacenter { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -5038,6 +5284,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderCassandra
     public bool? SkipVerification { get; set; }
 
     /// <summary>
+    /// The keep-alive period for an active network connection. If zero, keep-alives are not enabled.
+    /// Enable TCP keepalive for Cassandra connections.
+    /// </summary>
+    [JsonPropertyName("socketKeepAlive")]
+    public string? SocketKeepAlive { get; set; }
+
+    /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
     /// Whether to use TLS when connecting to Cassandra.
     /// </summary>
@@ -5045,11 +5298,25 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderCassandra
     public bool? Tls { get; set; }
 
     /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
+    /// SNI host for TLS connections.
+    /// </summary>
+    [JsonPropertyName("tlsServerName")]
+    public string? TlsServerName { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The username to use when authenticating with Cassandra.
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template for dynamic Cassandra usernames.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -5140,7 +5407,7 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderElasticsearc
     public bool? Insecure { get; set; }
 
     /// <summary>
-    /// This, if set, is used to set the SNI host when connecting via TLS.
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
     /// This, if set, is used to set the SNI host when connecting via TLS
     /// </summary>
     [JsonPropertyName("tlsServerName")]
@@ -5234,6 +5501,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderHana
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Username generation template.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -5347,6 +5621,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderMongodb
     public double? PasswordWoVersion { get; set; }
 
     /// <summary>
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
+    /// The x509 CA file for validating the certificate presented by the MongoDB server. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCa")]
+    public string? TlsCa { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
@@ -5359,6 +5640,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderMongodb
     /// </summary>
     [JsonPropertyName("usernameTemplate")]
     public string? UsernameTemplate { get; set; }
+
+    /// <summary>
+    /// A JSON string specifying the MongoDB write concern. For example: {&quot;wmode&quot;: &quot;majority&quot;, &quot;wtimeout&quot;: 5000}.
+    /// Specifies the MongoDB write concern for Vault management operations.
+    /// </summary>
+    [JsonPropertyName("writeConcern")]
+    public string? WriteConcern { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -5378,6 +5666,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderMongodbatlas
     /// </summary>
     [JsonPropertyName("publicKey")]
     public string? PublicKey { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template describing how dynamic usernames are generated.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -5526,7 +5821,7 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderMysql
     public double? PasswordWoVersion { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
@@ -5608,7 +5903,7 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderMysqlAurora
     public double? PasswordWoVersion { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
@@ -5690,7 +5985,7 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderMysqlLegacy
     public double? PasswordWoVersion { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
@@ -5772,7 +6067,7 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderMysqlRds
     public double? PasswordWoVersion { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
@@ -5852,6 +6147,15 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderOracle
     /// </summary>
     [JsonPropertyName("passwordWoVersion")]
     public double? PasswordWoVersion { get; set; }
+
+    /// <summary>
+    /// If set, allows onboarding static roles with a rootless
+    /// connection configuration. Mutually exclusive with username and password.
+    /// If set, will force verify_connection to be false. Requires Vault 1.18+ Enterprise.
+    /// If set, allows onboarding static roles with a rootless connection configuration.
+    /// </summary>
+    [JsonPropertyName("selfManaged")]
+    public bool? SelfManaged { get; set; }
 
     /// <summary>
     /// Enable spliting statements after semi-colons.
@@ -5961,7 +6265,7 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProviderPostgresql
     public bool? SelfManaged { get; set; }
 
     /// <summary>
-    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The CA certificate to use when verifying the MongoDB server&apos;s TLS certificate.
     /// The x509 CA file for validating the certificate presented by the PostgreSQL server. Must be PEM encoded.
     /// </summary>
     [JsonPropertyName("tlsCa")]
@@ -6353,11 +6657,25 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProvider
     public IList<V1alpha1SecretBackendConnectionStatusAtProviderOracle>? Oracle { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Specifies the semantic version of the plugin to use for this connection
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A nested block containing configuration options for PostgreSQL connections.
@@ -6415,6 +6733,13 @@ public partial class V1alpha1SecretBackendConnectionStatusAtProvider
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This is can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// A nested block containing configuration options for Snowflake connections.

@@ -41,6 +41,13 @@ public partial class V1alpha1AuthBackendRoleList : IKubernetesObject<V1ListMeta>
 public partial class V1alpha1AuthBackendRoleSpecForProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// List of allowed entity aliases.
     /// Set of allowed entity aliases for this role.
     /// </summary>
@@ -206,6 +213,13 @@ public partial class V1alpha1AuthBackendRoleSpecForProvider
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendRoleSpecInitProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>
     /// List of allowed entity aliases.
     /// Set of allowed entity aliases for this role.
@@ -467,6 +481,13 @@ public partial class V1alpha1AuthBackendRoleSpec
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendRoleStatusAtProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>
     /// List of allowed entity aliases.
     /// Set of allowed entity aliases for this role.

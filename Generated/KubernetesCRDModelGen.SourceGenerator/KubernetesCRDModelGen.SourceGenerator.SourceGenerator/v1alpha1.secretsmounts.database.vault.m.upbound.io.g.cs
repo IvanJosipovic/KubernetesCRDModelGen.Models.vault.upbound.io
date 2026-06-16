@@ -106,6 +106,13 @@ public partial class V1alpha1SecretsMountSpecForProviderCassandra
     public double? ConnectTimeout { get; set; }
 
     /// <summary>
+    /// Specifies the consistency option to use. See the gocql definition for valid options.
+    /// Cassandra consistency level.
+    /// </summary>
+    [JsonPropertyName("consistency")]
+    public string? Consistency { get; set; }
+
+    /// <summary>
     /// A map of sensitive data to pass to the endpoint. Useful for templated connection strings.
     /// A map of sensitive data to pass to the endpoint. Useful for templated connection strings.
     /// </summary>
@@ -135,11 +142,25 @@ public partial class V1alpha1SecretsMountSpecForProviderCassandra
     public bool? InsecureTls { get; set; }
 
     /// <summary>
+    /// If set, enables host selection policy which will prioritize and use hosts which are in the local datacenter before hosts in all other datacenters.
+    /// Cassandra local datacenter name.
+    /// </summary>
+    [JsonPropertyName("localDatacenter")]
+    public string? LocalDatacenter { get; set; }
+
+    /// <summary>
     /// for any configured database engine is changed
     /// Name of the database connection.
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
+    /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
 
     /// <summary>
     /// The password to authenticate with.
@@ -169,6 +190,13 @@ public partial class V1alpha1SecretsMountSpecForProviderCassandra
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -217,9 +245,23 @@ public partial class V1alpha1SecretsMountSpecForProviderCassandra
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
 
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
     /// <summary>Skip permissions checks when a connection to Cassandra is first created. These checks ensure that Vault is able to create roles, but can be resource intensive in clusters with many roles.</summary>
     [JsonPropertyName("skipVerification")]
     public bool? SkipVerification { get; set; }
+
+    /// <summary>
+    /// The keep-alive period for an active network connection. If zero, keep-alives are not enabled.
+    /// Enable TCP keepalive for Cassandra connections.
+    /// </summary>
+    [JsonPropertyName("socketKeepAlive")]
+    public string? SocketKeepAlive { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -229,11 +271,25 @@ public partial class V1alpha1SecretsMountSpecForProviderCassandra
     public bool? Tls { get; set; }
 
     /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
+    /// SNI host for TLS connections.
+    /// </summary>
+    [JsonPropertyName("tlsServerName")]
+    public string? TlsServerName { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The username to use when authenticating with Cassandra.
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template for dynamic Cassandra usernames.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -339,6 +395,13 @@ public partial class V1alpha1SecretsMountSpecForProviderCouchbase
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// Specifies the password corresponding to the given username.
     /// </summary>
@@ -351,6 +414,13 @@ public partial class V1alpha1SecretsMountSpecForProviderCouchbase
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -383,6 +453,13 @@ public partial class V1alpha1SecretsMountSpecForProviderCouchbase
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -499,6 +576,13 @@ public partial class V1alpha1SecretsMountSpecForProviderElasticsearch
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The password to be used in the connection URL
     /// </summary>
@@ -511,6 +595,13 @@ public partial class V1alpha1SecretsMountSpecForProviderElasticsearch
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -545,7 +636,14 @@ public partial class V1alpha1SecretsMountSpecForProviderElasticsearch
     public double? RotationWindow { get; set; }
 
     /// <summary>
-    /// This, if set, is used to set the SNI host when connecting via TLS.
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
     /// This, if set, is used to set the SNI host when connecting via TLS
     /// </summary>
     [JsonPropertyName("tlsServerName")]
@@ -671,6 +769,13 @@ public partial class V1alpha1SecretsMountSpecForProviderHana
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -698,6 +803,13 @@ public partial class V1alpha1SecretsMountSpecForProviderHana
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -732,11 +844,25 @@ public partial class V1alpha1SecretsMountSpecForProviderHana
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Username generation template.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -853,6 +979,13 @@ public partial class V1alpha1SecretsMountSpecForProviderInfluxdb
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// Specifies the password corresponding to the given username.
     /// </summary>
@@ -880,6 +1013,13 @@ public partial class V1alpha1SecretsMountSpecForProviderInfluxdb
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -922,6 +1062,13 @@ public partial class V1alpha1SecretsMountSpecForProviderInfluxdb
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
     /// Whether to use TLS when connecting to Influxdb.
     /// </summary>
@@ -958,6 +1105,22 @@ public partial class V1alpha1SecretsMountSpecForProviderInfluxdb
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretsMountSpecForProviderMongodbPasswordSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretsMountSpecForProviderMongodbTlsCertificateKeySecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -1033,6 +1196,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMongodb
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -1060,6 +1230,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMongodb
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -1094,6 +1271,27 @@ public partial class V1alpha1SecretsMountSpecForProviderMongodb
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The x509 CA file for validating the certificate presented by the MongoDB server. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCa")]
+    public string? TlsCa { get; set; }
+
+    /// <summary>
+    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCertificateKeySecretRef")]
+    public V1alpha1SecretsMountSpecForProviderMongodbTlsCertificateKeySecretRef? TlsCertificateKeySecretRef { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
@@ -1114,6 +1312,10 @@ public partial class V1alpha1SecretsMountSpecForProviderMongodb
     /// </summary>
     [JsonPropertyName("verifyConnection")]
     public bool? VerifyConnection { get; set; }
+
+    /// <summary>Specifies the MongoDB write concern for Vault management operations.</summary>
+    [JsonPropertyName("writeConcern")]
+    public string? WriteConcern { get; set; }
 }
 
 /// <summary>
@@ -1166,11 +1368,25 @@ public partial class V1alpha1SecretsMountSpecForProviderMongodbatlas
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The Private Programmatic API Key used to connect with MongoDB Atlas API.
@@ -1224,6 +1440,20 @@ public partial class V1alpha1SecretsMountSpecForProviderMongodbatlas
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template describing how dynamic usernames are generated.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -1332,6 +1562,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMssql
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -1359,6 +1596,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMssql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -1391,6 +1635,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMssql
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -1530,6 +1781,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysql
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -1557,6 +1815,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -1593,6 +1858,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysql
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecForProviderMysqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -1746,6 +2018,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlAurora
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -1773,6 +2052,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlAurora
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -1809,6 +2095,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlAurora
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecForProviderMysqlAuroraServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -1962,6 +2255,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlLegacy
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -1989,6 +2289,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlLegacy
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -2025,6 +2332,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlLegacy
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecForProviderMysqlLegacyServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -2178,6 +2492,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlRds
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -2205,6 +2526,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlRds
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -2241,6 +2569,13 @@ public partial class V1alpha1SecretsMountSpecForProviderMysqlRds
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecForProviderMysqlRdsServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -2365,6 +2700,13 @@ public partial class V1alpha1SecretsMountSpecForProviderOracle
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -2392,6 +2734,13 @@ public partial class V1alpha1SecretsMountSpecForProviderOracle
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -2424,6 +2773,17 @@ public partial class V1alpha1SecretsMountSpecForProviderOracle
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>If set, allows onboarding static roles with a rootless connection configuration.</summary>
+    [JsonPropertyName("selfManaged")]
+    public bool? SelfManaged { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>Set to true in order to split statements after semi-colons.</summary>
     [JsonPropertyName("splitStatements")]
@@ -2578,6 +2938,13 @@ public partial class V1alpha1SecretsMountSpecForProviderPostgresql
     public string? PasswordAuthentication { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -2605,6 +2972,13 @@ public partial class V1alpha1SecretsMountSpecForProviderPostgresql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The Private Programmatic API Key used to connect with MongoDB Atlas API.
@@ -2652,6 +3026,13 @@ public partial class V1alpha1SecretsMountSpecForProviderPostgresql
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecForProviderPostgresqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -2759,6 +3140,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedis
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// Specifies the password corresponding to the given username.
     /// </summary>
@@ -2771,6 +3159,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedis
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -2811,6 +3206,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedis
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -2901,6 +3303,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedisElasticache
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The AWS secret key id to use to talk to ElastiCache. If omitted the credentials chain provider is used instead.
     /// </summary>
@@ -2913,6 +3322,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedisElasticache
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The AWS region where the ElastiCache cluster is hosted.
@@ -2953,6 +3369,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedisElasticache
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The URL for Elasticsearch&apos;s API. https requires certificate
@@ -3067,6 +3490,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedshift
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -3094,6 +3524,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedshift
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -3126,6 +3563,13 @@ public partial class V1alpha1SecretsMountSpecForProviderRedshift
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -3245,6 +3689,13 @@ public partial class V1alpha1SecretsMountSpecForProviderSnowflake
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -3272,6 +3723,13 @@ public partial class V1alpha1SecretsMountSpecForProviderSnowflake
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>The private key configured for the admin user in Snowflake.</summary>
     [JsonPropertyName("privateKeyWoSecretRef")]
@@ -3312,6 +3770,13 @@ public partial class V1alpha1SecretsMountSpecForProviderSnowflake
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -3542,7 +4007,10 @@ public partial class V1alpha1SecretsMountSpecForProvider
     [JsonPropertyName("path")]
     public string? Path { get; set; }
 
-    /// <summary>Specifies the semantic version of the plugin to use, e.g. &apos;v1.0.0&apos;</summary>
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Specifies the semantic version of the plugin to use, e.g. &apos;v1.0.0&apos;
+    /// </summary>
     [JsonPropertyName("pluginVersion")]
     public string? PluginVersion { get; set; }
 
@@ -3664,6 +4132,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderCassandra
     public double? ConnectTimeout { get; set; }
 
     /// <summary>
+    /// Specifies the consistency option to use. See the gocql definition for valid options.
+    /// Cassandra consistency level.
+    /// </summary>
+    [JsonPropertyName("consistency")]
+    public string? Consistency { get; set; }
+
+    /// <summary>
     /// A map of sensitive data to pass to the endpoint. Useful for templated connection strings.
     /// A map of sensitive data to pass to the endpoint. Useful for templated connection strings.
     /// </summary>
@@ -3693,11 +4168,25 @@ public partial class V1alpha1SecretsMountSpecInitProviderCassandra
     public bool? InsecureTls { get; set; }
 
     /// <summary>
+    /// If set, enables host selection policy which will prioritize and use hosts which are in the local datacenter before hosts in all other datacenters.
+    /// Cassandra local datacenter name.
+    /// </summary>
+    [JsonPropertyName("localDatacenter")]
+    public string? LocalDatacenter { get; set; }
+
+    /// <summary>
     /// for any configured database engine is changed
     /// Name of the database connection.
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
+    /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
 
     /// <summary>
     /// The password to authenticate with.
@@ -3727,6 +4216,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderCassandra
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -3775,9 +4271,23 @@ public partial class V1alpha1SecretsMountSpecInitProviderCassandra
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
 
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
     /// <summary>Skip permissions checks when a connection to Cassandra is first created. These checks ensure that Vault is able to create roles, but can be resource intensive in clusters with many roles.</summary>
     [JsonPropertyName("skipVerification")]
     public bool? SkipVerification { get; set; }
+
+    /// <summary>
+    /// The keep-alive period for an active network connection. If zero, keep-alives are not enabled.
+    /// Enable TCP keepalive for Cassandra connections.
+    /// </summary>
+    [JsonPropertyName("socketKeepAlive")]
+    public string? SocketKeepAlive { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -3787,11 +4297,25 @@ public partial class V1alpha1SecretsMountSpecInitProviderCassandra
     public bool? Tls { get; set; }
 
     /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
+    /// SNI host for TLS connections.
+    /// </summary>
+    [JsonPropertyName("tlsServerName")]
+    public string? TlsServerName { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The username to use when authenticating with Cassandra.
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template for dynamic Cassandra usernames.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -3897,6 +4421,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderCouchbase
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// Specifies the password corresponding to the given username.
     /// </summary>
@@ -3909,6 +4440,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderCouchbase
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -3941,6 +4479,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderCouchbase
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -4057,6 +4602,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderElasticsearch
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The password to be used in the connection URL
     /// </summary>
@@ -4069,6 +4621,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderElasticsearch
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -4103,7 +4662,14 @@ public partial class V1alpha1SecretsMountSpecInitProviderElasticsearch
     public double? RotationWindow { get; set; }
 
     /// <summary>
-    /// This, if set, is used to set the SNI host when connecting via TLS.
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
     /// This, if set, is used to set the SNI host when connecting via TLS
     /// </summary>
     [JsonPropertyName("tlsServerName")]
@@ -4229,6 +4795,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderHana
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -4256,6 +4829,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderHana
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -4290,11 +4870,25 @@ public partial class V1alpha1SecretsMountSpecInitProviderHana
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Username generation template.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -4411,6 +5005,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderInfluxdb
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// Specifies the password corresponding to the given username.
     /// </summary>
@@ -4438,6 +5039,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderInfluxdb
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -4480,6 +5088,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderInfluxdb
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
     /// Whether to use TLS when connecting to Influxdb.
     /// </summary>
@@ -4516,6 +5131,22 @@ public partial class V1alpha1SecretsMountSpecInitProviderInfluxdb
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretsMountSpecInitProviderMongodbPasswordSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+/// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretsMountSpecInitProviderMongodbTlsCertificateKeySecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -4591,6 +5222,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMongodb
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -4618,6 +5256,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMongodb
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -4652,6 +5297,27 @@ public partial class V1alpha1SecretsMountSpecInitProviderMongodb
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The x509 CA file for validating the certificate presented by the MongoDB server. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCa")]
+    public string? TlsCa { get; set; }
+
+    /// <summary>
+    /// x509 certificate for connecting to the database. This must be a PEM encoded version of the private key and the certificate combined.
+    /// The x509 certificate and private key bundle for connecting to the database. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCertificateKeySecretRef")]
+    public V1alpha1SecretsMountSpecInitProviderMongodbTlsCertificateKeySecretRef? TlsCertificateKeySecretRef { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
@@ -4672,6 +5338,10 @@ public partial class V1alpha1SecretsMountSpecInitProviderMongodb
     /// </summary>
     [JsonPropertyName("verifyConnection")]
     public bool? VerifyConnection { get; set; }
+
+    /// <summary>Specifies the MongoDB write concern for Vault management operations.</summary>
+    [JsonPropertyName("writeConcern")]
+    public string? WriteConcern { get; set; }
 }
 
 /// <summary>
@@ -4724,11 +5394,25 @@ public partial class V1alpha1SecretsMountSpecInitProviderMongodbatlas
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The Private Programmatic API Key used to connect with MongoDB Atlas API.
@@ -4782,6 +5466,20 @@ public partial class V1alpha1SecretsMountSpecInitProviderMongodbatlas
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template describing how dynamic usernames are generated.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -4890,6 +5588,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMssql
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -4917,6 +5622,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMssql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -4949,6 +5661,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMssql
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -5088,6 +5807,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysql
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -5115,6 +5841,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -5151,6 +5884,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysql
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecInitProviderMysqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -5304,6 +6044,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlAurora
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -5331,6 +6078,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlAurora
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -5367,6 +6121,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlAurora
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecInitProviderMysqlAuroraServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -5520,6 +6281,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlLegacy
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -5547,6 +6315,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlLegacy
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -5583,6 +6358,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlLegacy
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecInitProviderMysqlLegacyServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -5736,6 +6518,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlRds
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -5763,6 +6552,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlRds
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -5799,6 +6595,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderMysqlRds
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecInitProviderMysqlRdsServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -5923,6 +6726,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderOracle
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -5950,6 +6760,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderOracle
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -5982,6 +6799,17 @@ public partial class V1alpha1SecretsMountSpecInitProviderOracle
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>If set, allows onboarding static roles with a rootless connection configuration.</summary>
+    [JsonPropertyName("selfManaged")]
+    public bool? SelfManaged { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>Set to true in order to split statements after semi-colons.</summary>
     [JsonPropertyName("splitStatements")]
@@ -6136,6 +6964,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderPostgresql
     public string? PasswordAuthentication { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -6163,6 +6998,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderPostgresql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The Private Programmatic API Key used to connect with MongoDB Atlas API.
@@ -6210,6 +7052,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderPostgresql
     /// <summary>A JSON encoded credential for use with IAM authorization</summary>
     [JsonPropertyName("serviceAccountJsonSecretRef")]
     public V1alpha1SecretsMountSpecInitProviderPostgresqlServiceAccountJsonSecretRef? ServiceAccountJsonSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -6317,6 +7166,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedis
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// Specifies the password corresponding to the given username.
     /// </summary>
@@ -6329,6 +7185,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedis
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -6369,6 +7232,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedis
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -6459,6 +7329,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedisElasticache
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The AWS secret key id to use to talk to ElastiCache. If omitted the credentials chain provider is used instead.
     /// </summary>
@@ -6471,6 +7348,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedisElasticache
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The AWS region where the ElastiCache cluster is hosted.
@@ -6511,6 +7395,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedisElasticache
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The URL for Elasticsearch&apos;s API. https requires certificate
@@ -6625,6 +7516,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedshift
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -6652,6 +7550,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedshift
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -6684,6 +7589,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderRedshift
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -6803,6 +7715,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderSnowflake
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password to authenticate with.
     /// The root credential password used in the connection URL
     /// </summary>
@@ -6830,6 +7749,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderSnowflake
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>The private key configured for the admin user in Snowflake.</summary>
     [JsonPropertyName("privateKeyWoSecretRef")]
@@ -6870,6 +7796,13 @@ public partial class V1alpha1SecretsMountSpecInitProviderSnowflake
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -7112,7 +8045,10 @@ public partial class V1alpha1SecretsMountSpecInitProvider
     [JsonPropertyName("path")]
     public string? Path { get; set; }
 
-    /// <summary>Specifies the semantic version of the plugin to use, e.g. &apos;v1.0.0&apos;</summary>
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Specifies the semantic version of the plugin to use, e.g. &apos;v1.0.0&apos;
+    /// </summary>
     [JsonPropertyName("pluginVersion")]
     public string? PluginVersion { get; set; }
 
@@ -7292,6 +8228,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderCassandra
     public double? ConnectTimeout { get; set; }
 
     /// <summary>
+    /// Specifies the consistency option to use. See the gocql definition for valid options.
+    /// Cassandra consistency level.
+    /// </summary>
+    [JsonPropertyName("consistency")]
+    public string? Consistency { get; set; }
+
+    /// <summary>
     /// A map of sensitive data to pass to the endpoint. Useful for templated connection strings.
     /// A map of sensitive data to pass to the endpoint. Useful for templated connection strings.
     /// </summary>
@@ -7321,6 +8264,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderCassandra
     public bool? InsecureTls { get; set; }
 
     /// <summary>
+    /// If set, enables host selection policy which will prioritize and use hosts which are in the local datacenter before hosts in all other datacenters.
+    /// Cassandra local datacenter name.
+    /// </summary>
+    [JsonPropertyName("localDatacenter")]
+    public string? LocalDatacenter { get; set; }
+
+    /// <summary>
     /// for any configured database engine is changed
     /// Name of the database connection.
     /// </summary>
@@ -7328,11 +8278,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderCassandra
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -7381,9 +8345,23 @@ public partial class V1alpha1SecretsMountStatusAtProviderCassandra
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
 
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
     /// <summary>Skip permissions checks when a connection to Cassandra is first created. These checks ensure that Vault is able to create roles, but can be resource intensive in clusters with many roles.</summary>
     [JsonPropertyName("skipVerification")]
     public bool? SkipVerification { get; set; }
+
+    /// <summary>
+    /// The keep-alive period for an active network connection. If zero, keep-alives are not enabled.
+    /// Enable TCP keepalive for Cassandra connections.
+    /// </summary>
+    [JsonPropertyName("socketKeepAlive")]
+    public string? SocketKeepAlive { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -7393,11 +8371,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderCassandra
     public bool? Tls { get; set; }
 
     /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
+    /// SNI host for TLS connections.
+    /// </summary>
+    [JsonPropertyName("tlsServerName")]
+    public string? TlsServerName { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The username to use when authenticating with Cassandra.
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template for dynamic Cassandra usernames.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -7464,11 +8456,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderCouchbase
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -7501,6 +8507,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderCouchbase
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -7601,11 +8614,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderElasticsearch
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -7640,7 +8667,14 @@ public partial class V1alpha1SecretsMountStatusAtProviderElasticsearch
     public double? RotationWindow { get; set; }
 
     /// <summary>
-    /// This, if set, is used to set the SNI host when connecting via TLS.
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// Specifies the name to use as the SNI host when connecting to the Cassandra server via TLS.
     /// This, if set, is used to set the SNI host when connecting via TLS
     /// </summary>
     [JsonPropertyName("tlsServerName")]
@@ -7750,6 +8784,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderHana
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -7770,6 +8811,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderHana
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -7804,11 +8852,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderHana
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
     [JsonPropertyName("username")]
     public string? Username { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Username generation template.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -7876,11 +8938,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderInfluxdb
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -7921,6 +8997,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderInfluxdb
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -8018,6 +9101,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMongodb
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -8038,6 +9128,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMongodb
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -8072,6 +9169,20 @@ public partial class V1alpha1SecretsMountStatusAtProviderMongodb
     public double? RotationWindow { get; set; }
 
     /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
+    /// The x509 CA file for validating the certificate presented by the MongoDB server. Must be PEM encoded.
+    /// </summary>
+    [JsonPropertyName("tlsCa")]
+    public string? TlsCa { get; set; }
+
+    /// <summary>
     /// The username to authenticate with.
     /// The root credential username used in the connection URL
     /// </summary>
@@ -8092,6 +9203,10 @@ public partial class V1alpha1SecretsMountStatusAtProviderMongodb
     /// </summary>
     [JsonPropertyName("verifyConnection")]
     public bool? VerifyConnection { get; set; }
+
+    /// <summary>Specifies the MongoDB write concern for Vault management operations.</summary>
+    [JsonPropertyName("writeConcern")]
+    public string? WriteConcern { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -8128,11 +9243,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderMongodbatlas
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The Project ID the Database User should be created within.
@@ -8179,6 +9308,20 @@ public partial class V1alpha1SecretsMountStatusAtProviderMongodbatlas
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
+
+    /// <summary>
+    /// Template describing how dynamic usernames are generated.
+    /// Template describing how dynamic usernames are generated.
+    /// </summary>
+    [JsonPropertyName("usernameTemplate")]
+    public string? UsernameTemplate { get; set; }
 
     /// <summary>
     /// Whether the connection should be verified on
@@ -8271,6 +9414,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMssql
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -8291,6 +9441,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMssql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -8323,6 +9480,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMssql
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -8417,6 +9581,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysql
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -8437,6 +9608,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -8469,6 +9647,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysql
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -8570,6 +9755,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlAurora
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -8590,6 +9782,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlAurora
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -8622,6 +9821,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlAurora
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -8723,6 +9929,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlLegacy
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -8743,6 +9956,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlLegacy
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -8775,6 +9995,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlLegacy
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -8876,6 +10103,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlRds
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -8896,6 +10130,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlRds
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -8928,6 +10169,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderMysqlRds
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -9029,6 +10277,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderOracle
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -9049,6 +10304,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderOracle
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -9081,6 +10343,17 @@ public partial class V1alpha1SecretsMountStatusAtProviderOracle
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>If set, allows onboarding static roles with a rootless connection configuration.</summary>
+    [JsonPropertyName("selfManaged")]
+    public bool? SelfManaged { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>Set to true in order to split statements after semi-colons.</summary>
     [JsonPropertyName("splitStatements")]
@@ -9190,6 +10463,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderPostgresql
     public string? PasswordAuthentication { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -9210,6 +10490,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderPostgresql
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -9246,6 +10533,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderPostgresql
     /// <summary>If set, allows onboarding static roles with a rootless connection configuration.</summary>
     [JsonPropertyName("selfManaged")]
     public bool? SelfManaged { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// x509 CA file for validating the certificate presented by the MySQL server. Must be PEM encoded.
@@ -9337,11 +10631,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderRedis
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The default port to connect to if no port is specified as
@@ -9382,6 +10690,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderRedis
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// Whether to use TLS when connecting to Cassandra.
@@ -9440,11 +10755,25 @@ public partial class V1alpha1SecretsMountStatusAtProviderRedisElasticache
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// Specifies the name of the plugin to use.
     /// Specifies the name of the plugin to use for this connection. Must be prefixed with the name of one of the supported database engine types.
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// The AWS region where the ElastiCache cluster is hosted.
@@ -9485,6 +10814,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderRedisElasticache
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The URL for Elasticsearch&apos;s API. https requires certificate
@@ -9576,6 +10912,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderRedshift
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -9596,6 +10939,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderRedshift
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>
     /// A list of database statements to be executed to rotate the root user&apos;s credentials.
@@ -9628,6 +10978,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderRedshift
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -9718,6 +11075,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderSnowflake
     public string? Name { get; set; }
 
     /// <summary>
+    /// The name of the password policy to use when generating passwords for this database. If not specified, this will use a default policy defined as: 20 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 dash character.
+    /// Optional name of the password policy to use for generated passwords.
+    /// </summary>
+    [JsonPropertyName("passwordPolicy")]
+    public string? PasswordPolicy { get; set; }
+
+    /// <summary>
     /// The password for the user. Can be updated.
     /// Note: This property is write-only and will not be read from the API.
     /// Write-only field for the root credential password used in the connection URL
@@ -9738,6 +11102,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderSnowflake
     /// </summary>
     [JsonPropertyName("pluginName")]
     public string? PluginName { get; set; }
+
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Optional plugin version to use for this connection.
+    /// </summary>
+    [JsonPropertyName("pluginVersion")]
+    public string? PluginVersion { get; set; }
 
     /// <summary>Version counter for the private key key-pair credentials write-only field</summary>
     [JsonPropertyName("privateKeyWoVersion")]
@@ -9774,6 +11145,13 @@ public partial class V1alpha1SecretsMountStatusAtProviderSnowflake
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Specifies if a given static account&apos;s password should be rotated on creation of the static roles associated with this database config. This can be overridden at the role-level by the static role&apos;s skip_import_rotation field. The default is false. Requires Vault Enterprise 1.19+.
+    /// Skip rotation of static role credentials on import.
+    /// </summary>
+    [JsonPropertyName("skipStaticRoleImportRotation")]
+    public bool? SkipStaticRoleImportRotation { get; set; }
 
     /// <summary>
     /// The username to authenticate with.
@@ -10018,7 +11396,10 @@ public partial class V1alpha1SecretsMountStatusAtProvider
     [JsonPropertyName("path")]
     public string? Path { get; set; }
 
-    /// <summary>Specifies the semantic version of the plugin to use, e.g. &apos;v1.0.0&apos;</summary>
+    /// <summary>
+    /// Specifies the semantic version of the plugin to use for this connection.
+    /// Specifies the semantic version of the plugin to use, e.g. &apos;v1.0.0&apos;
+    /// </summary>
     [JsonPropertyName("pluginVersion")]
     public string? PluginVersion { get; set; }
 

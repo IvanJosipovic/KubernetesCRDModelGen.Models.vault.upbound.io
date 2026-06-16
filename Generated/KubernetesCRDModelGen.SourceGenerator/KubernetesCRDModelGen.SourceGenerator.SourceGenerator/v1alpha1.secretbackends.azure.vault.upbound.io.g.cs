@@ -78,11 +78,35 @@ public partial class V1alpha1SecretBackendSpecForProviderClientIdSecretRef
 
 /// <summary>
 /// The OAuth2 client secret to connect to Azure.
+/// Conflicts with client_secret_wo.
 /// The client secret for credentials to query the Azure APIs
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecForProviderClientSecretSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// The OAuth2 client secret to connect to Azure.
+/// This is a write-only field and will not be read back from Vault.
+/// Conflicts with client_secret.
+/// The client secret for credentials to query the Azure APIs. This is a write-only field and will not be read back from Vault.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderClientSecretWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -181,10 +205,29 @@ public partial class V1alpha1SecretBackendSpecForProvider
 
     /// <summary>
     /// The OAuth2 client secret to connect to Azure.
+    /// Conflicts with client_secret_wo.
     /// The client secret for credentials to query the Azure APIs
     /// </summary>
     [JsonPropertyName("clientSecretSecretRef")]
     public V1alpha1SecretBackendSpecForProviderClientSecretSecretRef? ClientSecretSecretRef { get; set; }
+
+    /// <summary>
+    /// The OAuth2 client secret to connect to Azure.
+    /// This is a write-only field and will not be read back from Vault.
+    /// Conflicts with client_secret.
+    /// The client secret for credentials to query the Azure APIs. This is a write-only field and will not be read back from Vault.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderClientSecretWoSecretRef? ClientSecretWoSecretRef { get; set; }
+
+    /// <summary>
+    /// A version counter for the write-only client_secret_wo field.
+    /// Incrementing this value will trigger an update to the client secret.
+    /// Required when using client_secret_wo.
+    /// A version counter for the write-only client_secret_wo field. Incrementing this value will trigger an update to the client secret.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoVersion")]
+    public double? ClientSecretWoVersion { get; set; }
 
     /// <summary>
     /// Default lease duration for tokens and secrets in seconds
@@ -329,7 +372,10 @@ public partial class V1alpha1SecretBackendSpecForProvider
     [JsonPropertyName("pluginVersion")]
     public string? PluginVersion { get; set; }
 
-    /// <summary>The TTL in seconds of the root password in Azure when rotate-root generates a new client secret</summary>
+    /// <summary>
+    /// Specifies the TTL of the root password when rotate-root generates a new client secret. Requires Vault 1.15+.
+    /// The TTL in seconds of the root password in Azure when rotate-root generates a new client secret
+    /// </summary>
     [JsonPropertyName("rootPasswordTtl")]
     public double? RootPasswordTtl { get; set; }
 
@@ -405,11 +451,35 @@ public partial class V1alpha1SecretBackendSpecInitProviderClientIdSecretRef
 
 /// <summary>
 /// The OAuth2 client secret to connect to Azure.
+/// Conflicts with client_secret_wo.
 /// The client secret for credentials to query the Azure APIs
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecInitProviderClientSecretSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// The OAuth2 client secret to connect to Azure.
+/// This is a write-only field and will not be read back from Vault.
+/// Conflicts with client_secret.
+/// The client secret for credentials to query the Azure APIs. This is a write-only field and will not be read back from Vault.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderClientSecretWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -520,10 +590,29 @@ public partial class V1alpha1SecretBackendSpecInitProvider
 
     /// <summary>
     /// The OAuth2 client secret to connect to Azure.
+    /// Conflicts with client_secret_wo.
     /// The client secret for credentials to query the Azure APIs
     /// </summary>
     [JsonPropertyName("clientSecretSecretRef")]
     public V1alpha1SecretBackendSpecInitProviderClientSecretSecretRef? ClientSecretSecretRef { get; set; }
+
+    /// <summary>
+    /// The OAuth2 client secret to connect to Azure.
+    /// This is a write-only field and will not be read back from Vault.
+    /// Conflicts with client_secret.
+    /// The client secret for credentials to query the Azure APIs. This is a write-only field and will not be read back from Vault.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderClientSecretWoSecretRef? ClientSecretWoSecretRef { get; set; }
+
+    /// <summary>
+    /// A version counter for the write-only client_secret_wo field.
+    /// Incrementing this value will trigger an update to the client secret.
+    /// Required when using client_secret_wo.
+    /// A version counter for the write-only client_secret_wo field. Incrementing this value will trigger an update to the client secret.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoVersion")]
+    public double? ClientSecretWoVersion { get; set; }
 
     /// <summary>
     /// Default lease duration for tokens and secrets in seconds
@@ -668,7 +757,10 @@ public partial class V1alpha1SecretBackendSpecInitProvider
     [JsonPropertyName("pluginVersion")]
     public string? PluginVersion { get; set; }
 
-    /// <summary>The TTL in seconds of the root password in Azure when rotate-root generates a new client secret</summary>
+    /// <summary>
+    /// Specifies the TTL of the root password when rotate-root generates a new client secret. Requires Vault 1.15+.
+    /// The TTL in seconds of the root password in Azure when rotate-root generates a new client secret
+    /// </summary>
     [JsonPropertyName("rootPasswordTtl")]
     public double? RootPasswordTtl { get; set; }
 
@@ -942,6 +1034,15 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     public IList<string>? AuditNonHmacResponseKeys { get; set; }
 
     /// <summary>
+    /// A version counter for the write-only client_secret_wo field.
+    /// Incrementing this value will trigger an update to the client secret.
+    /// Required when using client_secret_wo.
+    /// A version counter for the write-only client_secret_wo field. Incrementing this value will trigger an update to the client secret.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoVersion")]
+    public double? ClientSecretWoVersion { get; set; }
+
+    /// <summary>
     /// Default lease duration for tokens and secrets in seconds
     /// Default lease duration for tokens and secrets in seconds
     /// </summary>
@@ -1087,7 +1188,10 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     [JsonPropertyName("pluginVersion")]
     public string? PluginVersion { get; set; }
 
-    /// <summary>The TTL in seconds of the root password in Azure when rotate-root generates a new client secret</summary>
+    /// <summary>
+    /// Specifies the TTL of the root password when rotate-root generates a new client secret. Requires Vault 1.15+.
+    /// The TTL in seconds of the root password in Azure when rotate-root generates a new client secret
+    /// </summary>
     [JsonPropertyName("rootPasswordTtl")]
     public double? RootPasswordTtl { get; set; }
 

@@ -55,6 +55,42 @@ public enum V1alpha1AuthBackendSpecDeletionPolicyEnum
     Delete
 }
 
+/// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecForProviderApiTokenSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>Write-only Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecForProviderApiTokenWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecForProviderGroup
@@ -66,7 +102,7 @@ public partial class V1alpha1AuthBackendSpecForProviderGroup
     public IList<string>? Policies { get; set; }
 }
 
-/// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+/// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled. Use api_token instead.</summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecForProviderTokenSecretRef
@@ -82,6 +118,35 @@ public partial class V1alpha1AuthBackendSpecForProviderTokenSecretRef
     /// <summary>Namespace of the secret.</summary>
     [JsonPropertyName("namespace")]
     public required string Namespace { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecForProviderTune
+{
+    [JsonPropertyName("allowedResponseHeaders")]
+    public IList<string>? AllowedResponseHeaders { get; set; }
+
+    [JsonPropertyName("auditNonHmacRequestKeys")]
+    public IList<string>? AuditNonHmacRequestKeys { get; set; }
+
+    [JsonPropertyName("auditNonHmacResponseKeys")]
+    public IList<string>? AuditNonHmacResponseKeys { get; set; }
+
+    [JsonPropertyName("defaultLeaseTtl")]
+    public string? DefaultLeaseTtl { get; set; }
+
+    [JsonPropertyName("listingVisibility")]
+    public string? ListingVisibility { get; set; }
+
+    [JsonPropertyName("maxLeaseTtl")]
+    public string? MaxLeaseTtl { get; set; }
+
+    [JsonPropertyName("passthroughRequestHeaders")]
+    public IList<string>? PassthroughRequestHeaders { get; set; }
+
+    [JsonPropertyName("tokenType")]
+    public string? TokenType { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -102,6 +167,25 @@ public partial class V1alpha1AuthBackendSpecForProviderUser
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecForProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+    [JsonPropertyName("apiTokenSecretRef")]
+    public V1alpha1AuthBackendSpecForProviderApiTokenSecretRef? ApiTokenSecretRef { get; set; }
+
+    /// <summary>Write-only Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+    [JsonPropertyName("apiTokenWoSecretRef")]
+    public V1alpha1AuthBackendSpecForProviderApiTokenWoSecretRef? ApiTokenWoSecretRef { get; set; }
+
+    /// <summary>Version counter for write-only api_token.</summary>
+    [JsonPropertyName("apiTokenWoVersion")]
+    public double? ApiTokenWoVersion { get; set; }
+
     /// <summary>The Okta url. Examples: oktapreview.com, okta.com (default)</summary>
     [JsonPropertyName("baseUrl")]
     public string? BaseUrl { get; set; }
@@ -126,6 +210,10 @@ public partial class V1alpha1AuthBackendSpecForProvider
     public string? Namespace { get; set; }
 
     /// <summary>The Okta organization. This will be the first part of the url https://XXX.okta.com.</summary>
+    [JsonPropertyName("orgName")]
+    public string? OrgName { get; set; }
+
+    /// <summary>The Okta organization. This will be the first part of the url https://XXX.okta.com. Use org_name instead.</summary>
     [JsonPropertyName("organization")]
     public string? Organization { get; set; }
 
@@ -161,7 +249,7 @@ public partial class V1alpha1AuthBackendSpecForProvider
     [JsonPropertyName("tokenPolicies")]
     public IList<string>? TokenPolicies { get; set; }
 
-    /// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+    /// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled. Use api_token instead.</summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1AuthBackendSpecForProviderTokenSecretRef? TokenSecretRef { get; set; }
 
@@ -173,8 +261,47 @@ public partial class V1alpha1AuthBackendSpecForProvider
     [JsonPropertyName("tokenType")]
     public string? TokenType { get; set; }
 
+    [JsonPropertyName("tune")]
+    public IList<V1alpha1AuthBackendSpecForProviderTune>? Tune { get; set; }
+
     [JsonPropertyName("user")]
     public IList<V1alpha1AuthBackendSpecForProviderUser>? User { get; set; }
+}
+
+/// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecInitProviderApiTokenSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>Write-only Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecInitProviderApiTokenWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -188,7 +315,7 @@ public partial class V1alpha1AuthBackendSpecInitProviderGroup
     public IList<string>? Policies { get; set; }
 }
 
-/// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+/// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled. Use api_token instead.</summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecInitProviderTokenSecretRef
@@ -204,6 +331,35 @@ public partial class V1alpha1AuthBackendSpecInitProviderTokenSecretRef
     /// <summary>Namespace of the secret.</summary>
     [JsonPropertyName("namespace")]
     public required string Namespace { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecInitProviderTune
+{
+    [JsonPropertyName("allowedResponseHeaders")]
+    public IList<string>? AllowedResponseHeaders { get; set; }
+
+    [JsonPropertyName("auditNonHmacRequestKeys")]
+    public IList<string>? AuditNonHmacRequestKeys { get; set; }
+
+    [JsonPropertyName("auditNonHmacResponseKeys")]
+    public IList<string>? AuditNonHmacResponseKeys { get; set; }
+
+    [JsonPropertyName("defaultLeaseTtl")]
+    public string? DefaultLeaseTtl { get; set; }
+
+    [JsonPropertyName("listingVisibility")]
+    public string? ListingVisibility { get; set; }
+
+    [JsonPropertyName("maxLeaseTtl")]
+    public string? MaxLeaseTtl { get; set; }
+
+    [JsonPropertyName("passthroughRequestHeaders")]
+    public IList<string>? PassthroughRequestHeaders { get; set; }
+
+    [JsonPropertyName("tokenType")]
+    public string? TokenType { get; set; }
 }
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -236,6 +392,25 @@ public partial class V1alpha1AuthBackendSpecInitProviderUser
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecInitProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+    [JsonPropertyName("apiTokenSecretRef")]
+    public V1alpha1AuthBackendSpecInitProviderApiTokenSecretRef? ApiTokenSecretRef { get; set; }
+
+    /// <summary>Write-only Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+    [JsonPropertyName("apiTokenWoSecretRef")]
+    public V1alpha1AuthBackendSpecInitProviderApiTokenWoSecretRef? ApiTokenWoSecretRef { get; set; }
+
+    /// <summary>Version counter for write-only api_token.</summary>
+    [JsonPropertyName("apiTokenWoVersion")]
+    public double? ApiTokenWoVersion { get; set; }
+
     /// <summary>The Okta url. Examples: oktapreview.com, okta.com (default)</summary>
     [JsonPropertyName("baseUrl")]
     public string? BaseUrl { get; set; }
@@ -260,6 +435,10 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     public string? Namespace { get; set; }
 
     /// <summary>The Okta organization. This will be the first part of the url https://XXX.okta.com.</summary>
+    [JsonPropertyName("orgName")]
+    public string? OrgName { get; set; }
+
+    /// <summary>The Okta organization. This will be the first part of the url https://XXX.okta.com. Use org_name instead.</summary>
     [JsonPropertyName("organization")]
     public string? Organization { get; set; }
 
@@ -295,7 +474,7 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     [JsonPropertyName("tokenPolicies")]
     public IList<string>? TokenPolicies { get; set; }
 
-    /// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled.</summary>
+    /// <summary>The Okta API token. This is required to query Okta for user group membership. If this is not supplied only locally configured groups will be enabled. Use api_token instead.</summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1AuthBackendSpecInitProviderTokenSecretRef? TokenSecretRef { get; set; }
 
@@ -306,6 +485,9 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     /// <summary>The type of token to generate, service or batch</summary>
     [JsonPropertyName("tokenType")]
     public string? TokenType { get; set; }
+
+    [JsonPropertyName("tune")]
+    public IList<V1alpha1AuthBackendSpecInitProviderTune>? Tune { get; set; }
 
     [JsonPropertyName("user")]
     public IList<V1alpha1AuthBackendSpecInitProviderUser>? User { get; set; }
@@ -507,6 +689,35 @@ public partial class V1alpha1AuthBackendStatusAtProviderGroup
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendStatusAtProviderTune
+{
+    [JsonPropertyName("allowedResponseHeaders")]
+    public IList<string>? AllowedResponseHeaders { get; set; }
+
+    [JsonPropertyName("auditNonHmacRequestKeys")]
+    public IList<string>? AuditNonHmacRequestKeys { get; set; }
+
+    [JsonPropertyName("auditNonHmacResponseKeys")]
+    public IList<string>? AuditNonHmacResponseKeys { get; set; }
+
+    [JsonPropertyName("defaultLeaseTtl")]
+    public string? DefaultLeaseTtl { get; set; }
+
+    [JsonPropertyName("listingVisibility")]
+    public string? ListingVisibility { get; set; }
+
+    [JsonPropertyName("maxLeaseTtl")]
+    public string? MaxLeaseTtl { get; set; }
+
+    [JsonPropertyName("passthroughRequestHeaders")]
+    public IList<string>? PassthroughRequestHeaders { get; set; }
+
+    [JsonPropertyName("tokenType")]
+    public string? TokenType { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendStatusAtProviderUser
 {
     [JsonPropertyName("groups")]
@@ -526,6 +737,17 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     /// <summary>The mount accessor related to the auth mount.</summary>
     [JsonPropertyName("accessor")]
     public string? Accessor { get; set; }
+
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>Version counter for write-only api_token.</summary>
+    [JsonPropertyName("apiTokenWoVersion")]
+    public double? ApiTokenWoVersion { get; set; }
 
     /// <summary>The Okta url. Examples: oktapreview.com, okta.com (default)</summary>
     [JsonPropertyName("baseUrl")]
@@ -554,6 +776,10 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     public string? Namespace { get; set; }
 
     /// <summary>The Okta organization. This will be the first part of the url https://XXX.okta.com.</summary>
+    [JsonPropertyName("orgName")]
+    public string? OrgName { get; set; }
+
+    /// <summary>The Okta organization. This will be the first part of the url https://XXX.okta.com. Use org_name instead.</summary>
     [JsonPropertyName("organization")]
     public string? Organization { get; set; }
 
@@ -596,6 +822,9 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     /// <summary>The type of token to generate, service or batch</summary>
     [JsonPropertyName("tokenType")]
     public string? TokenType { get; set; }
+
+    [JsonPropertyName("tune")]
+    public IList<V1alpha1AuthBackendStatusAtProviderTune>? Tune { get; set; }
 
     [JsonPropertyName("user")]
     public IList<V1alpha1AuthBackendStatusAtProviderUser>? User { get; set; }

@@ -71,6 +71,13 @@ public partial class V1alpha1TotpSpecForProvider
     public double? KeySize { get; set; }
 
     /// <summary>
+    /// The maximum number of consecutive failed validation attempts allowed. Must be a positive integer. Vault defaults this value to 5 if not provided or if set to 0.
+    /// The maximum number of consecutive failed validation attempts allowed. Must be a positive integer. Vault defaults this value to 5 if not provided or if set to 0.
+    /// </summary>
+    [JsonPropertyName("maxValidationAttempts")]
+    public double? MaxValidationAttempts { get; set; }
+
+    /// <summary>
     /// (string: &lt;required&gt;) – Name of the MFA method.
     /// Name of the MFA method.
     /// </summary>
@@ -155,6 +162,13 @@ public partial class V1alpha1TotpSpecInitProvider
     /// </summary>
     [JsonPropertyName("keySize")]
     public double? KeySize { get; set; }
+
+    /// <summary>
+    /// The maximum number of consecutive failed validation attempts allowed. Must be a positive integer. Vault defaults this value to 5 if not provided or if set to 0.
+    /// The maximum number of consecutive failed validation attempts allowed. Must be a positive integer. Vault defaults this value to 5 if not provided or if set to 0.
+    /// </summary>
+    [JsonPropertyName("maxValidationAttempts")]
+    public double? MaxValidationAttempts { get; set; }
 
     /// <summary>
     /// (string: &lt;required&gt;) – Name of the MFA method.
@@ -339,6 +353,13 @@ public partial class V1alpha1TotpStatusAtProvider
     /// </summary>
     [JsonPropertyName("keySize")]
     public double? KeySize { get; set; }
+
+    /// <summary>
+    /// The maximum number of consecutive failed validation attempts allowed. Must be a positive integer. Vault defaults this value to 5 if not provided or if set to 0.
+    /// The maximum number of consecutive failed validation attempts allowed. Must be a positive integer. Vault defaults this value to 5 if not provided or if set to 0.
+    /// </summary>
+    [JsonPropertyName("maxValidationAttempts")]
+    public double? MaxValidationAttempts { get; set; }
 
     /// <summary>
     /// (string: &lt;required&gt;) – Name of the MFA method.

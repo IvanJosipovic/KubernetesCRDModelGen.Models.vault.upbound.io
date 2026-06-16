@@ -475,6 +475,13 @@ public partial class V1alpha1SecretBackendCertSpecForProvider
     public string? PrivateKeyFormat { get; set; }
 
     /// <summary>
+    /// If set to true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store. Default false.
+    /// If true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store.
+    /// </summary>
+    [JsonPropertyName("removeRootsFromChain")]
+    public bool? RemoveRootsFromChain { get; set; }
+
+    /// <summary>
     /// If set to true, the certificate will be revoked on resource destruction using the revoke PKI API. Conflicts with revoke_with_key. Default false.
     /// Revoke the certificate upon resource destruction.
     /// </summary>
@@ -942,6 +949,13 @@ public partial class V1alpha1SecretBackendCertSpecInitProvider
     public string? PrivateKeyFormat { get; set; }
 
     /// <summary>
+    /// If set to true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store. Default false.
+    /// If true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store.
+    /// </summary>
+    [JsonPropertyName("removeRootsFromChain")]
+    public bool? RemoveRootsFromChain { get; set; }
+
+    /// <summary>
     /// If set to true, the certificate will be revoked on resource destruction using the revoke PKI API. Conflicts with revoke_with_key. Default false.
     /// Revoke the certificate upon resource destruction.
     /// </summary>
@@ -1306,6 +1320,13 @@ public partial class V1alpha1SecretBackendCertStatusAtProvider
     /// </summary>
     [JsonPropertyName("privateKeyType")]
     public string? PrivateKeyType { get; set; }
+
+    /// <summary>
+    /// If set to true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store. Default false.
+    /// If true, the returned ca_chain field will not include any self-signed CA certificates. Useful if end-users already have the root CA in their trust store.
+    /// </summary>
+    [JsonPropertyName("removeRootsFromChain")]
+    public bool? RemoveRootsFromChain { get; set; }
 
     /// <summary>
     /// true if the current time (during refresh) is after the start of the early renewal window declared by min_seconds_remaining, and false otherwise; if auto_renew is set to true then the provider will plan to replace the certificate once renewal is pending.

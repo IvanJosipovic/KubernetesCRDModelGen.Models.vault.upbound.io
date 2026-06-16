@@ -350,7 +350,8 @@ public partial class V1alpha1SecretBackendStaticRoleSpecForProviderDbNameSelecto
 /// The password corresponding to the username in the database.
 /// Required when using the Rootless Password Rotation workflow for static roles. Only enabled for
 /// select DB engines (Postgres). Requires Vault 1.18+ Enterprise.
-/// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles.
+/// Deprecated: Use password_wo instead. This field will be removed in a future version.
+/// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles. Deprecated in favor of password_wo field introduced in Vault 1.19.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -424,6 +425,24 @@ public partial class V1alpha1SecretBackendStaticRoleSpecForProvider
     public string? Namespace { get; set; }
 
     /// <summary>
+    /// The password corresponding to the username in the database.
+    /// This is a write-only field. Requires Vault 1.19+. Deprecates self_managed_password which was introduced in Vault 1.18.
+    /// Cannot be used with self_managed_password.
+    /// The password corresponding to the username in the database. This is a write-only field. Requires Vault 1.19+. Deprecates &apos;self_managed_password&apos; which was introduced in Vault 1.18.
+    /// </summary>
+    [JsonPropertyName("passwordWo")]
+    public string? PasswordWo { get; set; }
+
+    /// <summary>
+    /// The version of the password_wo field.
+    /// Used for tracking changes to the write-only password field. For more info see
+    /// updating write-only attributes.
+    /// The version of the password_wo field. Used for tracking changes to the write-only password field.
+    /// </summary>
+    [JsonPropertyName("passwordWoVersion")]
+    public double? PasswordWoVersion { get; set; }
+
+    /// <summary>
     /// The amount of time Vault should wait before rotating the password, in seconds.
     /// Mutually exclusive with rotation_schedule.
     /// The amount of time Vault should wait before rotating the password, in seconds.
@@ -458,7 +477,8 @@ public partial class V1alpha1SecretBackendStaticRoleSpecForProvider
     /// The password corresponding to the username in the database.
     /// Required when using the Rootless Password Rotation workflow for static roles. Only enabled for
     /// select DB engines (Postgres). Requires Vault 1.18+ Enterprise.
-    /// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles.
+    /// Deprecated: Use password_wo instead. This field will be removed in a future version.
+    /// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles. Deprecated in favor of password_wo field introduced in Vault 1.19.
     /// </summary>
     [JsonPropertyName("selfManagedPasswordSecretRef")]
     public V1alpha1SecretBackendStaticRoleSpecForProviderSelfManagedPasswordSecretRef? SelfManagedPasswordSecretRef { get; set; }
@@ -466,7 +486,7 @@ public partial class V1alpha1SecretBackendStaticRoleSpecForProvider
     /// <summary>
     /// If set to true, Vault will skip the
     /// initial secret rotation on import. Requires Vault 1.18+ Enterprise.
-    /// Skip rotation of the password on import.
+    /// Skip rotation of the password on import. When not set, inherits from connection&apos;s skip_static_role_import_rotation.
     /// </summary>
     [JsonPropertyName("skipImportRotation")]
     public bool? SkipImportRotation { get; set; }
@@ -793,7 +813,8 @@ public partial class V1alpha1SecretBackendStaticRoleSpecInitProviderDbNameSelect
 /// The password corresponding to the username in the database.
 /// Required when using the Rootless Password Rotation workflow for static roles. Only enabled for
 /// select DB engines (Postgres). Requires Vault 1.18+ Enterprise.
-/// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles.
+/// Deprecated: Use password_wo instead. This field will be removed in a future version.
+/// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles. Deprecated in favor of password_wo field introduced in Vault 1.19.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -879,6 +900,24 @@ public partial class V1alpha1SecretBackendStaticRoleSpecInitProvider
     public string? Namespace { get; set; }
 
     /// <summary>
+    /// The password corresponding to the username in the database.
+    /// This is a write-only field. Requires Vault 1.19+. Deprecates self_managed_password which was introduced in Vault 1.18.
+    /// Cannot be used with self_managed_password.
+    /// The password corresponding to the username in the database. This is a write-only field. Requires Vault 1.19+. Deprecates &apos;self_managed_password&apos; which was introduced in Vault 1.18.
+    /// </summary>
+    [JsonPropertyName("passwordWo")]
+    public string? PasswordWo { get; set; }
+
+    /// <summary>
+    /// The version of the password_wo field.
+    /// Used for tracking changes to the write-only password field. For more info see
+    /// updating write-only attributes.
+    /// The version of the password_wo field. Used for tracking changes to the write-only password field.
+    /// </summary>
+    [JsonPropertyName("passwordWoVersion")]
+    public double? PasswordWoVersion { get; set; }
+
+    /// <summary>
     /// The amount of time Vault should wait before rotating the password, in seconds.
     /// Mutually exclusive with rotation_schedule.
     /// The amount of time Vault should wait before rotating the password, in seconds.
@@ -913,7 +952,8 @@ public partial class V1alpha1SecretBackendStaticRoleSpecInitProvider
     /// The password corresponding to the username in the database.
     /// Required when using the Rootless Password Rotation workflow for static roles. Only enabled for
     /// select DB engines (Postgres). Requires Vault 1.18+ Enterprise.
-    /// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles.
+    /// Deprecated: Use password_wo instead. This field will be removed in a future version.
+    /// The password corresponding to the username in the database. Required when using the Rootless Password Rotation workflow for static roles. Deprecated in favor of password_wo field introduced in Vault 1.19.
     /// </summary>
     [JsonPropertyName("selfManagedPasswordSecretRef")]
     public V1alpha1SecretBackendStaticRoleSpecInitProviderSelfManagedPasswordSecretRef? SelfManagedPasswordSecretRef { get; set; }
@@ -921,7 +961,7 @@ public partial class V1alpha1SecretBackendStaticRoleSpecInitProvider
     /// <summary>
     /// If set to true, Vault will skip the
     /// initial secret rotation on import. Requires Vault 1.18+ Enterprise.
-    /// Skip rotation of the password on import.
+    /// Skip rotation of the password on import. When not set, inherits from connection&apos;s skip_static_role_import_rotation.
     /// </summary>
     [JsonPropertyName("skipImportRotation")]
     public bool? SkipImportRotation { get; set; }
@@ -1088,6 +1128,24 @@ public partial class V1alpha1SecretBackendStaticRoleStatusAtProvider
     public string? Namespace { get; set; }
 
     /// <summary>
+    /// The password corresponding to the username in the database.
+    /// This is a write-only field. Requires Vault 1.19+. Deprecates self_managed_password which was introduced in Vault 1.18.
+    /// Cannot be used with self_managed_password.
+    /// The password corresponding to the username in the database. This is a write-only field. Requires Vault 1.19+. Deprecates &apos;self_managed_password&apos; which was introduced in Vault 1.18.
+    /// </summary>
+    [JsonPropertyName("passwordWo")]
+    public string? PasswordWo { get; set; }
+
+    /// <summary>
+    /// The version of the password_wo field.
+    /// Used for tracking changes to the write-only password field. For more info see
+    /// updating write-only attributes.
+    /// The version of the password_wo field. Used for tracking changes to the write-only password field.
+    /// </summary>
+    [JsonPropertyName("passwordWoVersion")]
+    public double? PasswordWoVersion { get; set; }
+
+    /// <summary>
     /// The amount of time Vault should wait before rotating the password, in seconds.
     /// Mutually exclusive with rotation_schedule.
     /// The amount of time Vault should wait before rotating the password, in seconds.
@@ -1121,7 +1179,7 @@ public partial class V1alpha1SecretBackendStaticRoleStatusAtProvider
     /// <summary>
     /// If set to true, Vault will skip the
     /// initial secret rotation on import. Requires Vault 1.18+ Enterprise.
-    /// Skip rotation of the password on import.
+    /// Skip rotation of the password on import. When not set, inherits from connection&apos;s skip_static_role_import_rotation.
     /// </summary>
     [JsonPropertyName("skipImportRotation")]
     public bool? SkipImportRotation { get; set; }

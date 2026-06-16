@@ -73,6 +73,24 @@ public partial class V1alpha1AuthBackendSpecForProviderBindpassSecretRef
     public required string Namespace { get; set; }
 }
 
+/// <summary>Write-only bind password to use for LDAP authentication.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecForProviderBindpassWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
 /// <summary>A SecretKeySelector is a reference to a secret key in an arbitrary namespace.</summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -93,14 +111,62 @@ public partial class V1alpha1AuthBackendSpecForProviderClientTlsKeySecretRef
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecForProviderTune
+{
+    [JsonPropertyName("allowedResponseHeaders")]
+    public IList<string>? AllowedResponseHeaders { get; set; }
+
+    [JsonPropertyName("auditNonHmacRequestKeys")]
+    public IList<string>? AuditNonHmacRequestKeys { get; set; }
+
+    [JsonPropertyName("auditNonHmacResponseKeys")]
+    public IList<string>? AuditNonHmacResponseKeys { get; set; }
+
+    [JsonPropertyName("defaultLeaseTtl")]
+    public string? DefaultLeaseTtl { get; set; }
+
+    [JsonPropertyName("listingVisibility")]
+    public string? ListingVisibility { get; set; }
+
+    [JsonPropertyName("maxLeaseTtl")]
+    public string? MaxLeaseTtl { get; set; }
+
+    [JsonPropertyName("passthroughRequestHeaders")]
+    public IList<string>? PassthroughRequestHeaders { get; set; }
+
+    [JsonPropertyName("tokenType")]
+    public string? TokenType { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecForProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>Allows anonymous group searches.</summary>
+    [JsonPropertyName("anonymousGroupSearch")]
+    public bool? AnonymousGroupSearch { get; set; }
+
     [JsonPropertyName("binddn")]
     public string? Binddn { get; set; }
 
     /// <summary>A SecretKeySelector is a reference to a secret key in an arbitrary namespace.</summary>
     [JsonPropertyName("bindpassSecretRef")]
     public V1alpha1AuthBackendSpecForProviderBindpassSecretRef? BindpassSecretRef { get; set; }
+
+    /// <summary>Write-only bind password to use for LDAP authentication.</summary>
+    [JsonPropertyName("bindpassWoSecretRef")]
+    public V1alpha1AuthBackendSpecForProviderBindpassWoSecretRef? BindpassWoSecretRef { get; set; }
+
+    /// <summary>Version counter for write-only bind password.</summary>
+    [JsonPropertyName("bindpassWoVersion")]
+    public double? BindpassWoVersion { get; set; }
 
     [JsonPropertyName("caseSensitiveNames")]
     public bool? CaseSensitiveNames { get; set; }
@@ -121,6 +187,10 @@ public partial class V1alpha1AuthBackendSpecForProvider
     [JsonPropertyName("denyNullBind")]
     public bool? DenyNullBind { get; set; }
 
+    /// <summary>Specifies how aliases are dereferenced during LDAP searches. Valid values are &apos;never&apos;,&apos;searching&apos;,&apos;finding&apos;, and &apos;always&apos;.</summary>
+    [JsonPropertyName("dereferenceAliases")]
+    public string? DereferenceAliases { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
@@ -134,6 +204,10 @@ public partial class V1alpha1AuthBackendSpecForProvider
 
     [JsonPropertyName("discoverdn")]
     public bool? Discoverdn { get; set; }
+
+    /// <summary>Enables login using the sAMAccountName attribute.</summary>
+    [JsonPropertyName("enableSamaccountnameLogin")]
+    public bool? EnableSamaccountnameLogin { get; set; }
 
     [JsonPropertyName("groupattr")]
     public string? Groupattr { get; set; }
@@ -160,6 +234,10 @@ public partial class V1alpha1AuthBackendSpecForProvider
 
     [JsonPropertyName("path")]
     public string? Path { get; set; }
+
+    /// <summary>The timeout(in sec) for requests to the LDAP server.</summary>
+    [JsonPropertyName("requestTimeout")]
+    public double? RequestTimeout { get; set; }
 
     /// <summary>The period of time in seconds between each rotation of the root credential. Cannot be used with rotation_schedule.</summary>
     [JsonPropertyName("rotationPeriod")]
@@ -217,6 +295,9 @@ public partial class V1alpha1AuthBackendSpecForProvider
     /// <summary>The type of token to generate, service or batch</summary>
     [JsonPropertyName("tokenType")]
     public string? TokenType { get; set; }
+
+    [JsonPropertyName("tune")]
+    public IList<V1alpha1AuthBackendSpecForProviderTune>? Tune { get; set; }
 
     [JsonPropertyName("upndomain")]
     public string? Upndomain { get; set; }
@@ -259,6 +340,24 @@ public partial class V1alpha1AuthBackendSpecInitProviderBindpassSecretRef
     public required string Namespace { get; set; }
 }
 
+/// <summary>Write-only bind password to use for LDAP authentication.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecInitProviderBindpassWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
 /// <summary>A SecretKeySelector is a reference to a secret key in an arbitrary namespace.</summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -277,6 +376,35 @@ public partial class V1alpha1AuthBackendSpecInitProviderClientTlsKeySecretRef
     public required string Namespace { get; set; }
 }
 
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecInitProviderTune
+{
+    [JsonPropertyName("allowedResponseHeaders")]
+    public IList<string>? AllowedResponseHeaders { get; set; }
+
+    [JsonPropertyName("auditNonHmacRequestKeys")]
+    public IList<string>? AuditNonHmacRequestKeys { get; set; }
+
+    [JsonPropertyName("auditNonHmacResponseKeys")]
+    public IList<string>? AuditNonHmacResponseKeys { get; set; }
+
+    [JsonPropertyName("defaultLeaseTtl")]
+    public string? DefaultLeaseTtl { get; set; }
+
+    [JsonPropertyName("listingVisibility")]
+    public string? ListingVisibility { get; set; }
+
+    [JsonPropertyName("maxLeaseTtl")]
+    public string? MaxLeaseTtl { get; set; }
+
+    [JsonPropertyName("passthroughRequestHeaders")]
+    public IList<string>? PassthroughRequestHeaders { get; set; }
+
+    [JsonPropertyName("tokenType")]
+    public string? TokenType { get; set; }
+}
+
 /// <summary>
 /// THIS IS A BETA FIELD. It will be honored
 /// unless the Management Policies feature flag is disabled.
@@ -293,12 +421,31 @@ public partial class V1alpha1AuthBackendSpecInitProviderClientTlsKeySecretRef
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecInitProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>Allows anonymous group searches.</summary>
+    [JsonPropertyName("anonymousGroupSearch")]
+    public bool? AnonymousGroupSearch { get; set; }
+
     [JsonPropertyName("binddn")]
     public string? Binddn { get; set; }
 
     /// <summary>A SecretKeySelector is a reference to a secret key in an arbitrary namespace.</summary>
     [JsonPropertyName("bindpassSecretRef")]
     public V1alpha1AuthBackendSpecInitProviderBindpassSecretRef? BindpassSecretRef { get; set; }
+
+    /// <summary>Write-only bind password to use for LDAP authentication.</summary>
+    [JsonPropertyName("bindpassWoSecretRef")]
+    public V1alpha1AuthBackendSpecInitProviderBindpassWoSecretRef? BindpassWoSecretRef { get; set; }
+
+    /// <summary>Version counter for write-only bind password.</summary>
+    [JsonPropertyName("bindpassWoVersion")]
+    public double? BindpassWoVersion { get; set; }
 
     [JsonPropertyName("caseSensitiveNames")]
     public bool? CaseSensitiveNames { get; set; }
@@ -319,6 +466,10 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     [JsonPropertyName("denyNullBind")]
     public bool? DenyNullBind { get; set; }
 
+    /// <summary>Specifies how aliases are dereferenced during LDAP searches. Valid values are &apos;never&apos;,&apos;searching&apos;,&apos;finding&apos;, and &apos;always&apos;.</summary>
+    [JsonPropertyName("dereferenceAliases")]
+    public string? DereferenceAliases { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
@@ -332,6 +483,10 @@ public partial class V1alpha1AuthBackendSpecInitProvider
 
     [JsonPropertyName("discoverdn")]
     public bool? Discoverdn { get; set; }
+
+    /// <summary>Enables login using the sAMAccountName attribute.</summary>
+    [JsonPropertyName("enableSamaccountnameLogin")]
+    public bool? EnableSamaccountnameLogin { get; set; }
 
     [JsonPropertyName("groupattr")]
     public string? Groupattr { get; set; }
@@ -358,6 +513,10 @@ public partial class V1alpha1AuthBackendSpecInitProvider
 
     [JsonPropertyName("path")]
     public string? Path { get; set; }
+
+    /// <summary>The timeout(in sec) for requests to the LDAP server.</summary>
+    [JsonPropertyName("requestTimeout")]
+    public double? RequestTimeout { get; set; }
 
     /// <summary>The period of time in seconds between each rotation of the root credential. Cannot be used with rotation_schedule.</summary>
     [JsonPropertyName("rotationPeriod")]
@@ -415,6 +574,9 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     /// <summary>The type of token to generate, service or batch</summary>
     [JsonPropertyName("tokenType")]
     public string? TokenType { get; set; }
+
+    [JsonPropertyName("tune")]
+    public IList<V1alpha1AuthBackendSpecInitProviderTune>? Tune { get; set; }
 
     [JsonPropertyName("upndomain")]
     public string? Upndomain { get; set; }
@@ -624,14 +786,58 @@ public partial class V1alpha1AuthBackendSpec
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendStatusAtProviderTune
+{
+    [JsonPropertyName("allowedResponseHeaders")]
+    public IList<string>? AllowedResponseHeaders { get; set; }
+
+    [JsonPropertyName("auditNonHmacRequestKeys")]
+    public IList<string>? AuditNonHmacRequestKeys { get; set; }
+
+    [JsonPropertyName("auditNonHmacResponseKeys")]
+    public IList<string>? AuditNonHmacResponseKeys { get; set; }
+
+    [JsonPropertyName("defaultLeaseTtl")]
+    public string? DefaultLeaseTtl { get; set; }
+
+    [JsonPropertyName("listingVisibility")]
+    public string? ListingVisibility { get; set; }
+
+    [JsonPropertyName("maxLeaseTtl")]
+    public string? MaxLeaseTtl { get; set; }
+
+    [JsonPropertyName("passthroughRequestHeaders")]
+    public IList<string>? PassthroughRequestHeaders { get; set; }
+
+    [JsonPropertyName("tokenType")]
+    public string? TokenType { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendStatusAtProvider
 {
     /// <summary>The accessor of the LDAP auth backend</summary>
     [JsonPropertyName("accessor")]
     public string? Accessor { get; set; }
 
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>Allows anonymous group searches.</summary>
+    [JsonPropertyName("anonymousGroupSearch")]
+    public bool? AnonymousGroupSearch { get; set; }
+
     [JsonPropertyName("binddn")]
     public string? Binddn { get; set; }
+
+    /// <summary>Version counter for write-only bind password.</summary>
+    [JsonPropertyName("bindpassWoVersion")]
+    public double? BindpassWoVersion { get; set; }
 
     [JsonPropertyName("caseSensitiveNames")]
     public bool? CaseSensitiveNames { get; set; }
@@ -648,6 +854,10 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     [JsonPropertyName("denyNullBind")]
     public bool? DenyNullBind { get; set; }
 
+    /// <summary>Specifies how aliases are dereferenced during LDAP searches. Valid values are &apos;never&apos;,&apos;searching&apos;,&apos;finding&apos;, and &apos;always&apos;.</summary>
+    [JsonPropertyName("dereferenceAliases")]
+    public string? DereferenceAliases { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
@@ -661,6 +871,10 @@ public partial class V1alpha1AuthBackendStatusAtProvider
 
     [JsonPropertyName("discoverdn")]
     public bool? Discoverdn { get; set; }
+
+    /// <summary>Enables login using the sAMAccountName attribute.</summary>
+    [JsonPropertyName("enableSamaccountnameLogin")]
+    public bool? EnableSamaccountnameLogin { get; set; }
 
     [JsonPropertyName("groupattr")]
     public string? Groupattr { get; set; }
@@ -690,6 +904,10 @@ public partial class V1alpha1AuthBackendStatusAtProvider
 
     [JsonPropertyName("path")]
     public string? Path { get; set; }
+
+    /// <summary>The timeout(in sec) for requests to the LDAP server.</summary>
+    [JsonPropertyName("requestTimeout")]
+    public double? RequestTimeout { get; set; }
 
     /// <summary>The period of time in seconds between each rotation of the root credential. Cannot be used with rotation_schedule.</summary>
     [JsonPropertyName("rotationPeriod")]
@@ -747,6 +965,9 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     /// <summary>The type of token to generate, service or batch</summary>
     [JsonPropertyName("tokenType")]
     public string? TokenType { get; set; }
+
+    [JsonPropertyName("tune")]
+    public IList<V1alpha1AuthBackendStatusAtProviderTune>? Tune { get; set; }
 
     [JsonPropertyName("upndomain")]
     public string? Upndomain { get; set; }

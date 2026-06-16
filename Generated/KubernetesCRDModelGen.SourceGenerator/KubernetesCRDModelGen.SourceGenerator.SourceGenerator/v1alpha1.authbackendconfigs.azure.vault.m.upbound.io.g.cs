@@ -210,12 +210,31 @@ public partial class V1alpha1AuthBackendConfigSpecForProviderClientIdSecretRef
 
 /// <summary>
 /// The client secret for credentials to query the
-/// Azure APIs.
-/// The client secret for credentials to query the Azure APIs
+/// Azure APIs. Mutually exclusive with client_secret_wo. Consider using client_secret_wo instead for enhanced security.
+/// The client secret for credentials to query the Azure APIs. Mutually exclusive with &apos;client_secret_wo&apos;.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendConfigSpecForProviderClientSecretSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// The client secret for credentials to query the Azure APIs,
+/// provided as a write-only field.
+/// Mutually exclusive with client_secret. Must be used with client_secret_wo_version.
+/// To rotate the secret, update the value and increment client_secret_wo_version.
+/// The client secret for credentials to query the Azure APIs. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_secret&apos;. Requires &apos;client_secret_wo_version&apos; to trigger updates.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendConfigSpecForProviderClientSecretWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -272,11 +291,30 @@ public partial class V1alpha1AuthBackendConfigSpecForProvider
 
     /// <summary>
     /// The client secret for credentials to query the
-    /// Azure APIs.
-    /// The client secret for credentials to query the Azure APIs
+    /// Azure APIs. Mutually exclusive with client_secret_wo. Consider using client_secret_wo instead for enhanced security.
+    /// The client secret for credentials to query the Azure APIs. Mutually exclusive with &apos;client_secret_wo&apos;.
     /// </summary>
     [JsonPropertyName("clientSecretSecretRef")]
     public V1alpha1AuthBackendConfigSpecForProviderClientSecretSecretRef? ClientSecretSecretRef { get; set; }
+
+    /// <summary>
+    /// The client secret for credentials to query the Azure APIs,
+    /// provided as a write-only field.
+    /// Mutually exclusive with client_secret. Must be used with client_secret_wo_version.
+    /// To rotate the secret, update the value and increment client_secret_wo_version.
+    /// The client secret for credentials to query the Azure APIs. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_secret&apos;. Requires &apos;client_secret_wo_version&apos; to trigger updates.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoSecretRef")]
+    public V1alpha1AuthBackendConfigSpecForProviderClientSecretWoSecretRef? ClientSecretWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only client secret.
+    /// Increment this value to trigger an update of the client secret in Vault.
+    /// Required when using client_secret_wo.
+    /// Version counter for the write-only client secret. Increment this value to trigger rotation of the client secret. Required when using &apos;client_secret_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoVersion")]
+    public double? ClientSecretWoVersion { get; set; }
 
     /// <summary>
     /// Cancels all upcoming rotations of the root credential until unset. Requires Vault Enterprise 1.19+.
@@ -313,6 +351,22 @@ public partial class V1alpha1AuthBackendConfigSpecForProvider
     public double? IdentityTokenTtl { get; set; }
 
     /// <summary>
+    /// Maximum number of retries for Azure API requests.
+    /// Defaults to 3.
+    /// Maximum number of retries for Azure API requests. Defaults to 3.
+    /// </summary>
+    [JsonPropertyName("maxRetries")]
+    public double? MaxRetries { get; set; }
+
+    /// <summary>
+    /// The maximum delay in seconds between retries for Azure API requests.
+    /// Defaults to 60.
+    /// The maximum delay in seconds between retries for Azure API requests. Defaults to 60.
+    /// </summary>
+    [JsonPropertyName("maxRetryDelay")]
+    public double? MaxRetryDelay { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -329,6 +383,14 @@ public partial class V1alpha1AuthBackendConfigSpecForProvider
     /// </summary>
     [JsonPropertyName("resource")]
     public string? Resource { get; set; }
+
+    /// <summary>
+    /// The initial delay in seconds between retries for Azure API requests.
+    /// Defaults to 4.
+    /// The initial delay in seconds between retries for Azure API requests. Defaults to 4.
+    /// </summary>
+    [JsonPropertyName("retryDelay")]
+    public double? RetryDelay { get; set; }
 
     /// <summary>
     /// The amount of time in seconds Vault should wait before rotating the root credential.
@@ -541,12 +603,31 @@ public partial class V1alpha1AuthBackendConfigSpecInitProviderClientIdSecretRef
 
 /// <summary>
 /// The client secret for credentials to query the
-/// Azure APIs.
-/// The client secret for credentials to query the Azure APIs
+/// Azure APIs. Mutually exclusive with client_secret_wo. Consider using client_secret_wo instead for enhanced security.
+/// The client secret for credentials to query the Azure APIs. Mutually exclusive with &apos;client_secret_wo&apos;.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendConfigSpecInitProviderClientSecretSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// The client secret for credentials to query the Azure APIs,
+/// provided as a write-only field.
+/// Mutually exclusive with client_secret. Must be used with client_secret_wo_version.
+/// To rotate the secret, update the value and increment client_secret_wo_version.
+/// The client secret for credentials to query the Azure APIs. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_secret&apos;. Requires &apos;client_secret_wo_version&apos; to trigger updates.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendConfigSpecInitProviderClientSecretWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -615,11 +696,30 @@ public partial class V1alpha1AuthBackendConfigSpecInitProvider
 
     /// <summary>
     /// The client secret for credentials to query the
-    /// Azure APIs.
-    /// The client secret for credentials to query the Azure APIs
+    /// Azure APIs. Mutually exclusive with client_secret_wo. Consider using client_secret_wo instead for enhanced security.
+    /// The client secret for credentials to query the Azure APIs. Mutually exclusive with &apos;client_secret_wo&apos;.
     /// </summary>
     [JsonPropertyName("clientSecretSecretRef")]
     public V1alpha1AuthBackendConfigSpecInitProviderClientSecretSecretRef? ClientSecretSecretRef { get; set; }
+
+    /// <summary>
+    /// The client secret for credentials to query the Azure APIs,
+    /// provided as a write-only field.
+    /// Mutually exclusive with client_secret. Must be used with client_secret_wo_version.
+    /// To rotate the secret, update the value and increment client_secret_wo_version.
+    /// The client secret for credentials to query the Azure APIs. This field is write-only and will never be stored in state. Mutually exclusive with &apos;client_secret&apos;. Requires &apos;client_secret_wo_version&apos; to trigger updates.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoSecretRef")]
+    public V1alpha1AuthBackendConfigSpecInitProviderClientSecretWoSecretRef? ClientSecretWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only client secret.
+    /// Increment this value to trigger an update of the client secret in Vault.
+    /// Required when using client_secret_wo.
+    /// Version counter for the write-only client secret. Increment this value to trigger rotation of the client secret. Required when using &apos;client_secret_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoVersion")]
+    public double? ClientSecretWoVersion { get; set; }
 
     /// <summary>
     /// Cancels all upcoming rotations of the root credential until unset. Requires Vault Enterprise 1.19+.
@@ -656,6 +756,22 @@ public partial class V1alpha1AuthBackendConfigSpecInitProvider
     public double? IdentityTokenTtl { get; set; }
 
     /// <summary>
+    /// Maximum number of retries for Azure API requests.
+    /// Defaults to 3.
+    /// Maximum number of retries for Azure API requests. Defaults to 3.
+    /// </summary>
+    [JsonPropertyName("maxRetries")]
+    public double? MaxRetries { get; set; }
+
+    /// <summary>
+    /// The maximum delay in seconds between retries for Azure API requests.
+    /// Defaults to 60.
+    /// The maximum delay in seconds between retries for Azure API requests. Defaults to 60.
+    /// </summary>
+    [JsonPropertyName("maxRetryDelay")]
+    public double? MaxRetryDelay { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -672,6 +788,14 @@ public partial class V1alpha1AuthBackendConfigSpecInitProvider
     /// </summary>
     [JsonPropertyName("resource")]
     public string? Resource { get; set; }
+
+    /// <summary>
+    /// The initial delay in seconds between retries for Azure API requests.
+    /// Defaults to 4.
+    /// The initial delay in seconds between retries for Azure API requests. Defaults to 4.
+    /// </summary>
+    [JsonPropertyName("retryDelay")]
+    public double? RetryDelay { get; set; }
 
     /// <summary>
     /// The amount of time in seconds Vault should wait before rotating the root credential.
@@ -830,6 +954,15 @@ public partial class V1alpha1AuthBackendConfigStatusAtProvider
     public string? Backend { get; set; }
 
     /// <summary>
+    /// Version counter for the write-only client secret.
+    /// Increment this value to trigger an update of the client secret in Vault.
+    /// Required when using client_secret_wo.
+    /// Version counter for the write-only client secret. Increment this value to trigger rotation of the client secret. Required when using &apos;client_secret_wo&apos;.
+    /// </summary>
+    [JsonPropertyName("clientSecretWoVersion")]
+    public double? ClientSecretWoVersion { get; set; }
+
+    /// <summary>
     /// Cancels all upcoming rotations of the root credential until unset. Requires Vault Enterprise 1.19+.
     /// Available only for Vault Enterprise
     /// Stops rotation of the root credential until set to false.
@@ -867,6 +1000,22 @@ public partial class V1alpha1AuthBackendConfigStatusAtProvider
     public double? IdentityTokenTtl { get; set; }
 
     /// <summary>
+    /// Maximum number of retries for Azure API requests.
+    /// Defaults to 3.
+    /// Maximum number of retries for Azure API requests. Defaults to 3.
+    /// </summary>
+    [JsonPropertyName("maxRetries")]
+    public double? MaxRetries { get; set; }
+
+    /// <summary>
+    /// The maximum delay in seconds between retries for Azure API requests.
+    /// Defaults to 60.
+    /// The maximum delay in seconds between retries for Azure API requests. Defaults to 60.
+    /// </summary>
+    [JsonPropertyName("maxRetryDelay")]
+    public double? MaxRetryDelay { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -883,6 +1032,14 @@ public partial class V1alpha1AuthBackendConfigStatusAtProvider
     /// </summary>
     [JsonPropertyName("resource")]
     public string? Resource { get; set; }
+
+    /// <summary>
+    /// The initial delay in seconds between retries for Azure API requests.
+    /// Defaults to 4.
+    /// The initial delay in seconds between retries for Azure API requests. Defaults to 4.
+    /// </summary>
+    [JsonPropertyName("retryDelay")]
+    public double? RetryDelay { get; set; }
 
     /// <summary>
     /// The amount of time in seconds Vault should wait before rotating the root credential.
