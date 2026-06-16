@@ -244,6 +244,10 @@ public partial class V1beta1ClusterProviderConfigSpec
     [JsonPropertyName("max_retries_ccc")]
     public int? MaxRetriesCcc { get; set; }
 
+    /// <summary>Mount path of the auth method.</summary>
+    [JsonPropertyName("mountPath")]
+    public string? MountPath { get; set; }
+
     /// <summary>Set the namespace to use.</summary>
     [JsonPropertyName("namespace")]
     public string? Namespace { get; set; }
