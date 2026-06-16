@@ -251,6 +251,13 @@ public partial class V1alpha1SecretBackendSpecForProvider
     public double? MaxLeaseTtlSeconds { get; set; }
 
     /// <summary>
+    /// The maximum TTL for long-lived credentials (i.e. service account keys).
+    /// The maximum TTL for long-lived credentials (i.e. service account keys).
+    /// </summary>
+    [JsonPropertyName("maxTtl")]
+    public double? MaxTtl { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -332,6 +339,13 @@ public partial class V1alpha1SecretBackendSpecForProvider
     /// </summary>
     [JsonPropertyName("serviceAccountEmail")]
     public string? ServiceAccountEmail { get; set; }
+
+    /// <summary>
+    /// The default TTL for long-lived credentials (i.e. service account keys).
+    /// The default TTL for long-lived credentials (i.e. service account keys).
+    /// </summary>
+    [JsonPropertyName("ttl")]
+    public double? Ttl { get; set; }
 }
 
 /// <summary>
@@ -542,6 +556,13 @@ public partial class V1alpha1SecretBackendSpecInitProvider
     public double? MaxLeaseTtlSeconds { get; set; }
 
     /// <summary>
+    /// The maximum TTL for long-lived credentials (i.e. service account keys).
+    /// The maximum TTL for long-lived credentials (i.e. service account keys).
+    /// </summary>
+    [JsonPropertyName("maxTtl")]
+    public double? MaxTtl { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -623,6 +644,13 @@ public partial class V1alpha1SecretBackendSpecInitProvider
     /// </summary>
     [JsonPropertyName("serviceAccountEmail")]
     public string? ServiceAccountEmail { get; set; }
+
+    /// <summary>
+    /// The default TTL for long-lived credentials (i.e. service account keys).
+    /// The default TTL for long-lived credentials (i.e. service account keys).
+    /// </summary>
+    [JsonPropertyName("ttl")]
+    public double? Ttl { get; set; }
 }
 
 /// <summary>
@@ -956,6 +984,13 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     public double? MaxLeaseTtlSeconds { get; set; }
 
     /// <summary>
+    /// The maximum TTL for long-lived credentials (i.e. service account keys).
+    /// The maximum TTL for long-lived credentials (i.e. service account keys).
+    /// </summary>
+    [JsonPropertyName("maxTtl")]
+    public double? MaxTtl { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -1037,6 +1072,13 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("serviceAccountEmail")]
     public string? ServiceAccountEmail { get; set; }
+
+    /// <summary>
+    /// The default TTL for long-lived credentials (i.e. service account keys).
+    /// The default TTL for long-lived credentials (i.e. service account keys).
+    /// </summary>
+    [JsonPropertyName("ttl")]
+    public double? Ttl { get; set; }
 }
 
 /// <summary>A Condition that may apply to a resource.</summary>

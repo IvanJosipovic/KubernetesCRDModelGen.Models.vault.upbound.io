@@ -206,6 +206,15 @@ public partial class V1alpha1AuthBackendRoleSpecForProviderBackendSelector
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendRoleSpecForProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>Allowed the common names for authenticated client certificates</summary>
     [JsonPropertyName("allowedCommonNames")]
     public IList<string>? AllowedCommonNames { get; set; }
@@ -292,6 +301,15 @@ public partial class V1alpha1AuthBackendRoleSpecForProvider
     public bool? OcspFailOpen { get; set; }
 
     /// <summary>
+    /// The number of retries to attempt when
+    /// connecting to an OCSP server. Defaults to 4 retries.
+    /// Must be a non-negative value. Requires Vault version 1.16+.
+    /// The number of retries to attempt when connecting to an OCSP server. Defaults to 4 retries. Must be a non-negative value.
+    /// </summary>
+    [JsonPropertyName("ocspMaxRetries")]
+    public double? OcspMaxRetries { get; set; }
+
+    /// <summary>
     /// If set to true, rather than
     /// accepting the first successful OCSP response, query all servers and consider
     /// the certificate valid only if all servers agree.
@@ -310,6 +328,16 @@ public partial class V1alpha1AuthBackendRoleSpecForProvider
     /// </summary>
     [JsonPropertyName("ocspServersOverride")]
     public IList<string>? OcspServersOverride { get; set; }
+
+    /// <summary>
+    /// The maximum age in seconds of the
+    /// &apos;thisUpdate&apos; field in an OCSP response before it is considered too old.
+    /// Defaults to 0 (disabled). Must be a non-negative value.
+    /// Requires Vault version 1.16+.
+    /// The maximum age in seconds of the &apos;thisUpdate&apos; field in an OCSP response before it is considered too old. Defaults to 0 (disabled). Must be a non-negative value.
+    /// </summary>
+    [JsonPropertyName("ocspThisUpdateMaxAge")]
+    public double? OcspThisUpdateMaxAge { get; set; }
 
     /// <summary>
     /// TLS extensions required on
@@ -562,6 +590,15 @@ public partial class V1alpha1AuthBackendRoleSpecInitProviderBackendSelector
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendRoleSpecInitProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>Allowed the common names for authenticated client certificates</summary>
     [JsonPropertyName("allowedCommonNames")]
     public IList<string>? AllowedCommonNames { get; set; }
@@ -648,6 +685,15 @@ public partial class V1alpha1AuthBackendRoleSpecInitProvider
     public bool? OcspFailOpen { get; set; }
 
     /// <summary>
+    /// The number of retries to attempt when
+    /// connecting to an OCSP server. Defaults to 4 retries.
+    /// Must be a non-negative value. Requires Vault version 1.16+.
+    /// The number of retries to attempt when connecting to an OCSP server. Defaults to 4 retries. Must be a non-negative value.
+    /// </summary>
+    [JsonPropertyName("ocspMaxRetries")]
+    public double? OcspMaxRetries { get; set; }
+
+    /// <summary>
     /// If set to true, rather than
     /// accepting the first successful OCSP response, query all servers and consider
     /// the certificate valid only if all servers agree.
@@ -666,6 +712,16 @@ public partial class V1alpha1AuthBackendRoleSpecInitProvider
     /// </summary>
     [JsonPropertyName("ocspServersOverride")]
     public IList<string>? OcspServersOverride { get; set; }
+
+    /// <summary>
+    /// The maximum age in seconds of the
+    /// &apos;thisUpdate&apos; field in an OCSP response before it is considered too old.
+    /// Defaults to 0 (disabled). Must be a non-negative value.
+    /// Requires Vault version 1.16+.
+    /// The maximum age in seconds of the &apos;thisUpdate&apos; field in an OCSP response before it is considered too old. Defaults to 0 (disabled). Must be a non-negative value.
+    /// </summary>
+    [JsonPropertyName("ocspThisUpdateMaxAge")]
+    public double? OcspThisUpdateMaxAge { get; set; }
 
     /// <summary>
     /// TLS extensions required on
@@ -942,6 +998,15 @@ public partial class V1alpha1AuthBackendRoleSpec
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendRoleStatusAtProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>Allowed the common names for authenticated client certificates</summary>
     [JsonPropertyName("allowedCommonNames")]
     public IList<string>? AllowedCommonNames { get; set; }
@@ -1023,6 +1088,15 @@ public partial class V1alpha1AuthBackendRoleStatusAtProvider
     public bool? OcspFailOpen { get; set; }
 
     /// <summary>
+    /// The number of retries to attempt when
+    /// connecting to an OCSP server. Defaults to 4 retries.
+    /// Must be a non-negative value. Requires Vault version 1.16+.
+    /// The number of retries to attempt when connecting to an OCSP server. Defaults to 4 retries. Must be a non-negative value.
+    /// </summary>
+    [JsonPropertyName("ocspMaxRetries")]
+    public double? OcspMaxRetries { get; set; }
+
+    /// <summary>
     /// If set to true, rather than
     /// accepting the first successful OCSP response, query all servers and consider
     /// the certificate valid only if all servers agree.
@@ -1041,6 +1115,16 @@ public partial class V1alpha1AuthBackendRoleStatusAtProvider
     /// </summary>
     [JsonPropertyName("ocspServersOverride")]
     public IList<string>? OcspServersOverride { get; set; }
+
+    /// <summary>
+    /// The maximum age in seconds of the
+    /// &apos;thisUpdate&apos; field in an OCSP response before it is considered too old.
+    /// Defaults to 0 (disabled). Must be a non-negative value.
+    /// Requires Vault version 1.16+.
+    /// The maximum age in seconds of the &apos;thisUpdate&apos; field in an OCSP response before it is considered too old. Defaults to 0 (disabled). Must be a non-negative value.
+    /// </summary>
+    [JsonPropertyName("ocspThisUpdateMaxAge")]
+    public double? OcspThisUpdateMaxAge { get; set; }
 
     /// <summary>
     /// TLS extensions required on

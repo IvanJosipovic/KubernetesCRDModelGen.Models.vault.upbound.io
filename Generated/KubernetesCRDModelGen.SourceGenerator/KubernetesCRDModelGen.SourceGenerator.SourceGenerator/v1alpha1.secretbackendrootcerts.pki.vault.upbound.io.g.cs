@@ -330,6 +330,13 @@ public partial class V1alpha1SecretBackendRootCertSpecForProvider
     public string? KeyType { get; set; }
 
     /// <summary>
+    /// Specifies the allowed key usage constraints for the certificate. This list of key usages will be added to the existing set of key usages (CRLSign, CertSign) on the generated certificate. Defaults to [&quot;CRLSign&quot;, &quot;CertSign&quot;] for root CA certificates. Requires Vault 1.19.2+.
+    /// Specify the allowed key usage constraint on issued certificates.
+    /// </summary>
+    [JsonPropertyName("keyUsage")]
+    public IList<string>? KeyUsage { get; set; }
+
+    /// <summary>
     /// The locality
     /// The locality.
     /// </summary>
@@ -375,6 +382,13 @@ public partial class V1alpha1SecretBackendRootCertSpecForProvider
     /// </summary>
     [JsonPropertyName("notAfter")]
     public string? NotAfter { get; set; }
+
+    /// <summary>
+    /// Specifies the duration by which to backdate the NotBefore property.
+    /// Specifies the duration by which to backdate the NotBefore property.
+    /// </summary>
+    [JsonPropertyName("notBeforeDuration")]
+    public string? NotBeforeDuration { get; set; }
 
     /// <summary>
     /// The organization
@@ -481,6 +495,13 @@ public partial class V1alpha1SecretBackendRootCertSpecForProvider
     /// </summary>
     [JsonPropertyName("uriSans")]
     public IList<string>? UriSans { get; set; }
+
+    /// <summary>
+    /// When true, uses PSS (Probabilistic Signature Scheme) for RSA signatures instead of PKCS#1 v1.5. PSS provides enhanced security but may have compatibility issues with older systems. Only applicable to RSA keys; ignored for ECDSA/Ed25519 keys. Defaults to false. Requires Vault 1.18.0+.
+    /// Whether to use PSS signatures when using a RSA key-type issuer.
+    /// </summary>
+    [JsonPropertyName("usePss")]
+    public bool? UsePss { get; set; }
 }
 
 /// <summary>
@@ -770,6 +791,13 @@ public partial class V1alpha1SecretBackendRootCertSpecInitProvider
     public string? KeyType { get; set; }
 
     /// <summary>
+    /// Specifies the allowed key usage constraints for the certificate. This list of key usages will be added to the existing set of key usages (CRLSign, CertSign) on the generated certificate. Defaults to [&quot;CRLSign&quot;, &quot;CertSign&quot;] for root CA certificates. Requires Vault 1.19.2+.
+    /// Specify the allowed key usage constraint on issued certificates.
+    /// </summary>
+    [JsonPropertyName("keyUsage")]
+    public IList<string>? KeyUsage { get; set; }
+
+    /// <summary>
     /// The locality
     /// The locality.
     /// </summary>
@@ -815,6 +843,13 @@ public partial class V1alpha1SecretBackendRootCertSpecInitProvider
     /// </summary>
     [JsonPropertyName("notAfter")]
     public string? NotAfter { get; set; }
+
+    /// <summary>
+    /// Specifies the duration by which to backdate the NotBefore property.
+    /// Specifies the duration by which to backdate the NotBefore property.
+    /// </summary>
+    [JsonPropertyName("notBeforeDuration")]
+    public string? NotBeforeDuration { get; set; }
 
     /// <summary>
     /// The organization
@@ -921,6 +956,13 @@ public partial class V1alpha1SecretBackendRootCertSpecInitProvider
     /// </summary>
     [JsonPropertyName("uriSans")]
     public IList<string>? UriSans { get; set; }
+
+    /// <summary>
+    /// When true, uses PSS (Probabilistic Signature Scheme) for RSA signatures instead of PKCS#1 v1.5. PSS provides enhanced security but may have compatibility issues with older systems. Only applicable to RSA keys; ignored for ECDSA/Ed25519 keys. Defaults to false. Requires Vault 1.18.0+.
+    /// Whether to use PSS signatures when using a RSA key-type issuer.
+    /// </summary>
+    [JsonPropertyName("usePss")]
+    public bool? UsePss { get; set; }
 }
 
 /// <summary>
@@ -1257,6 +1299,13 @@ public partial class V1alpha1SecretBackendRootCertStatusAtProvider
     public string? KeyType { get; set; }
 
     /// <summary>
+    /// Specifies the allowed key usage constraints for the certificate. This list of key usages will be added to the existing set of key usages (CRLSign, CertSign) on the generated certificate. Defaults to [&quot;CRLSign&quot;, &quot;CertSign&quot;] for root CA certificates. Requires Vault 1.19.2+.
+    /// Specify the allowed key usage constraint on issued certificates.
+    /// </summary>
+    [JsonPropertyName("keyUsage")]
+    public IList<string>? KeyUsage { get; set; }
+
+    /// <summary>
     /// The locality
     /// The locality.
     /// </summary>
@@ -1302,6 +1351,13 @@ public partial class V1alpha1SecretBackendRootCertStatusAtProvider
     /// </summary>
     [JsonPropertyName("notAfter")]
     public string? NotAfter { get; set; }
+
+    /// <summary>
+    /// Specifies the duration by which to backdate the NotBefore property.
+    /// Specifies the duration by which to backdate the NotBefore property.
+    /// </summary>
+    [JsonPropertyName("notBeforeDuration")]
+    public string? NotBeforeDuration { get; set; }
 
     /// <summary>
     /// The organization
@@ -1415,6 +1471,13 @@ public partial class V1alpha1SecretBackendRootCertStatusAtProvider
     /// </summary>
     [JsonPropertyName("uriSans")]
     public IList<string>? UriSans { get; set; }
+
+    /// <summary>
+    /// When true, uses PSS (Probabilistic Signature Scheme) for RSA signatures instead of PKCS#1 v1.5. PSS provides enhanced security but may have compatibility issues with older systems. Only applicable to RSA keys; ignored for ECDSA/Ed25519 keys. Defaults to false. Requires Vault 1.18.0+.
+    /// Whether to use PSS signatures when using a RSA key-type issuer.
+    /// </summary>
+    [JsonPropertyName("usePss")]
+    public bool? UsePss { get; set; }
 }
 
 /// <summary>A Condition that may apply to a resource.</summary>

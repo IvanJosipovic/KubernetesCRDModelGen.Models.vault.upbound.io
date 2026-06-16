@@ -350,6 +350,10 @@ public partial class V1alpha1SecretRoleSpecForProviderScopeSelector
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretRoleSpecForProvider
 {
+    /// <summary>Name of the ca to use, if absent use legacy ca</summary>
+    [JsonPropertyName("ca")]
+    public string? Ca { get; set; }
+
     /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
@@ -389,6 +393,27 @@ public partial class V1alpha1SecretRoleSpecForProvider
     public bool? OperationCreate { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Create Key Pair operation.
+    /// Grant permission to use the KMIP Create Key Pair operation
+    /// </summary>
+    [JsonPropertyName("operationCreateKeyPair")]
+    public bool? OperationCreateKeyPair { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Decrypt operation.
+    /// Grant permission to use the KMIP Decrypt operation
+    /// </summary>
+    [JsonPropertyName("operationDecrypt")]
+    public bool? OperationDecrypt { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Delete Attribute operation.
+    /// Grant permission to use the KMIP Delete Attribute operation
+    /// </summary>
+    [JsonPropertyName("operationDeleteAttribute")]
+    public bool? OperationDeleteAttribute { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Destroy operation.
     /// Grant permission to use the KMIP Destroy operation
     /// </summary>
@@ -401,6 +426,13 @@ public partial class V1alpha1SecretRoleSpecForProvider
     /// </summary>
     [JsonPropertyName("operationDiscoverVersions")]
     public bool? OperationDiscoverVersions { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Encrypt operation.
+    /// Grant permission to use the KMIP Encrypt operation
+    /// </summary>
+    [JsonPropertyName("operationEncrypt")]
+    public bool? OperationEncrypt { get; set; }
 
     /// <summary>
     /// Grant permission to use the KMIP Get operation.
@@ -424,6 +456,13 @@ public partial class V1alpha1SecretRoleSpecForProvider
     public bool? OperationGetAttributes { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Import operation.
+    /// Grant permission to use the KMIP Import operation
+    /// </summary>
+    [JsonPropertyName("operationImport")]
+    public bool? OperationImport { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Get Locate operation.
     /// Grant permission to use the KMIP Locate operation
     /// </summary>
@@ -431,11 +470,39 @@ public partial class V1alpha1SecretRoleSpecForProvider
     public bool? OperationLocate { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP MAC operation.
+    /// Grant permission to use the KMIP MAC operation
+    /// </summary>
+    [JsonPropertyName("operationMac")]
+    public bool? OperationMac { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP MAC Verify operation.
+    /// Grant permission to use the KMIP MAC Verify operation
+    /// </summary>
+    [JsonPropertyName("operationMacVerify")]
+    public bool? OperationMacVerify { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Modify Attribute operation.
+    /// Grant permission to use the KMIP Modify Attribute operation
+    /// </summary>
+    [JsonPropertyName("operationModifyAttribute")]
+    public bool? OperationModifyAttribute { get; set; }
+
+    /// <summary>
     /// Remove all permissions from this role. May not be specified with any other operation_* params.
     /// Remove all permissions from this role. May not be specified with any other operation_* params
     /// </summary>
     [JsonPropertyName("operationNone")]
     public bool? OperationNone { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Query operation.
+    /// Grant permission to use the KMIP Query operation
+    /// </summary>
+    [JsonPropertyName("operationQuery")]
+    public bool? OperationQuery { get; set; }
 
     /// <summary>
     /// Grant permission to use the KMIP Register operation.
@@ -452,11 +519,46 @@ public partial class V1alpha1SecretRoleSpecForProvider
     public bool? OperationRekey { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Rekey Key Pair operation.
+    /// Grant permission to use the KMIP Rekey Key Pair operation
+    /// </summary>
+    [JsonPropertyName("operationRekeyKeyPair")]
+    public bool? OperationRekeyKeyPair { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Revoke operation.
     /// Grant permission to use the KMIP Revoke operation
     /// </summary>
     [JsonPropertyName("operationRevoke")]
     public bool? OperationRevoke { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP RNG Retrieve operation.
+    /// Grant permission to use the KMIP RNG Retrieve operation
+    /// </summary>
+    [JsonPropertyName("operationRngRetrieve")]
+    public bool? OperationRngRetrieve { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP RNG Seed operation.
+    /// Grant permission to use the KMIP RNG Seed operation
+    /// </summary>
+    [JsonPropertyName("operationRngSeed")]
+    public bool? OperationRngSeed { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Sign operation.
+    /// Grant permission to use the KMIP Sign operation
+    /// </summary>
+    [JsonPropertyName("operationSign")]
+    public bool? OperationSign { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Signature Verify operation.
+    /// Grant permission to use the KMIP Signature Verify operation
+    /// </summary>
+    [JsonPropertyName("operationSignatureVerify")]
+    public bool? OperationSignatureVerify { get; set; }
 
     /// <summary>
     /// The unique path this backend should be mounted at. Must
@@ -844,6 +946,10 @@ public partial class V1alpha1SecretRoleSpecInitProviderScopeSelector
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretRoleSpecInitProvider
 {
+    /// <summary>Name of the ca to use, if absent use legacy ca</summary>
+    [JsonPropertyName("ca")]
+    public string? Ca { get; set; }
+
     /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
@@ -883,6 +989,27 @@ public partial class V1alpha1SecretRoleSpecInitProvider
     public bool? OperationCreate { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Create Key Pair operation.
+    /// Grant permission to use the KMIP Create Key Pair operation
+    /// </summary>
+    [JsonPropertyName("operationCreateKeyPair")]
+    public bool? OperationCreateKeyPair { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Decrypt operation.
+    /// Grant permission to use the KMIP Decrypt operation
+    /// </summary>
+    [JsonPropertyName("operationDecrypt")]
+    public bool? OperationDecrypt { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Delete Attribute operation.
+    /// Grant permission to use the KMIP Delete Attribute operation
+    /// </summary>
+    [JsonPropertyName("operationDeleteAttribute")]
+    public bool? OperationDeleteAttribute { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Destroy operation.
     /// Grant permission to use the KMIP Destroy operation
     /// </summary>
@@ -895,6 +1022,13 @@ public partial class V1alpha1SecretRoleSpecInitProvider
     /// </summary>
     [JsonPropertyName("operationDiscoverVersions")]
     public bool? OperationDiscoverVersions { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Encrypt operation.
+    /// Grant permission to use the KMIP Encrypt operation
+    /// </summary>
+    [JsonPropertyName("operationEncrypt")]
+    public bool? OperationEncrypt { get; set; }
 
     /// <summary>
     /// Grant permission to use the KMIP Get operation.
@@ -918,6 +1052,13 @@ public partial class V1alpha1SecretRoleSpecInitProvider
     public bool? OperationGetAttributes { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Import operation.
+    /// Grant permission to use the KMIP Import operation
+    /// </summary>
+    [JsonPropertyName("operationImport")]
+    public bool? OperationImport { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Get Locate operation.
     /// Grant permission to use the KMIP Locate operation
     /// </summary>
@@ -925,11 +1066,39 @@ public partial class V1alpha1SecretRoleSpecInitProvider
     public bool? OperationLocate { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP MAC operation.
+    /// Grant permission to use the KMIP MAC operation
+    /// </summary>
+    [JsonPropertyName("operationMac")]
+    public bool? OperationMac { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP MAC Verify operation.
+    /// Grant permission to use the KMIP MAC Verify operation
+    /// </summary>
+    [JsonPropertyName("operationMacVerify")]
+    public bool? OperationMacVerify { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Modify Attribute operation.
+    /// Grant permission to use the KMIP Modify Attribute operation
+    /// </summary>
+    [JsonPropertyName("operationModifyAttribute")]
+    public bool? OperationModifyAttribute { get; set; }
+
+    /// <summary>
     /// Remove all permissions from this role. May not be specified with any other operation_* params.
     /// Remove all permissions from this role. May not be specified with any other operation_* params
     /// </summary>
     [JsonPropertyName("operationNone")]
     public bool? OperationNone { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Query operation.
+    /// Grant permission to use the KMIP Query operation
+    /// </summary>
+    [JsonPropertyName("operationQuery")]
+    public bool? OperationQuery { get; set; }
 
     /// <summary>
     /// Grant permission to use the KMIP Register operation.
@@ -946,11 +1115,46 @@ public partial class V1alpha1SecretRoleSpecInitProvider
     public bool? OperationRekey { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Rekey Key Pair operation.
+    /// Grant permission to use the KMIP Rekey Key Pair operation
+    /// </summary>
+    [JsonPropertyName("operationRekeyKeyPair")]
+    public bool? OperationRekeyKeyPair { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Revoke operation.
     /// Grant permission to use the KMIP Revoke operation
     /// </summary>
     [JsonPropertyName("operationRevoke")]
     public bool? OperationRevoke { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP RNG Retrieve operation.
+    /// Grant permission to use the KMIP RNG Retrieve operation
+    /// </summary>
+    [JsonPropertyName("operationRngRetrieve")]
+    public bool? OperationRngRetrieve { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP RNG Seed operation.
+    /// Grant permission to use the KMIP RNG Seed operation
+    /// </summary>
+    [JsonPropertyName("operationRngSeed")]
+    public bool? OperationRngSeed { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Sign operation.
+    /// Grant permission to use the KMIP Sign operation
+    /// </summary>
+    [JsonPropertyName("operationSign")]
+    public bool? OperationSign { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Signature Verify operation.
+    /// Grant permission to use the KMIP Signature Verify operation
+    /// </summary>
+    [JsonPropertyName("operationSignatureVerify")]
+    public bool? OperationSignatureVerify { get; set; }
 
     /// <summary>
     /// The unique path this backend should be mounted at. Must
@@ -1123,6 +1327,10 @@ public partial class V1alpha1SecretRoleSpec
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretRoleStatusAtProvider
 {
+    /// <summary>Name of the ca to use, if absent use legacy ca</summary>
+    [JsonPropertyName("ca")]
+    public string? Ca { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
@@ -1165,6 +1373,27 @@ public partial class V1alpha1SecretRoleStatusAtProvider
     public bool? OperationCreate { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Create Key Pair operation.
+    /// Grant permission to use the KMIP Create Key Pair operation
+    /// </summary>
+    [JsonPropertyName("operationCreateKeyPair")]
+    public bool? OperationCreateKeyPair { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Decrypt operation.
+    /// Grant permission to use the KMIP Decrypt operation
+    /// </summary>
+    [JsonPropertyName("operationDecrypt")]
+    public bool? OperationDecrypt { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Delete Attribute operation.
+    /// Grant permission to use the KMIP Delete Attribute operation
+    /// </summary>
+    [JsonPropertyName("operationDeleteAttribute")]
+    public bool? OperationDeleteAttribute { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Destroy operation.
     /// Grant permission to use the KMIP Destroy operation
     /// </summary>
@@ -1177,6 +1406,13 @@ public partial class V1alpha1SecretRoleStatusAtProvider
     /// </summary>
     [JsonPropertyName("operationDiscoverVersions")]
     public bool? OperationDiscoverVersions { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Encrypt operation.
+    /// Grant permission to use the KMIP Encrypt operation
+    /// </summary>
+    [JsonPropertyName("operationEncrypt")]
+    public bool? OperationEncrypt { get; set; }
 
     /// <summary>
     /// Grant permission to use the KMIP Get operation.
@@ -1200,6 +1436,13 @@ public partial class V1alpha1SecretRoleStatusAtProvider
     public bool? OperationGetAttributes { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Import operation.
+    /// Grant permission to use the KMIP Import operation
+    /// </summary>
+    [JsonPropertyName("operationImport")]
+    public bool? OperationImport { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Get Locate operation.
     /// Grant permission to use the KMIP Locate operation
     /// </summary>
@@ -1207,11 +1450,39 @@ public partial class V1alpha1SecretRoleStatusAtProvider
     public bool? OperationLocate { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP MAC operation.
+    /// Grant permission to use the KMIP MAC operation
+    /// </summary>
+    [JsonPropertyName("operationMac")]
+    public bool? OperationMac { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP MAC Verify operation.
+    /// Grant permission to use the KMIP MAC Verify operation
+    /// </summary>
+    [JsonPropertyName("operationMacVerify")]
+    public bool? OperationMacVerify { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Modify Attribute operation.
+    /// Grant permission to use the KMIP Modify Attribute operation
+    /// </summary>
+    [JsonPropertyName("operationModifyAttribute")]
+    public bool? OperationModifyAttribute { get; set; }
+
+    /// <summary>
     /// Remove all permissions from this role. May not be specified with any other operation_* params.
     /// Remove all permissions from this role. May not be specified with any other operation_* params
     /// </summary>
     [JsonPropertyName("operationNone")]
     public bool? OperationNone { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Query operation.
+    /// Grant permission to use the KMIP Query operation
+    /// </summary>
+    [JsonPropertyName("operationQuery")]
+    public bool? OperationQuery { get; set; }
 
     /// <summary>
     /// Grant permission to use the KMIP Register operation.
@@ -1228,11 +1499,46 @@ public partial class V1alpha1SecretRoleStatusAtProvider
     public bool? OperationRekey { get; set; }
 
     /// <summary>
+    /// Grant permission to use the KMIP Rekey Key Pair operation.
+    /// Grant permission to use the KMIP Rekey Key Pair operation
+    /// </summary>
+    [JsonPropertyName("operationRekeyKeyPair")]
+    public bool? OperationRekeyKeyPair { get; set; }
+
+    /// <summary>
     /// Grant permission to use the KMIP Revoke operation.
     /// Grant permission to use the KMIP Revoke operation
     /// </summary>
     [JsonPropertyName("operationRevoke")]
     public bool? OperationRevoke { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP RNG Retrieve operation.
+    /// Grant permission to use the KMIP RNG Retrieve operation
+    /// </summary>
+    [JsonPropertyName("operationRngRetrieve")]
+    public bool? OperationRngRetrieve { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP RNG Seed operation.
+    /// Grant permission to use the KMIP RNG Seed operation
+    /// </summary>
+    [JsonPropertyName("operationRngSeed")]
+    public bool? OperationRngSeed { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Sign operation.
+    /// Grant permission to use the KMIP Sign operation
+    /// </summary>
+    [JsonPropertyName("operationSign")]
+    public bool? OperationSign { get; set; }
+
+    /// <summary>
+    /// Grant permission to use the KMIP Signature Verify operation.
+    /// Grant permission to use the KMIP Signature Verify operation
+    /// </summary>
+    [JsonPropertyName("operationSignatureVerify")]
+    public bool? OperationSignatureVerify { get; set; }
 
     /// <summary>
     /// The unique path this backend should be mounted at. Must

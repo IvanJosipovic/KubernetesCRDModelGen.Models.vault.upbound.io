@@ -269,6 +269,102 @@ public partial class V1alpha1KeysSpecForProviderAzure
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1KeysSpecForProviderGcp
+{
+    /// <summary>
+    /// The signature algorithm to be used with the key. Supported values are:
+    /// The signature algorithm to be used with the key. Supported values: ec_sign_p256_sha256, ec_sign_p384_sha384, rsa_sign_pss_2048_sha256, rsa_sign_pss_3072_sha256, rsa_sign_pss_4096_sha256, rsa_sign_pss_4096_sha512, rsa_sign_pkcs1_2048_sha256, rsa_sign_pkcs1_3072_sha256, rsa_sign_pkcs1_4096_sha256, rsa_sign_pkcs1_4096_sha512
+    /// </summary>
+    [JsonPropertyName("algorithm")]
+    public string? Algorithm { get; set; }
+
+    /// <summary>
+    /// If no existing key can be found in
+    /// the referenced backend, instructs Vault to generate a key within the backend.
+    /// If no existing key can be found in the referenced backend, instructs Vault to generate a key within the backend
+    /// </summary>
+    [JsonPropertyName("allowGenerateKey")]
+    public bool? AllowGenerateKey { get; set; }
+
+    /// <summary>
+    /// Controls the ability for Vault to replace through
+    /// generation or importing a key into the configured backend even
+    /// if a key is present, if set to false those operations are forbidden
+    /// if a key exists.
+    /// Controls the ability for Vault to replace through generation or importing a key into the configured backend even if a key is present, if set to false those operations are forbidden if a key exists.
+    /// </summary>
+    [JsonPropertyName("allowReplaceKey")]
+    public bool? AllowReplaceKey { get; set; }
+
+    /// <summary>
+    /// Controls the ability for Vault to import a key to the
+    /// configured backend, if false, those operations will be forbidden.
+    /// Controls the ability for Vault to import a key to the configured backend, if &apos;false&apos;, those operations will be forbidden
+    /// </summary>
+    [JsonPropertyName("allowStoreKey")]
+    public bool? AllowStoreKey { get; set; }
+
+    /// <summary>
+    /// If true, allows usage from any mount point within the
+    /// namespace.
+    /// Allow usage from any mount point within the namespace if &apos;true&apos;
+    /// </summary>
+    [JsonPropertyName("anyMount")]
+    public bool? AnyMount { get; set; }
+
+    /// <summary>
+    /// The GCP service account credentials JSON contents (the raw JSON
+    /// key data), not a path to a credentials file.
+    /// The GCP service account credentials JSON to use for authenticating to GCP.
+    /// </summary>
+    [JsonPropertyName("credentials")]
+    public string? Credentials { get; set; }
+
+    /// <summary>
+    /// The name of the Cloud KMS crypto key to use.
+    /// The name of the GCP Cloud KMS key. If no existing key exists and allow_generate_key is true, Vault will generate a key with this name
+    /// </summary>
+    [JsonPropertyName("cryptoKey")]
+    public string? CryptoKey { get; set; }
+
+    /// <summary>
+    /// The version of the key to use. (Default: 1)
+    /// The version of the key to use. (Default: 1)
+    /// </summary>
+    [JsonPropertyName("cryptoKeyVersion")]
+    public string? CryptoKeyVersion { get; set; }
+
+    /// <summary>
+    /// The name of the Cloud KMS key ring.
+    /// The name of the key ring in GCP Cloud KMS. This needs to be created prior to key creation
+    /// </summary>
+    [JsonPropertyName("keyRing")]
+    public string? KeyRing { get; set; }
+
+    /// <summary>
+    /// A unique lowercase name that serves as identifying the key.
+    /// A unique lowercase name that serves as identifying the key
+    /// </summary>
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    /// <summary>
+    /// The GCP project ID where the Cloud KMS resources are located.
+    /// The GCP project ID.
+    /// </summary>
+    [JsonPropertyName("project")]
+    public string? Project { get; set; }
+
+    /// <summary>
+    /// The AWS region where the keys are stored (or will be stored).
+    /// The GCP region where the key ring was created.
+    /// </summary>
+    [JsonPropertyName("region")]
+    public string? Region { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1KeysSpecForProviderPkcs
 {
     /// <summary>
@@ -399,6 +495,10 @@ public partial class V1alpha1KeysSpecForProvider
     /// <summary>Configuration block for Azure Managed Keys</summary>
     [JsonPropertyName("azure")]
     public IList<V1alpha1KeysSpecForProviderAzure>? Azure { get; set; }
+
+    /// <summary>Configuration block for GCP Cloud KMS Managed Keys</summary>
+    [JsonPropertyName("gcp")]
+    public IList<V1alpha1KeysSpecForProviderGcp>? Gcp { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.
@@ -629,6 +729,102 @@ public partial class V1alpha1KeysSpecInitProviderAzure
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1KeysSpecInitProviderGcp
+{
+    /// <summary>
+    /// The signature algorithm to be used with the key. Supported values are:
+    /// The signature algorithm to be used with the key. Supported values: ec_sign_p256_sha256, ec_sign_p384_sha384, rsa_sign_pss_2048_sha256, rsa_sign_pss_3072_sha256, rsa_sign_pss_4096_sha256, rsa_sign_pss_4096_sha512, rsa_sign_pkcs1_2048_sha256, rsa_sign_pkcs1_3072_sha256, rsa_sign_pkcs1_4096_sha256, rsa_sign_pkcs1_4096_sha512
+    /// </summary>
+    [JsonPropertyName("algorithm")]
+    public string? Algorithm { get; set; }
+
+    /// <summary>
+    /// If no existing key can be found in
+    /// the referenced backend, instructs Vault to generate a key within the backend.
+    /// If no existing key can be found in the referenced backend, instructs Vault to generate a key within the backend
+    /// </summary>
+    [JsonPropertyName("allowGenerateKey")]
+    public bool? AllowGenerateKey { get; set; }
+
+    /// <summary>
+    /// Controls the ability for Vault to replace through
+    /// generation or importing a key into the configured backend even
+    /// if a key is present, if set to false those operations are forbidden
+    /// if a key exists.
+    /// Controls the ability for Vault to replace through generation or importing a key into the configured backend even if a key is present, if set to false those operations are forbidden if a key exists.
+    /// </summary>
+    [JsonPropertyName("allowReplaceKey")]
+    public bool? AllowReplaceKey { get; set; }
+
+    /// <summary>
+    /// Controls the ability for Vault to import a key to the
+    /// configured backend, if false, those operations will be forbidden.
+    /// Controls the ability for Vault to import a key to the configured backend, if &apos;false&apos;, those operations will be forbidden
+    /// </summary>
+    [JsonPropertyName("allowStoreKey")]
+    public bool? AllowStoreKey { get; set; }
+
+    /// <summary>
+    /// If true, allows usage from any mount point within the
+    /// namespace.
+    /// Allow usage from any mount point within the namespace if &apos;true&apos;
+    /// </summary>
+    [JsonPropertyName("anyMount")]
+    public bool? AnyMount { get; set; }
+
+    /// <summary>
+    /// The GCP service account credentials JSON contents (the raw JSON
+    /// key data), not a path to a credentials file.
+    /// The GCP service account credentials JSON to use for authenticating to GCP.
+    /// </summary>
+    [JsonPropertyName("credentials")]
+    public string? Credentials { get; set; }
+
+    /// <summary>
+    /// The name of the Cloud KMS crypto key to use.
+    /// The name of the GCP Cloud KMS key. If no existing key exists and allow_generate_key is true, Vault will generate a key with this name
+    /// </summary>
+    [JsonPropertyName("cryptoKey")]
+    public string? CryptoKey { get; set; }
+
+    /// <summary>
+    /// The version of the key to use. (Default: 1)
+    /// The version of the key to use. (Default: 1)
+    /// </summary>
+    [JsonPropertyName("cryptoKeyVersion")]
+    public string? CryptoKeyVersion { get; set; }
+
+    /// <summary>
+    /// The name of the Cloud KMS key ring.
+    /// The name of the key ring in GCP Cloud KMS. This needs to be created prior to key creation
+    /// </summary>
+    [JsonPropertyName("keyRing")]
+    public string? KeyRing { get; set; }
+
+    /// <summary>
+    /// A unique lowercase name that serves as identifying the key.
+    /// A unique lowercase name that serves as identifying the key
+    /// </summary>
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    /// <summary>
+    /// The GCP project ID where the Cloud KMS resources are located.
+    /// The GCP project ID.
+    /// </summary>
+    [JsonPropertyName("project")]
+    public string? Project { get; set; }
+
+    /// <summary>
+    /// The AWS region where the keys are stored (or will be stored).
+    /// The GCP region where the key ring was created.
+    /// </summary>
+    [JsonPropertyName("region")]
+    public string? Region { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1KeysSpecInitProviderPkcs
 {
     /// <summary>
@@ -771,6 +967,10 @@ public partial class V1alpha1KeysSpecInitProvider
     /// <summary>Configuration block for Azure Managed Keys</summary>
     [JsonPropertyName("azure")]
     public IList<V1alpha1KeysSpecInitProviderAzure>? Azure { get; set; }
+
+    /// <summary>Configuration block for GCP Cloud KMS Managed Keys</summary>
+    [JsonPropertyName("gcp")]
+    public IList<V1alpha1KeysSpecInitProviderGcp>? Gcp { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.
@@ -1192,6 +1392,106 @@ public partial class V1alpha1KeysStatusAtProviderAzure
 
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1KeysStatusAtProviderGcp
+{
+    /// <summary>
+    /// The signature algorithm to be used with the key. Supported values are:
+    /// The signature algorithm to be used with the key. Supported values: ec_sign_p256_sha256, ec_sign_p384_sha384, rsa_sign_pss_2048_sha256, rsa_sign_pss_3072_sha256, rsa_sign_pss_4096_sha256, rsa_sign_pss_4096_sha512, rsa_sign_pkcs1_2048_sha256, rsa_sign_pkcs1_3072_sha256, rsa_sign_pkcs1_4096_sha256, rsa_sign_pkcs1_4096_sha512
+    /// </summary>
+    [JsonPropertyName("algorithm")]
+    public string? Algorithm { get; set; }
+
+    /// <summary>
+    /// If no existing key can be found in
+    /// the referenced backend, instructs Vault to generate a key within the backend.
+    /// If no existing key can be found in the referenced backend, instructs Vault to generate a key within the backend
+    /// </summary>
+    [JsonPropertyName("allowGenerateKey")]
+    public bool? AllowGenerateKey { get; set; }
+
+    /// <summary>
+    /// Controls the ability for Vault to replace through
+    /// generation or importing a key into the configured backend even
+    /// if a key is present, if set to false those operations are forbidden
+    /// if a key exists.
+    /// Controls the ability for Vault to replace through generation or importing a key into the configured backend even if a key is present, if set to false those operations are forbidden if a key exists.
+    /// </summary>
+    [JsonPropertyName("allowReplaceKey")]
+    public bool? AllowReplaceKey { get; set; }
+
+    /// <summary>
+    /// Controls the ability for Vault to import a key to the
+    /// configured backend, if false, those operations will be forbidden.
+    /// Controls the ability for Vault to import a key to the configured backend, if &apos;false&apos;, those operations will be forbidden
+    /// </summary>
+    [JsonPropertyName("allowStoreKey")]
+    public bool? AllowStoreKey { get; set; }
+
+    /// <summary>
+    /// If true, allows usage from any mount point within the
+    /// namespace.
+    /// Allow usage from any mount point within the namespace if &apos;true&apos;
+    /// </summary>
+    [JsonPropertyName("anyMount")]
+    public bool? AnyMount { get; set; }
+
+    /// <summary>
+    /// The GCP service account credentials JSON contents (the raw JSON
+    /// key data), not a path to a credentials file.
+    /// The GCP service account credentials JSON to use for authenticating to GCP.
+    /// </summary>
+    [JsonPropertyName("credentials")]
+    public string? Credentials { get; set; }
+
+    /// <summary>
+    /// The name of the Cloud KMS crypto key to use.
+    /// The name of the GCP Cloud KMS key. If no existing key exists and allow_generate_key is true, Vault will generate a key with this name
+    /// </summary>
+    [JsonPropertyName("cryptoKey")]
+    public string? CryptoKey { get; set; }
+
+    /// <summary>
+    /// The version of the key to use. (Default: 1)
+    /// The version of the key to use. (Default: 1)
+    /// </summary>
+    [JsonPropertyName("cryptoKeyVersion")]
+    public string? CryptoKeyVersion { get; set; }
+
+    /// <summary>
+    /// The name of the Cloud KMS key ring.
+    /// The name of the key ring in GCP Cloud KMS. This needs to be created prior to key creation
+    /// </summary>
+    [JsonPropertyName("keyRing")]
+    public string? KeyRing { get; set; }
+
+    /// <summary>
+    /// A unique lowercase name that serves as identifying the key.
+    /// A unique lowercase name that serves as identifying the key
+    /// </summary>
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    /// <summary>
+    /// The GCP project ID where the Cloud KMS resources are located.
+    /// The GCP project ID.
+    /// </summary>
+    [JsonPropertyName("project")]
+    public string? Project { get; set; }
+
+    /// <summary>
+    /// The AWS region where the keys are stored (or will be stored).
+    /// The GCP region where the key ring was created.
+    /// </summary>
+    [JsonPropertyName("region")]
+    public string? Region { get; set; }
+
+    /// <summary>ID of the managed key read from Vault</summary>
+    [JsonPropertyName("uuid")]
+    public string? Uuid { get; set; }
+}
+
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1KeysStatusAtProviderPkcs
 {
     /// <summary>
@@ -1326,6 +1626,10 @@ public partial class V1alpha1KeysStatusAtProvider
     /// <summary>Configuration block for Azure Managed Keys</summary>
     [JsonPropertyName("azure")]
     public IList<V1alpha1KeysStatusAtProviderAzure>? Azure { get; set; }
+
+    /// <summary>Configuration block for GCP Cloud KMS Managed Keys</summary>
+    [JsonPropertyName("gcp")]
+    public IList<V1alpha1KeysStatusAtProviderGcp>? Gcp { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

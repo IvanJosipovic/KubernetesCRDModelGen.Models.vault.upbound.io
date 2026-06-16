@@ -55,12 +55,32 @@ public partial class V1alpha1SecretBackendSpecForProviderAccessKeySecretRef
 
 /// <summary>
 /// The AWS Secret Key this backend should use to
-/// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials.
+/// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials. Conflicts with secret_key_wo.
 /// The AWS Secret Access Key to use when generating new credentials.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecForProviderSecretKeySecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// The AWS Secret Key this backend should use to
+/// issue new credentials. This is a write-only field and will not be stored in state.
+/// Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS
+/// environment credentials, shared file credentials or IAM role/ECS task credentials.
+/// Conflicts with secret_key.
+/// The AWS Secret Access Key to use when generating new credentials. This is a write-only field and will not be read back from Vault.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderSecretKeyWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -211,6 +231,13 @@ public partial class V1alpha1SecretBackendSpecForProvider
     public double? MaxLeaseTtlSeconds { get; set; }
 
     /// <summary>
+    /// Number of max retries the client should use for recoverable errors.
+    /// Number of max retries the client should use for recoverable errors.
+    /// </summary>
+    [JsonPropertyName("maxRetries")]
+    public double? MaxRetries { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -300,11 +327,30 @@ public partial class V1alpha1SecretBackendSpecForProvider
 
     /// <summary>
     /// The AWS Secret Key this backend should use to
-    /// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials.
+    /// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials. Conflicts with secret_key_wo.
     /// The AWS Secret Access Key to use when generating new credentials.
     /// </summary>
     [JsonPropertyName("secretKeySecretRef")]
     public V1alpha1SecretBackendSpecForProviderSecretKeySecretRef? SecretKeySecretRef { get; set; }
+
+    /// <summary>
+    /// The AWS Secret Key this backend should use to
+    /// issue new credentials. This is a write-only field and will not be stored in state.
+    /// Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS
+    /// environment credentials, shared file credentials or IAM role/ECS task credentials.
+    /// Conflicts with secret_key.
+    /// The AWS Secret Access Key to use when generating new credentials. This is a write-only field and will not be read back from Vault.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderSecretKeyWoSecretRef? SecretKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// A version counter for the
+    /// secret_key_wo field. Incrementing this value will trigger an update to the secret key.
+    /// A version counter for the write-only secret_key_wo field. Incrementing this value will trigger an update to the secret_key.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoVersion")]
+    public double? SecretKeyWoVersion { get; set; }
 
     /// <summary>
     /// Specifies a custom HTTP STS endpoint to use.
@@ -361,12 +407,32 @@ public partial class V1alpha1SecretBackendSpecInitProviderAccessKeySecretRef
 
 /// <summary>
 /// The AWS Secret Key this backend should use to
-/// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials.
+/// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials. Conflicts with secret_key_wo.
 /// The AWS Secret Access Key to use when generating new credentials.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecInitProviderSecretKeySecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// The AWS Secret Key this backend should use to
+/// issue new credentials. This is a write-only field and will not be stored in state.
+/// Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS
+/// environment credentials, shared file credentials or IAM role/ECS task credentials.
+/// Conflicts with secret_key.
+/// The AWS Secret Access Key to use when generating new credentials. This is a write-only field and will not be read back from Vault.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderSecretKeyWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -529,6 +595,13 @@ public partial class V1alpha1SecretBackendSpecInitProvider
     public double? MaxLeaseTtlSeconds { get; set; }
 
     /// <summary>
+    /// Number of max retries the client should use for recoverable errors.
+    /// Number of max retries the client should use for recoverable errors.
+    /// </summary>
+    [JsonPropertyName("maxRetries")]
+    public double? MaxRetries { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -618,11 +691,30 @@ public partial class V1alpha1SecretBackendSpecInitProvider
 
     /// <summary>
     /// The AWS Secret Key this backend should use to
-    /// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials.
+    /// issue new credentials. Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS environment credentials, shared file credentials or IAM role/ECS task credentials. Conflicts with secret_key_wo.
     /// The AWS Secret Access Key to use when generating new credentials.
     /// </summary>
     [JsonPropertyName("secretKeySecretRef")]
     public V1alpha1SecretBackendSpecInitProviderSecretKeySecretRef? SecretKeySecretRef { get; set; }
+
+    /// <summary>
+    /// The AWS Secret Key this backend should use to
+    /// issue new credentials. This is a write-only field and will not be stored in state.
+    /// Vault uses the official AWS SDK to authenticate, and thus can also use standard AWS
+    /// environment credentials, shared file credentials or IAM role/ECS task credentials.
+    /// Conflicts with secret_key.
+    /// The AWS Secret Access Key to use when generating new credentials. This is a write-only field and will not be read back from Vault.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderSecretKeyWoSecretRef? SecretKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// A version counter for the
+    /// secret_key_wo field. Incrementing this value will trigger an update to the secret key.
+    /// A version counter for the write-only secret_key_wo field. Incrementing this value will trigger an update to the secret_key.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoVersion")]
+    public double? SecretKeyWoVersion { get; set; }
 
     /// <summary>
     /// Specifies a custom HTTP STS endpoint to use.
@@ -907,6 +999,13 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     public double? MaxLeaseTtlSeconds { get; set; }
 
     /// <summary>
+    /// Number of max retries the client should use for recoverable errors.
+    /// Number of max retries the client should use for recoverable errors.
+    /// </summary>
+    [JsonPropertyName("maxRetries")]
+    public double? MaxRetries { get; set; }
+
+    /// <summary>
     /// The namespace to provision the resource in.
     /// The value should not contain leading or trailing forward slashes.
     /// The namespace is always relative to the provider&apos;s configured namespace.
@@ -993,6 +1092,14 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("sealWrap")]
     public bool? SealWrap { get; set; }
+
+    /// <summary>
+    /// A version counter for the
+    /// secret_key_wo field. Incrementing this value will trigger an update to the secret key.
+    /// A version counter for the write-only secret_key_wo field. Incrementing this value will trigger an update to the secret_key.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoVersion")]
+    public double? SecretKeyWoVersion { get; set; }
 
     /// <summary>
     /// Specifies a custom HTTP STS endpoint to use.

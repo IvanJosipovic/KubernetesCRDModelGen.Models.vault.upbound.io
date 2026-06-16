@@ -203,12 +203,36 @@ public partial class V1alpha1AuthBackendConfigSpecForProviderBackendSelector
 }
 
 /// <summary>
-/// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+/// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API. Conflicts with token_reviewer_jwt_wo.
 /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendConfigSpecForProviderTokenReviewerJwtSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// A write-only service account JWT (or other token) used as a bearer token to access the
+/// TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+/// Conflicts with token_reviewer_jwt.
+/// Note: This property is write-only and will not be read from the API.
+/// A write-only service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendConfigSpecForProviderTokenReviewerJwtWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -292,11 +316,28 @@ public partial class V1alpha1AuthBackendConfigSpecForProvider
     public IList<string>? PemKeys { get; set; }
 
     /// <summary>
-    /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+    /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API. Conflicts with token_reviewer_jwt_wo.
     /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
     /// </summary>
     [JsonPropertyName("tokenReviewerJwtSecretRef")]
     public V1alpha1AuthBackendConfigSpecForProviderTokenReviewerJwtSecretRef? TokenReviewerJwtSecretRef { get; set; }
+
+    /// <summary>
+    /// A write-only service account JWT (or other token) used as a bearer token to access the
+    /// TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+    /// Conflicts with token_reviewer_jwt.
+    /// Note: This property is write-only and will not be read from the API.
+    /// A write-only service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+    /// </summary>
+    [JsonPropertyName("tokenReviewerJwtWoSecretRef")]
+    public V1alpha1AuthBackendConfigSpecForProviderTokenReviewerJwtWoSecretRef? TokenReviewerJwtWoSecretRef { get; set; }
+
+    /// <summary>
+    /// The version of token_reviewer_jwt_wo to use during write operations. Required with token_reviewer_jwt_wo. For more info see updating write-only attributes.
+    /// The version of token_reviewer_jwt_wo to use during write operations.
+    /// </summary>
+    [JsonPropertyName("tokenReviewerJwtWoVersion")]
+    public double? TokenReviewerJwtWoVersion { get; set; }
 
     /// <summary>
     /// Use annotations from the client token&apos;s associated service account as alias metadata for the Vault entity. Requires Vault v1.16+ or Vault auth kubernetes plugin v0.18.0+
@@ -454,12 +495,36 @@ public partial class V1alpha1AuthBackendConfigSpecInitProviderBackendSelector
 }
 
 /// <summary>
-/// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+/// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API. Conflicts with token_reviewer_jwt_wo.
 /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendConfigSpecInitProviderTokenReviewerJwtSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// A write-only service account JWT (or other token) used as a bearer token to access the
+/// TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+/// Conflicts with token_reviewer_jwt.
+/// Note: This property is write-only and will not be read from the API.
+/// A write-only service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendConfigSpecInitProviderTokenReviewerJwtWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -555,11 +620,28 @@ public partial class V1alpha1AuthBackendConfigSpecInitProvider
     public IList<string>? PemKeys { get; set; }
 
     /// <summary>
-    /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+    /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API. Conflicts with token_reviewer_jwt_wo.
     /// A service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
     /// </summary>
     [JsonPropertyName("tokenReviewerJwtSecretRef")]
     public V1alpha1AuthBackendConfigSpecInitProviderTokenReviewerJwtSecretRef? TokenReviewerJwtSecretRef { get; set; }
+
+    /// <summary>
+    /// A write-only service account JWT (or other token) used as a bearer token to access the
+    /// TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+    /// Conflicts with token_reviewer_jwt.
+    /// Note: This property is write-only and will not be read from the API.
+    /// A write-only service account JWT (or other token) used as a bearer token to access the TokenReview API to validate other JWTs during login. If not set the JWT used for login will be used to access the API.
+    /// </summary>
+    [JsonPropertyName("tokenReviewerJwtWoSecretRef")]
+    public V1alpha1AuthBackendConfigSpecInitProviderTokenReviewerJwtWoSecretRef? TokenReviewerJwtWoSecretRef { get; set; }
+
+    /// <summary>
+    /// The version of token_reviewer_jwt_wo to use during write operations. Required with token_reviewer_jwt_wo. For more info see updating write-only attributes.
+    /// The version of token_reviewer_jwt_wo to use during write operations.
+    /// </summary>
+    [JsonPropertyName("tokenReviewerJwtWoVersion")]
+    public double? TokenReviewerJwtWoVersion { get; set; }
 
     /// <summary>
     /// Use annotations from the client token&apos;s associated service account as alias metadata for the Vault entity. Requires Vault v1.16+ or Vault auth kubernetes plugin v0.18.0+
@@ -814,6 +896,13 @@ public partial class V1alpha1AuthBackendConfigStatusAtProvider
     /// </summary>
     [JsonPropertyName("pemKeys")]
     public IList<string>? PemKeys { get; set; }
+
+    /// <summary>
+    /// The version of token_reviewer_jwt_wo to use during write operations. Required with token_reviewer_jwt_wo. For more info see updating write-only attributes.
+    /// The version of token_reviewer_jwt_wo to use during write operations.
+    /// </summary>
+    [JsonPropertyName("tokenReviewerJwtWoVersion")]
+    public double? TokenReviewerJwtWoVersion { get; set; }
 
     /// <summary>
     /// Use annotations from the client token&apos;s associated service account as alias metadata for the Vault entity. Requires Vault v1.16+ or Vault auth kubernetes plugin v0.18.0+

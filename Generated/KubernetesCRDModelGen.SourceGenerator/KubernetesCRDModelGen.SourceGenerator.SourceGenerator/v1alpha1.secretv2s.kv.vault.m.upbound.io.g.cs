@@ -73,7 +73,7 @@ public partial class V1alpha1SecretV2SpecForProviderCustomMetadata
 
 /// <summary>
 /// JSON-encoded string that will be
-/// written as the secret data at the given path.
+/// written as the secret data at the given path. This is required if data_json_wo is not set.
 /// JSON-encoded secret data to write.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -268,15 +268,15 @@ public partial class V1alpha1SecretV2SpecForProvider
 
     /// <summary>
     /// JSON-encoded string that will be
-    /// written as the secret data at the given path.
+    /// written as the secret data at the given path. This is required if data_json_wo is not set.
     /// JSON-encoded secret data to write.
     /// </summary>
     [JsonPropertyName("dataJsonSecretRef")]
     public V1alpha1SecretV2SpecForProviderDataJsonSecretRef? DataJsonSecretRef { get; set; }
 
     /// <summary>
-    /// JSON-encoded secret data to write to Vault. Can be updated.
-    /// Note: This property is write-only and will not be read from the API.
+    /// JSON-encoded string that will be
+    /// written as the secret data at the given path. This is required if data_json is not set. Note: This property is write-only and will not be read from the API.
     /// Write-Only JSON-encoded secret data to write.
     /// </summary>
     [JsonPropertyName("dataJsonWo")]
@@ -385,7 +385,7 @@ public partial class V1alpha1SecretV2SpecInitProviderCustomMetadata
 
 /// <summary>
 /// JSON-encoded string that will be
-/// written as the secret data at the given path.
+/// written as the secret data at the given path. This is required if data_json_wo is not set.
 /// JSON-encoded secret data to write.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -592,15 +592,15 @@ public partial class V1alpha1SecretV2SpecInitProvider
 
     /// <summary>
     /// JSON-encoded string that will be
-    /// written as the secret data at the given path.
+    /// written as the secret data at the given path. This is required if data_json_wo is not set.
     /// JSON-encoded secret data to write.
     /// </summary>
     [JsonPropertyName("dataJsonSecretRef")]
     public V1alpha1SecretV2SpecInitProviderDataJsonSecretRef? DataJsonSecretRef { get; set; }
 
     /// <summary>
-    /// JSON-encoded secret data to write to Vault. Can be updated.
-    /// Note: This property is write-only and will not be read from the API.
+    /// JSON-encoded string that will be
+    /// written as the secret data at the given path. This is required if data_json is not set. Note: This property is write-only and will not be read from the API.
     /// Write-Only JSON-encoded secret data to write.
     /// </summary>
     [JsonPropertyName("dataJsonWo")]
@@ -838,8 +838,8 @@ public partial class V1alpha1SecretV2StatusAtProvider
     public IList<V1alpha1SecretV2StatusAtProviderCustomMetadata>? CustomMetadata { get; set; }
 
     /// <summary>
-    /// JSON-encoded secret data to write to Vault. Can be updated.
-    /// Note: This property is write-only and will not be read from the API.
+    /// JSON-encoded string that will be
+    /// written as the secret data at the given path. This is required if data_json is not set. Note: This property is write-only and will not be read from the API.
     /// Write-Only JSON-encoded secret data to write.
     /// </summary>
     [JsonPropertyName("dataJsonWo")]

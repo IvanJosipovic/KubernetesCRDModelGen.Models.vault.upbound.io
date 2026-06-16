@@ -273,10 +273,18 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     /// <summary>
     /// –  Specifies the maximum TTL for service principals generated using this role. Accepts time
     /// suffixed strings (&quot;1h&quot;) or an integer number of seconds. Defaults to the system/engine max TTL time.
-    /// Human-friendly description of the mount for the backend.
+    /// Specifies the maximum TTL for service principals generated using this role.
     /// </summary>
     [JsonPropertyName("maxTtl")]
     public string? MaxTtl { get; set; }
+
+    /// <summary>
+    /// value pairs that are stored alongside the role and returned with generated
+    /// credentials.
+    /// A map of string key/value pairs that will be stored as metadata on the secret.
+    /// </summary>
+    [JsonPropertyName("metadata")]
+    public IDictionary<string, string>? Metadata { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.
@@ -295,6 +303,13 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     /// </summary>
     [JsonPropertyName("permanentlyDelete")]
     public bool? PermanentlyDelete { get; set; }
+
+    /// <summary>
+    /// If set to true, persists the created service principal and application for the lifetime of the role
+    /// If true, persists the created service principal and application for the lifetime of the role.
+    /// </summary>
+    [JsonPropertyName("persistApp")]
+    public bool? PersistApp { get; set; }
 
     /// <summary>
     /// Name of the Azure role
@@ -321,7 +336,7 @@ public partial class V1alpha1SecretBackendRoleSpecForProvider
     /// <summary>
     /// –  Specifies the default TTL for service principals generated using this role.
     /// Accepts time suffixed strings (&quot;1h&quot;) or an integer number of seconds. Defaults to the system/engine default TTL time.
-    /// Human-friendly description of the mount for the backend.
+    /// Specifies the default TTL for service principals generated using this role.
     /// </summary>
     [JsonPropertyName("ttl")]
     public string? Ttl { get; set; }
@@ -557,10 +572,18 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     /// <summary>
     /// –  Specifies the maximum TTL for service principals generated using this role. Accepts time
     /// suffixed strings (&quot;1h&quot;) or an integer number of seconds. Defaults to the system/engine max TTL time.
-    /// Human-friendly description of the mount for the backend.
+    /// Specifies the maximum TTL for service principals generated using this role.
     /// </summary>
     [JsonPropertyName("maxTtl")]
     public string? MaxTtl { get; set; }
+
+    /// <summary>
+    /// value pairs that are stored alongside the role and returned with generated
+    /// credentials.
+    /// A map of string key/value pairs that will be stored as metadata on the secret.
+    /// </summary>
+    [JsonPropertyName("metadata")]
+    public IDictionary<string, string>? Metadata { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.
@@ -579,6 +602,13 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     /// </summary>
     [JsonPropertyName("permanentlyDelete")]
     public bool? PermanentlyDelete { get; set; }
+
+    /// <summary>
+    /// If set to true, persists the created service principal and application for the lifetime of the role
+    /// If true, persists the created service principal and application for the lifetime of the role.
+    /// </summary>
+    [JsonPropertyName("persistApp")]
+    public bool? PersistApp { get; set; }
 
     /// <summary>
     /// Name of the Azure role
@@ -605,7 +635,7 @@ public partial class V1alpha1SecretBackendRoleSpecInitProvider
     /// <summary>
     /// –  Specifies the default TTL for service principals generated using this role.
     /// Accepts time suffixed strings (&quot;1h&quot;) or an integer number of seconds. Defaults to the system/engine default TTL time.
-    /// Human-friendly description of the mount for the backend.
+    /// Specifies the default TTL for service principals generated using this role.
     /// </summary>
     [JsonPropertyName("ttl")]
     public string? Ttl { get; set; }
@@ -863,10 +893,18 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     /// <summary>
     /// –  Specifies the maximum TTL for service principals generated using this role. Accepts time
     /// suffixed strings (&quot;1h&quot;) or an integer number of seconds. Defaults to the system/engine max TTL time.
-    /// Human-friendly description of the mount for the backend.
+    /// Specifies the maximum TTL for service principals generated using this role.
     /// </summary>
     [JsonPropertyName("maxTtl")]
     public string? MaxTtl { get; set; }
+
+    /// <summary>
+    /// value pairs that are stored alongside the role and returned with generated
+    /// credentials.
+    /// A map of string key/value pairs that will be stored as metadata on the secret.
+    /// </summary>
+    [JsonPropertyName("metadata")]
+    public IDictionary<string, string>? Metadata { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.
@@ -885,6 +923,13 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     /// </summary>
     [JsonPropertyName("permanentlyDelete")]
     public bool? PermanentlyDelete { get; set; }
+
+    /// <summary>
+    /// If set to true, persists the created service principal and application for the lifetime of the role
+    /// If true, persists the created service principal and application for the lifetime of the role.
+    /// </summary>
+    [JsonPropertyName("persistApp")]
+    public bool? PersistApp { get; set; }
 
     /// <summary>
     /// Name of the Azure role
@@ -911,7 +956,7 @@ public partial class V1alpha1SecretBackendRoleStatusAtProvider
     /// <summary>
     /// –  Specifies the default TTL for service principals generated using this role.
     /// Accepts time suffixed strings (&quot;1h&quot;) or an integer number of seconds. Defaults to the system/engine default TTL time.
-    /// Human-friendly description of the mount for the backend.
+    /// Specifies the default TTL for service principals generated using this role.
     /// </summary>
     [JsonPropertyName("ttl")]
     public string? Ttl { get; set; }

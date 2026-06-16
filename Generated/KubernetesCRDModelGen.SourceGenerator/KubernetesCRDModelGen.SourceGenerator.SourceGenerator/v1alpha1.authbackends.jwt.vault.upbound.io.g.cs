@@ -56,12 +56,33 @@ public enum V1alpha1AuthBackendSpecDeletionPolicyEnum
 }
 
 /// <summary>
-/// Client Secret used for OIDC backends
+/// Client Secret used for OIDC backends. Note: This field is stored in state. For enhanced security, use oidc_client_secret_wo instead.
 /// Client Secret used for OIDC
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecForProviderOidcClientSecretSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// Write-only Client Secret used for OIDC backends. Mutually exclusive with oidc_client_secret. Must be used with oidc_client_secret_wo_version. To rotate the secret, update the value and increment oidc_client_secret_wo_version.
+/// Write-only Client Secret used for OIDC. This field is recommended over oidc_client_secret for enhanced security.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecForProviderOidcClientSecretWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -239,11 +260,25 @@ public partial class V1alpha1AuthBackendSpecForProvider
     public string? OidcClientId { get; set; }
 
     /// <summary>
-    /// Client Secret used for OIDC backends
+    /// Client Secret used for OIDC backends. Note: This field is stored in state. For enhanced security, use oidc_client_secret_wo instead.
     /// Client Secret used for OIDC
     /// </summary>
     [JsonPropertyName("oidcClientSecretSecretRef")]
     public V1alpha1AuthBackendSpecForProviderOidcClientSecretSecretRef? OidcClientSecretSecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only Client Secret used for OIDC backends. Mutually exclusive with oidc_client_secret. Must be used with oidc_client_secret_wo_version. To rotate the secret, update the value and increment oidc_client_secret_wo_version.
+    /// Write-only Client Secret used for OIDC. This field is recommended over oidc_client_secret for enhanced security.
+    /// </summary>
+    [JsonPropertyName("oidcClientSecretWoSecretRef")]
+    public V1alpha1AuthBackendSpecForProviderOidcClientSecretWoSecretRef? OidcClientSecretWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only oidc_client_secret_wo field. Increment this value to trigger an update of the client secret in Vault. Required when using oidc_client_secret_wo.
+    /// Version counter for write-only oidc_client_secret field. Increment this value to force update of the secret.
+    /// </summary>
+    [JsonPropertyName("oidcClientSecretWoVersion")]
+    public double? OidcClientSecretWoVersion { get; set; }
 
     /// <summary>
     /// The CA certificate or chain of certificates, in PEM format, to use to validate connections to the OIDC Discovery URL. If not set, system certificates are used
@@ -299,12 +334,33 @@ public partial class V1alpha1AuthBackendSpecForProvider
 }
 
 /// <summary>
-/// Client Secret used for OIDC backends
+/// Client Secret used for OIDC backends. Note: This field is stored in state. For enhanced security, use oidc_client_secret_wo instead.
 /// Client Secret used for OIDC
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecInitProviderOidcClientSecretSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// Write-only Client Secret used for OIDC backends. Mutually exclusive with oidc_client_secret. Must be used with oidc_client_secret_wo_version. To rotate the secret, update the value and increment oidc_client_secret_wo_version.
+/// Write-only Client Secret used for OIDC. This field is recommended over oidc_client_secret for enhanced security.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecInitProviderOidcClientSecretWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -494,11 +550,25 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     public string? OidcClientId { get; set; }
 
     /// <summary>
-    /// Client Secret used for OIDC backends
+    /// Client Secret used for OIDC backends. Note: This field is stored in state. For enhanced security, use oidc_client_secret_wo instead.
     /// Client Secret used for OIDC
     /// </summary>
     [JsonPropertyName("oidcClientSecretSecretRef")]
     public V1alpha1AuthBackendSpecInitProviderOidcClientSecretSecretRef? OidcClientSecretSecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only Client Secret used for OIDC backends. Mutually exclusive with oidc_client_secret. Must be used with oidc_client_secret_wo_version. To rotate the secret, update the value and increment oidc_client_secret_wo_version.
+    /// Write-only Client Secret used for OIDC. This field is recommended over oidc_client_secret for enhanced security.
+    /// </summary>
+    [JsonPropertyName("oidcClientSecretWoSecretRef")]
+    public V1alpha1AuthBackendSpecInitProviderOidcClientSecretWoSecretRef? OidcClientSecretWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only oidc_client_secret_wo field. Increment this value to trigger an update of the client secret in Vault. Required when using oidc_client_secret_wo.
+    /// Version counter for write-only oidc_client_secret field. Increment this value to force update of the secret.
+    /// </summary>
+    [JsonPropertyName("oidcClientSecretWoVersion")]
+    public double? OidcClientSecretWoVersion { get; set; }
 
     /// <summary>
     /// The CA certificate or chain of certificates, in PEM format, to use to validate connections to the OIDC Discovery URL. If not set, system certificates are used
@@ -907,6 +977,13 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("oidcClientId")]
     public string? OidcClientId { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only oidc_client_secret_wo field. Increment this value to trigger an update of the client secret in Vault. Required when using oidc_client_secret_wo.
+    /// Version counter for write-only oidc_client_secret field. Increment this value to force update of the secret.
+    /// </summary>
+    [JsonPropertyName("oidcClientSecretWoVersion")]
+    public double? OidcClientSecretWoVersion { get; set; }
 
     /// <summary>
     /// The CA certificate or chain of certificates, in PEM format, to use to validate connections to the OIDC Discovery URL. If not set, system certificates are used

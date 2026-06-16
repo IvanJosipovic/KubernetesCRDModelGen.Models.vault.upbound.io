@@ -123,6 +123,15 @@ public partial class V1alpha1AuthBackendSpecForProviderTune
 public partial class V1alpha1AuthBackendSpecForProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// The API endpoint to use. Useful if you
     /// are running GitHub Enterprise or an API-compatible authentication server.
     /// The API endpoint to use. Useful if you are running GitHub Enterprise or an API-compatible authentication server.
@@ -343,6 +352,15 @@ public partial class V1alpha1AuthBackendSpecInitProviderTune
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecInitProvider
 {
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
     /// <summary>
     /// The API endpoint to use. Useful if you
     /// are running GitHub Enterprise or an API-compatible authentication server.
@@ -741,6 +759,15 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("accessor")]
     public string? Accessor { get; set; }
+
+    /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
 
     /// <summary>
     /// The API endpoint to use. Useful if you

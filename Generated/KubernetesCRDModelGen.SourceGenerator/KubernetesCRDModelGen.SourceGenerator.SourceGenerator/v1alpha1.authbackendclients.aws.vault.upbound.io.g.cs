@@ -226,12 +226,37 @@ public partial class V1alpha1AuthBackendClientSpecForProviderBackendSelector
 
 /// <summary>
 /// The AWS secret key that Vault should use for the
-/// auth backend.
+/// auth backend. Mutually exclusive with secret_key_wo.
+/// Consider using secret_key_wo instead for enhanced security.
 /// AWS Secret key with permissions to query AWS APIs.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendClientSpecForProviderSecretKeySecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// Write-only AWS secret key that Vault should use for the
+/// auth backend. Mutually exclusive with secret_key.
+/// Must be used together with secret_key_wo_version.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only AWS Secret key with permissions to query AWS APIs. This field is recommended over secret_key for enhanced security.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendClientSpecForProviderSecretKeyWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -257,6 +282,15 @@ public partial class V1alpha1AuthBackendClientSpecForProvider
     /// </summary>
     [JsonPropertyName("accessKeySecretRef")]
     public V1alpha1AuthBackendClientSpecForProviderAccessKeySecretRef? AccessKeySecretRef { get; set; }
+
+    /// <summary>
+    /// List of additional headers that are allowed to be in STS request headers.
+    /// The headers are automatically canonicalized (e.g., content-type becomes Content-Type). Duplicate values are automatically
+    /// removed. This can be useful when you need to allow specific headers in STS requests for IAM-based authentication.
+    /// List of additional headers that are allowed to be in STS request headers.
+    /// </summary>
+    [JsonPropertyName("allowedStsHeaderValues")]
+    public IList<string>? AllowedStsHeaderValues { get; set; }
 
     /// <summary>
     /// The path the AWS auth backend being configured was
@@ -375,11 +409,30 @@ public partial class V1alpha1AuthBackendClientSpecForProvider
 
     /// <summary>
     /// The AWS secret key that Vault should use for the
-    /// auth backend.
+    /// auth backend. Mutually exclusive with secret_key_wo.
+    /// Consider using secret_key_wo instead for enhanced security.
     /// AWS Secret key with permissions to query AWS APIs.
     /// </summary>
     [JsonPropertyName("secretKeySecretRef")]
     public V1alpha1AuthBackendClientSpecForProviderSecretKeySecretRef? SecretKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only AWS secret key that Vault should use for the
+    /// auth backend. Mutually exclusive with secret_key.
+    /// Must be used together with secret_key_wo_version.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only AWS Secret key with permissions to query AWS APIs. This field is recommended over secret_key for enhanced security.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoSecretRef")]
+    public V1alpha1AuthBackendClientSpecForProviderSecretKeyWoSecretRef? SecretKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only secret_key_wo field.
+    /// Increment this value to rotate the secret key. Required when secret_key_wo is set.
+    /// Version counter for write-only secret_key field. Increment this value to force update of the secret.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoVersion")]
+    public double? SecretKeyWoVersion { get; set; }
 
     /// <summary>
     /// Override the URL Vault uses when making STS API
@@ -580,12 +633,37 @@ public partial class V1alpha1AuthBackendClientSpecInitProviderBackendSelector
 
 /// <summary>
 /// The AWS secret key that Vault should use for the
-/// auth backend.
+/// auth backend. Mutually exclusive with secret_key_wo.
+/// Consider using secret_key_wo instead for enhanced security.
 /// AWS Secret key with permissions to query AWS APIs.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendClientSpecInitProviderSecretKeySecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// Write-only AWS secret key that Vault should use for the
+/// auth backend. Mutually exclusive with secret_key.
+/// Must be used together with secret_key_wo_version.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only AWS Secret key with permissions to query AWS APIs. This field is recommended over secret_key for enhanced security.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendClientSpecInitProviderSecretKeyWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -623,6 +701,15 @@ public partial class V1alpha1AuthBackendClientSpecInitProvider
     /// </summary>
     [JsonPropertyName("accessKeySecretRef")]
     public V1alpha1AuthBackendClientSpecInitProviderAccessKeySecretRef? AccessKeySecretRef { get; set; }
+
+    /// <summary>
+    /// List of additional headers that are allowed to be in STS request headers.
+    /// The headers are automatically canonicalized (e.g., content-type becomes Content-Type). Duplicate values are automatically
+    /// removed. This can be useful when you need to allow specific headers in STS requests for IAM-based authentication.
+    /// List of additional headers that are allowed to be in STS request headers.
+    /// </summary>
+    [JsonPropertyName("allowedStsHeaderValues")]
+    public IList<string>? AllowedStsHeaderValues { get; set; }
 
     /// <summary>
     /// The path the AWS auth backend being configured was
@@ -741,11 +828,30 @@ public partial class V1alpha1AuthBackendClientSpecInitProvider
 
     /// <summary>
     /// The AWS secret key that Vault should use for the
-    /// auth backend.
+    /// auth backend. Mutually exclusive with secret_key_wo.
+    /// Consider using secret_key_wo instead for enhanced security.
     /// AWS Secret key with permissions to query AWS APIs.
     /// </summary>
     [JsonPropertyName("secretKeySecretRef")]
     public V1alpha1AuthBackendClientSpecInitProviderSecretKeySecretRef? SecretKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only AWS secret key that Vault should use for the
+    /// auth backend. Mutually exclusive with secret_key.
+    /// Must be used together with secret_key_wo_version.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only AWS Secret key with permissions to query AWS APIs. This field is recommended over secret_key for enhanced security.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoSecretRef")]
+    public V1alpha1AuthBackendClientSpecInitProviderSecretKeyWoSecretRef? SecretKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only secret_key_wo field.
+    /// Increment this value to rotate the secret key. Required when secret_key_wo is set.
+    /// Version counter for write-only secret_key field. Increment this value to force update of the secret.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoVersion")]
+    public double? SecretKeyWoVersion { get; set; }
 
     /// <summary>
     /// Override the URL Vault uses when making STS API
@@ -963,6 +1069,15 @@ public partial class V1alpha1AuthBackendClientSpec
 public partial class V1alpha1AuthBackendClientStatusAtProvider
 {
     /// <summary>
+    /// List of additional headers that are allowed to be in STS request headers.
+    /// The headers are automatically canonicalized (e.g., content-type becomes Content-Type). Duplicate values are automatically
+    /// removed. This can be useful when you need to allow specific headers in STS requests for IAM-based authentication.
+    /// List of additional headers that are allowed to be in STS request headers.
+    /// </summary>
+    [JsonPropertyName("allowedStsHeaderValues")]
+    public IList<string>? AllowedStsHeaderValues { get; set; }
+
+    /// <summary>
     /// The path the AWS auth backend being configured was
     /// mounted at.  Defaults to aws.
     /// Unique name of the auth backend to configure.
@@ -1071,6 +1186,14 @@ public partial class V1alpha1AuthBackendClientStatusAtProvider
     /// </summary>
     [JsonPropertyName("rotationWindow")]
     public double? RotationWindow { get; set; }
+
+    /// <summary>
+    /// Version counter for the write-only secret_key_wo field.
+    /// Increment this value to rotate the secret key. Required when secret_key_wo is set.
+    /// Version counter for write-only secret_key field. Increment this value to force update of the secret.
+    /// </summary>
+    [JsonPropertyName("secretKeyWoVersion")]
+    public double? SecretKeyWoVersion { get; set; }
 
     /// <summary>
     /// Override the URL Vault uses when making STS API

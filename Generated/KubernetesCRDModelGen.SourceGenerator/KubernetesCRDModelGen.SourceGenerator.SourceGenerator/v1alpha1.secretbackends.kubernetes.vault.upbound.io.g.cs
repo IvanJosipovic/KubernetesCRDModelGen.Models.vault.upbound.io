@@ -78,6 +78,28 @@ public partial class V1alpha1SecretBackendSpecForProviderServiceAccountJwtSecret
     public required string Namespace { get; set; }
 }
 
+/// <summary>
+/// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value is not stored in state.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value will not be stored in state.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderServiceAccountJwtWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecForProvider
@@ -254,6 +276,23 @@ public partial class V1alpha1SecretBackendSpecForProvider
     /// </summary>
     [JsonPropertyName("serviceAccountJwtSecretRef")]
     public V1alpha1SecretBackendSpecForProviderServiceAccountJwtSecretRef? ServiceAccountJwtSecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value is not stored in state.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value will not be stored in state.
+    /// </summary>
+    [JsonPropertyName("serviceAccountJwtWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderServiceAccountJwtWoSecretRef? ServiceAccountJwtWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for service_account_jwt_wo. Increment to force an update.
+    /// For more information about write-only attributes, see
+    /// using write-only attributes.
+    /// Version counter for write-only service account JWT.
+    /// </summary>
+    [JsonPropertyName("serviceAccountJwtWoVersion")]
+    public double? ServiceAccountJwtWoVersion { get; set; }
 }
 
 /// <summary>
@@ -265,6 +304,28 @@ public partial class V1alpha1SecretBackendSpecForProvider
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecInitProviderServiceAccountJwtSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value is not stored in state.
+/// Note: This property is write-only and will not be read from the API.
+/// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value will not be stored in state.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderServiceAccountJwtWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -467,6 +528,23 @@ public partial class V1alpha1SecretBackendSpecInitProvider
     /// </summary>
     [JsonPropertyName("serviceAccountJwtSecretRef")]
     public V1alpha1SecretBackendSpecInitProviderServiceAccountJwtSecretRef? ServiceAccountJwtSecretRef { get; set; }
+
+    /// <summary>
+    /// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value is not stored in state.
+    /// Note: This property is write-only and will not be read from the API.
+    /// Write-only JSON web token of the service account used by the secrets engine to manage Kubernetes credentials. This value will not be stored in state.
+    /// </summary>
+    [JsonPropertyName("serviceAccountJwtWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderServiceAccountJwtWoSecretRef? ServiceAccountJwtWoSecretRef { get; set; }
+
+    /// <summary>
+    /// Version counter for service_account_jwt_wo. Increment to force an update.
+    /// For more information about write-only attributes, see
+    /// using write-only attributes.
+    /// Version counter for write-only service account JWT.
+    /// </summary>
+    [JsonPropertyName("serviceAccountJwtWoVersion")]
+    public double? ServiceAccountJwtWoVersion { get; set; }
 }
 
 /// <summary>
@@ -826,6 +904,15 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("sealWrap")]
     public bool? SealWrap { get; set; }
+
+    /// <summary>
+    /// Version counter for service_account_jwt_wo. Increment to force an update.
+    /// For more information about write-only attributes, see
+    /// using write-only attributes.
+    /// Version counter for write-only service account JWT.
+    /// </summary>
+    [JsonPropertyName("serviceAccountJwtWoVersion")]
+    public double? ServiceAccountJwtWoVersion { get; set; }
 }
 
 /// <summary>A Condition that may apply to a resource.</summary>

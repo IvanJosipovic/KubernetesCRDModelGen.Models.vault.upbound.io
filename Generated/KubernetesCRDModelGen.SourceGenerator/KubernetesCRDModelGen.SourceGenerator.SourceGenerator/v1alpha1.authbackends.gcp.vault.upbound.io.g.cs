@@ -73,6 +73,24 @@ public partial class V1alpha1AuthBackendSpecForProviderCredentialsSecretRef
     public required string Namespace { get; set; }
 }
 
+/// <summary>JSON-encoded credentials to use to connect to GCP. This field is write-only and the value cannot be read back.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecForProviderCredentialsWoSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecForProviderCustomEndpoint
@@ -137,6 +155,14 @@ public partial class V1alpha1AuthBackendSpecForProvider
     [JsonPropertyName("credentialsSecretRef")]
     public V1alpha1AuthBackendSpecForProviderCredentialsSecretRef? CredentialsSecretRef { get; set; }
 
+    /// <summary>JSON-encoded credentials to use to connect to GCP. This field is write-only and the value cannot be read back.</summary>
+    [JsonPropertyName("credentialsWoSecretRef")]
+    public V1alpha1AuthBackendSpecForProviderCredentialsWoSecretRef? CredentialsWoSecretRef { get; set; }
+
+    /// <summary>A version counter for write-only credentials. Incrementing this value will cause the provider to send the credentials to Vault.</summary>
+    [JsonPropertyName("credentialsWoVersion")]
+    public double? CredentialsWoVersion { get; set; }
+
     /// <summary>Specifies overrides to service endpoints used when making API requests to GCP.</summary>
     [JsonPropertyName("customEndpoint")]
     public IList<V1alpha1AuthBackendSpecForProviderCustomEndpoint>? CustomEndpoint { get; set; }
@@ -151,6 +177,22 @@ public partial class V1alpha1AuthBackendSpecForProvider
     /// <summary>If set, opts out of mount migration on path updates.</summary>
     [JsonPropertyName("disableRemount")]
     public bool? DisableRemount { get; set; }
+
+    /// <summary>Defines what alias needs to be used during login and refelects the same in token metadata and audit logs.</summary>
+    [JsonPropertyName("gceAlias")]
+    public string? GceAlias { get; set; }
+
+    /// <summary>Controls which instance metadata fields from the GCE login are captured into Vault&apos;s token metadata or audit logs.</summary>
+    [JsonPropertyName("gceMetadata")]
+    public IList<string>? GceMetadata { get; set; }
+
+    /// <summary>Defines what alias needs to be used during login and refelects the same in token metadata and audit logs.</summary>
+    [JsonPropertyName("iamAlias")]
+    public string? IamAlias { get; set; }
+
+    /// <summary>Controls the metadata to include on the token returned by the login endpoint.</summary>
+    [JsonPropertyName("iamMetadata")]
+    public IList<string>? IamMetadata { get; set; }
 
     /// <summary>The audience claim value for plugin identity tokens.</summary>
     [JsonPropertyName("identityTokenAudience")]
@@ -205,6 +247,24 @@ public partial class V1alpha1AuthBackendSpecForProvider
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1AuthBackendSpecInitProviderCredentialsSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>JSON-encoded credentials to use to connect to GCP. This field is write-only and the value cannot be read back.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1AuthBackendSpecInitProviderCredentialsWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -295,6 +355,14 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     [JsonPropertyName("credentialsSecretRef")]
     public V1alpha1AuthBackendSpecInitProviderCredentialsSecretRef? CredentialsSecretRef { get; set; }
 
+    /// <summary>JSON-encoded credentials to use to connect to GCP. This field is write-only and the value cannot be read back.</summary>
+    [JsonPropertyName("credentialsWoSecretRef")]
+    public V1alpha1AuthBackendSpecInitProviderCredentialsWoSecretRef? CredentialsWoSecretRef { get; set; }
+
+    /// <summary>A version counter for write-only credentials. Incrementing this value will cause the provider to send the credentials to Vault.</summary>
+    [JsonPropertyName("credentialsWoVersion")]
+    public double? CredentialsWoVersion { get; set; }
+
     /// <summary>Specifies overrides to service endpoints used when making API requests to GCP.</summary>
     [JsonPropertyName("customEndpoint")]
     public IList<V1alpha1AuthBackendSpecInitProviderCustomEndpoint>? CustomEndpoint { get; set; }
@@ -309,6 +377,22 @@ public partial class V1alpha1AuthBackendSpecInitProvider
     /// <summary>If set, opts out of mount migration on path updates.</summary>
     [JsonPropertyName("disableRemount")]
     public bool? DisableRemount { get; set; }
+
+    /// <summary>Defines what alias needs to be used during login and refelects the same in token metadata and audit logs.</summary>
+    [JsonPropertyName("gceAlias")]
+    public string? GceAlias { get; set; }
+
+    /// <summary>Controls which instance metadata fields from the GCE login are captured into Vault&apos;s token metadata or audit logs.</summary>
+    [JsonPropertyName("gceMetadata")]
+    public IList<string>? GceMetadata { get; set; }
+
+    /// <summary>Defines what alias needs to be used during login and refelects the same in token metadata and audit logs.</summary>
+    [JsonPropertyName("iamAlias")]
+    public string? IamAlias { get; set; }
+
+    /// <summary>Controls the metadata to include on the token returned by the login endpoint.</summary>
+    [JsonPropertyName("iamMetadata")]
+    public IList<string>? IamMetadata { get; set; }
 
     /// <summary>The audience claim value for plugin identity tokens.</summary>
     [JsonPropertyName("identityTokenAudience")]
@@ -606,6 +690,10 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     [JsonPropertyName("clientId")]
     public string? ClientId { get; set; }
 
+    /// <summary>A version counter for write-only credentials. Incrementing this value will cause the provider to send the credentials to Vault.</summary>
+    [JsonPropertyName("credentialsWoVersion")]
+    public double? CredentialsWoVersion { get; set; }
+
     /// <summary>Specifies overrides to service endpoints used when making API requests to GCP.</summary>
     [JsonPropertyName("customEndpoint")]
     public IList<V1alpha1AuthBackendStatusAtProviderCustomEndpoint>? CustomEndpoint { get; set; }
@@ -620,6 +708,22 @@ public partial class V1alpha1AuthBackendStatusAtProvider
     /// <summary>If set, opts out of mount migration on path updates.</summary>
     [JsonPropertyName("disableRemount")]
     public bool? DisableRemount { get; set; }
+
+    /// <summary>Defines what alias needs to be used during login and refelects the same in token metadata and audit logs.</summary>
+    [JsonPropertyName("gceAlias")]
+    public string? GceAlias { get; set; }
+
+    /// <summary>Controls which instance metadata fields from the GCE login are captured into Vault&apos;s token metadata or audit logs.</summary>
+    [JsonPropertyName("gceMetadata")]
+    public IList<string>? GceMetadata { get; set; }
+
+    /// <summary>Defines what alias needs to be used during login and refelects the same in token metadata and audit logs.</summary>
+    [JsonPropertyName("iamAlias")]
+    public string? IamAlias { get; set; }
+
+    /// <summary>Controls the metadata to include on the token returned by the login endpoint.</summary>
+    [JsonPropertyName("iamMetadata")]
+    public IList<string>? IamMetadata { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -60,6 +60,13 @@ public enum V1alpha1PolicySpecDeletionPolicyEnum
 public partial class V1alpha1PolicySpecForProvider
 {
     /// <summary>
+    /// Specifies an override to the default source of entropy (randomness) used to generate the passwords. Must be one of: &quot; &quot;, &quot;platform&quot;, or &quot;seal&quot; (Vault Enterprise only). Requires Vault 1.21+.
+    /// Specifies an override to the default source of entropy (randomness) used to generate the passwords. Must be one of: ”, &apos;platform&apos;, or &apos;seal&apos;. Requires Vault 1.21+.
+    /// </summary>
+    [JsonPropertyName("entropySource")]
+    public string? EntropySource { get; set; }
+
+    /// <summary>
     /// The name of the password policy.
     /// Name of the password policy.
     /// </summary>
@@ -100,6 +107,13 @@ public partial class V1alpha1PolicySpecForProvider
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1PolicySpecInitProvider
 {
+    /// <summary>
+    /// Specifies an override to the default source of entropy (randomness) used to generate the passwords. Must be one of: &quot; &quot;, &quot;platform&quot;, or &quot;seal&quot; (Vault Enterprise only). Requires Vault 1.21+.
+    /// Specifies an override to the default source of entropy (randomness) used to generate the passwords. Must be one of: ”, &apos;platform&apos;, or &apos;seal&apos;. Requires Vault 1.21+.
+    /// </summary>
+    [JsonPropertyName("entropySource")]
+    public string? EntropySource { get; set; }
+
     /// <summary>
     /// The name of the password policy.
     /// Name of the password policy.
@@ -312,6 +326,13 @@ public partial class V1alpha1PolicySpec
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1PolicyStatusAtProvider
 {
+    /// <summary>
+    /// Specifies an override to the default source of entropy (randomness) used to generate the passwords. Must be one of: &quot; &quot;, &quot;platform&quot;, or &quot;seal&quot; (Vault Enterprise only). Requires Vault 1.21+.
+    /// Specifies an override to the default source of entropy (randomness) used to generate the passwords. Must be one of: ”, &apos;platform&apos;, or &apos;seal&apos;. Requires Vault 1.21+.
+    /// </summary>
+    [JsonPropertyName("entropySource")]
+    public string? EntropySource { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 

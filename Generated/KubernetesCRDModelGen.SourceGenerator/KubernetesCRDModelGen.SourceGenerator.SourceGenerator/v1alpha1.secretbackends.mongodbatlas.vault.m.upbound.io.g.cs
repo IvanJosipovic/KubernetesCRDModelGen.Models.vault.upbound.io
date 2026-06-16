@@ -191,6 +191,40 @@ public partial class V1alpha1SecretBackendSpecForProviderMountSelector
     public V1alpha1SecretBackendSpecForProviderMountSelectorPolicy? Policy { get; set; }
 }
 
+/// <summary>
+/// Specifies the Private API Key used to authenticate with the MongoDB Atlas API. Mutually exclusive
+/// with private_key_wo. Consider using private_key_wo instead for enhanced security.
+/// The Private Programmatic API Key used to connect with MongoDB Atlas API
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderPrivateKeySecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// Specifies the Private API Key used to authenticate with the MongoDB Atlas API.
+/// Mutually exclusive with private_key. Must be used with private_key_wo_version. To rotate the secret, update the value and increment private_key_wo_version.
+/// The Private Programmatic API Key used to connect with MongoDB Atlas API. This is a write-only field that is not stored in state.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderPrivateKeyWoSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecForProvider
@@ -221,11 +255,28 @@ public partial class V1alpha1SecretBackendSpecForProvider
     public string? Namespace { get; set; }
 
     /// <summary>
-    /// Specifies the Private API Key used to authenticate with the MongoDB Atlas API.
+    /// Specifies the Private API Key used to authenticate with the MongoDB Atlas API. Mutually exclusive
+    /// with private_key_wo. Consider using private_key_wo instead for enhanced security.
     /// The Private Programmatic API Key used to connect with MongoDB Atlas API
     /// </summary>
-    [JsonPropertyName("privateKey")]
-    public string? PrivateKey { get; set; }
+    [JsonPropertyName("privateKeySecretRef")]
+    public V1alpha1SecretBackendSpecForProviderPrivateKeySecretRef? PrivateKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies the Private API Key used to authenticate with the MongoDB Atlas API.
+    /// Mutually exclusive with private_key. Must be used with private_key_wo_version. To rotate the secret, update the value and increment private_key_wo_version.
+    /// The Private Programmatic API Key used to connect with MongoDB Atlas API. This is a write-only field that is not stored in state.
+    /// </summary>
+    [JsonPropertyName("privateKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderPrivateKeyWoSecretRef? PrivateKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// An incrementing version counter. Increment this value to force an update
+    /// to the private key. Required when using private_key_wo.
+    /// Incrementing version counter for the private_key_wo field. Increment to force an update to the private key.
+    /// </summary>
+    [JsonPropertyName("privateKeyWoVersion")]
+    public double? PrivateKeyWoVersion { get; set; }
 
     /// <summary>
     /// Specifies the Public API Key used to authenticate with the MongoDB Atlas API.
@@ -391,6 +442,40 @@ public partial class V1alpha1SecretBackendSpecInitProviderMountSelector
 }
 
 /// <summary>
+/// Specifies the Private API Key used to authenticate with the MongoDB Atlas API. Mutually exclusive
+/// with private_key_wo. Consider using private_key_wo instead for enhanced security.
+/// The Private Programmatic API Key used to connect with MongoDB Atlas API
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderPrivateKeySecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// Specifies the Private API Key used to authenticate with the MongoDB Atlas API.
+/// Mutually exclusive with private_key. Must be used with private_key_wo_version. To rotate the secret, update the value and increment private_key_wo_version.
+/// The Private Programmatic API Key used to connect with MongoDB Atlas API. This is a write-only field that is not stored in state.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderPrivateKeyWoSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
 /// THIS IS A BETA FIELD. It will be honored
 /// unless the Management Policies feature flag is disabled.
 /// InitProvider holds the same fields as ForProvider, with the exception
@@ -432,11 +517,28 @@ public partial class V1alpha1SecretBackendSpecInitProvider
     public string? Namespace { get; set; }
 
     /// <summary>
-    /// Specifies the Private API Key used to authenticate with the MongoDB Atlas API.
+    /// Specifies the Private API Key used to authenticate with the MongoDB Atlas API. Mutually exclusive
+    /// with private_key_wo. Consider using private_key_wo instead for enhanced security.
     /// The Private Programmatic API Key used to connect with MongoDB Atlas API
     /// </summary>
-    [JsonPropertyName("privateKey")]
-    public string? PrivateKey { get; set; }
+    [JsonPropertyName("privateKeySecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderPrivateKeySecretRef? PrivateKeySecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies the Private API Key used to authenticate with the MongoDB Atlas API.
+    /// Mutually exclusive with private_key. Must be used with private_key_wo_version. To rotate the secret, update the value and increment private_key_wo_version.
+    /// The Private Programmatic API Key used to connect with MongoDB Atlas API. This is a write-only field that is not stored in state.
+    /// </summary>
+    [JsonPropertyName("privateKeyWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderPrivateKeyWoSecretRef? PrivateKeyWoSecretRef { get; set; }
+
+    /// <summary>
+    /// An incrementing version counter. Increment this value to force an update
+    /// to the private key. Required when using private_key_wo.
+    /// Incrementing version counter for the private_key_wo field. Increment to force an update to the private key.
+    /// </summary>
+    [JsonPropertyName("privateKeyWoVersion")]
+    public double? PrivateKeyWoVersion { get; set; }
 
     /// <summary>
     /// Specifies the Public API Key used to authenticate with the MongoDB Atlas API.
@@ -582,11 +684,12 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     public string? Path { get; set; }
 
     /// <summary>
-    /// Specifies the Private API Key used to authenticate with the MongoDB Atlas API.
-    /// The Private Programmatic API Key used to connect with MongoDB Atlas API
+    /// An incrementing version counter. Increment this value to force an update
+    /// to the private key. Required when using private_key_wo.
+    /// Incrementing version counter for the private_key_wo field. Increment to force an update to the private key.
     /// </summary>
-    [JsonPropertyName("privateKey")]
-    public string? PrivateKey { get; set; }
+    [JsonPropertyName("privateKeyWoVersion")]
+    public double? PrivateKeyWoVersion { get; set; }
 
     /// <summary>
     /// Specifies the Public API Key used to authenticate with the MongoDB Atlas API.

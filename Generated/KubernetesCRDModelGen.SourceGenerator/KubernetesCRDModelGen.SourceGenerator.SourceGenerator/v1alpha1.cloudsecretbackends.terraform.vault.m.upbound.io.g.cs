@@ -52,6 +52,19 @@ public partial class V1alpha1CloudSecretBackendSpecForProviderTokenSecretRef
     public required string Name { get; set; }
 }
 
+/// <summary>Note: This property is write-only and will not be read from the API.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1CloudSecretBackendSpecForProviderTokenWoSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1CloudSecretBackendSpecForProvider
@@ -217,6 +230,17 @@ public partial class V1alpha1CloudSecretBackendSpecForProvider
     /// </summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1CloudSecretBackendSpecForProviderTokenSecretRef? TokenSecretRef { get; set; }
+
+    /// <summary>Note: This property is write-only and will not be read from the API.</summary>
+    [JsonPropertyName("tokenWoSecretRef")]
+    public V1alpha1CloudSecretBackendSpecForProviderTokenWoSecretRef? TokenWoSecretRef { get; set; }
+
+    /// <summary>
+    /// The version of the token_wo. For more info see updating write-only attributes.
+    /// Version counter for write-only secret data.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 }
 
 /// <summary>
@@ -226,6 +250,19 @@ public partial class V1alpha1CloudSecretBackendSpecForProvider
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1CloudSecretBackendSpecInitProviderTokenSecretRef
+{
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>Note: This property is write-only and will not be read from the API.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1CloudSecretBackendSpecInitProviderTokenWoSecretRef
 {
     [JsonPropertyName("key")]
     public required string Key { get; set; }
@@ -412,6 +449,17 @@ public partial class V1alpha1CloudSecretBackendSpecInitProvider
     /// </summary>
     [JsonPropertyName("tokenSecretRef")]
     public V1alpha1CloudSecretBackendSpecInitProviderTokenSecretRef? TokenSecretRef { get; set; }
+
+    /// <summary>Note: This property is write-only and will not be read from the API.</summary>
+    [JsonPropertyName("tokenWoSecretRef")]
+    public V1alpha1CloudSecretBackendSpecInitProviderTokenWoSecretRef? TokenWoSecretRef { get; set; }
+
+    /// <summary>
+    /// The version of the token_wo. For more info see updating write-only attributes.
+    /// Version counter for write-only secret data.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 }
 
 /// <summary>
@@ -686,6 +734,13 @@ public partial class V1alpha1CloudSecretBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("sealWrap")]
     public bool? SealWrap { get; set; }
+
+    /// <summary>
+    /// The version of the token_wo. For more info see updating write-only attributes.
+    /// Version counter for write-only secret data.
+    /// </summary>
+    [JsonPropertyName("tokenWoVersion")]
+    public double? TokenWoVersion { get; set; }
 }
 
 /// <summary>A Condition that may apply to a resource.</summary>

@@ -207,6 +207,13 @@ public partial class V1alpha1AuthBackendRoleSpecForProviderBackendSelector
 public partial class V1alpha1AuthBackendRoleSpecForProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// Configures how identity aliases are generated.
     /// Valid choices are: serviceaccount_uid, serviceaccount_name. (vault-1.9+)
     /// Configures how identity aliases are generated. Valid choices are: serviceaccount_uid, serviceaccount_name
@@ -242,6 +249,13 @@ public partial class V1alpha1AuthBackendRoleSpecForProvider
     /// </summary>
     [JsonPropertyName("boundServiceAccountNames")]
     public IList<string>? BoundServiceAccountNames { get; set; }
+
+    /// <summary>
+    /// A label selector for Kubernetes namespaces allowed to access this role. Accepts either a JSON or YAML object. The value should be of type LabelSelector. Currently, label selectors with matchExpressions are not supported. To use label selectors, Vault must have permission to read namespaces on the Kubernetes cluster. If set with bound_service_account_namespaces, the conditions are ORed. Requires Vault v1.16+.
+    /// A label selector for Kubernetes namespaces allowed to access this role. Accepts either a JSON or YAML object. The value should be of type LabelSelector. Currently, label selectors with matchExpressions are not supported. To use label selectors, Vault must have permission to read namespaces on the Kubernetes cluster. If set with bound_service_account_namespaces, the conditions are ORed.
+    /// </summary>
+    [JsonPropertyName("boundServiceAccountNamespaceSelector")]
+    public string? BoundServiceAccountNamespaceSelector { get; set; }
 
     /// <summary>
     /// List of namespaces allowed to access this role. If set to [&quot;*&quot;] all namespaces are allowed, both this and bound_service_account_names can not be set to &quot;*&quot;.
@@ -508,6 +522,13 @@ public partial class V1alpha1AuthBackendRoleSpecInitProviderBackendSelector
 public partial class V1alpha1AuthBackendRoleSpecInitProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// Configures how identity aliases are generated.
     /// Valid choices are: serviceaccount_uid, serviceaccount_name. (vault-1.9+)
     /// Configures how identity aliases are generated. Valid choices are: serviceaccount_uid, serviceaccount_name
@@ -543,6 +564,13 @@ public partial class V1alpha1AuthBackendRoleSpecInitProvider
     /// </summary>
     [JsonPropertyName("boundServiceAccountNames")]
     public IList<string>? BoundServiceAccountNames { get; set; }
+
+    /// <summary>
+    /// A label selector for Kubernetes namespaces allowed to access this role. Accepts either a JSON or YAML object. The value should be of type LabelSelector. Currently, label selectors with matchExpressions are not supported. To use label selectors, Vault must have permission to read namespaces on the Kubernetes cluster. If set with bound_service_account_namespaces, the conditions are ORed. Requires Vault v1.16+.
+    /// A label selector for Kubernetes namespaces allowed to access this role. Accepts either a JSON or YAML object. The value should be of type LabelSelector. Currently, label selectors with matchExpressions are not supported. To use label selectors, Vault must have permission to read namespaces on the Kubernetes cluster. If set with bound_service_account_namespaces, the conditions are ORed.
+    /// </summary>
+    [JsonPropertyName("boundServiceAccountNamespaceSelector")]
+    public string? BoundServiceAccountNamespaceSelector { get; set; }
 
     /// <summary>
     /// List of namespaces allowed to access this role. If set to [&quot;*&quot;] all namespaces are allowed, both this and bound_service_account_names can not be set to &quot;*&quot;.
@@ -833,6 +861,13 @@ public partial class V1alpha1AuthBackendRoleSpec
 public partial class V1alpha1AuthBackendRoleStatusAtProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// Configures how identity aliases are generated.
     /// Valid choices are: serviceaccount_uid, serviceaccount_name. (vault-1.9+)
     /// Configures how identity aliases are generated. Valid choices are: serviceaccount_uid, serviceaccount_name
@@ -860,6 +895,13 @@ public partial class V1alpha1AuthBackendRoleStatusAtProvider
     /// </summary>
     [JsonPropertyName("boundServiceAccountNames")]
     public IList<string>? BoundServiceAccountNames { get; set; }
+
+    /// <summary>
+    /// A label selector for Kubernetes namespaces allowed to access this role. Accepts either a JSON or YAML object. The value should be of type LabelSelector. Currently, label selectors with matchExpressions are not supported. To use label selectors, Vault must have permission to read namespaces on the Kubernetes cluster. If set with bound_service_account_namespaces, the conditions are ORed. Requires Vault v1.16+.
+    /// A label selector for Kubernetes namespaces allowed to access this role. Accepts either a JSON or YAML object. The value should be of type LabelSelector. Currently, label selectors with matchExpressions are not supported. To use label selectors, Vault must have permission to read namespaces on the Kubernetes cluster. If set with bound_service_account_namespaces, the conditions are ORed.
+    /// </summary>
+    [JsonPropertyName("boundServiceAccountNamespaceSelector")]
+    public string? BoundServiceAccountNamespaceSelector { get; set; }
 
     /// <summary>
     /// List of namespaces allowed to access this role. If set to [&quot;*&quot;] all namespaces are allowed, both this and bound_service_account_names can not be set to &quot;*&quot;.

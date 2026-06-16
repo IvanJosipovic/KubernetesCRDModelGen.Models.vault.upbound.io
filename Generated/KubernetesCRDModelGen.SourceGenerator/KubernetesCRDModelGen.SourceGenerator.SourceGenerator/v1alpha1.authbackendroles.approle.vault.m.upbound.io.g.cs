@@ -196,6 +196,15 @@ public partial class V1alpha1AuthBackendRoleSpecForProviderBackendSelector
 public partial class V1alpha1AuthBackendRoleSpecForProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// The unique name of the auth backend to configure.
     /// Defaults to approle.
     /// Unique name of the auth backend to configure.
@@ -218,6 +227,13 @@ public partial class V1alpha1AuthBackendRoleSpecForProvider
     /// </summary>
     [JsonPropertyName("bindSecretId")]
     public bool? BindSecretId { get; set; }
+
+    /// <summary>
+    /// If set, the secret IDs generated using this role will be cluster local. This can only be set during role creation and once set, it can&apos;t be reset later.
+    /// If true, SecretIDs generated against this role will be &apos;local&apos; to the node they were generated on. This means that they will only be valid when used against the same node that they were generated on.
+    /// </summary>
+    [JsonPropertyName("localSecretIds")]
+    public bool? LocalSecretIds { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.
@@ -522,6 +538,15 @@ public partial class V1alpha1AuthBackendRoleSpecInitProviderBackendSelector
 public partial class V1alpha1AuthBackendRoleSpecInitProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// The unique name of the auth backend to configure.
     /// Defaults to approle.
     /// Unique name of the auth backend to configure.
@@ -544,6 +569,13 @@ public partial class V1alpha1AuthBackendRoleSpecInitProvider
     /// </summary>
     [JsonPropertyName("bindSecretId")]
     public bool? BindSecretId { get; set; }
+
+    /// <summary>
+    /// If set, the secret IDs generated using this role will be cluster local. This can only be set during role creation and once set, it can&apos;t be reset later.
+    /// If true, SecretIDs generated against this role will be &apos;local&apos; to the node they were generated on. This means that they will only be valid when used against the same node that they were generated on.
+    /// </summary>
+    [JsonPropertyName("localSecretIds")]
+    public bool? LocalSecretIds { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.
@@ -788,6 +820,15 @@ public partial class V1alpha1AuthBackendRoleSpec
 public partial class V1alpha1AuthBackendRoleStatusAtProvider
 {
     /// <summary>
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// The metadata to be tied to generated entity alias.
+    /// This should be a list or map containing the metadata in key value pairs.
+    /// </summary>
+    [JsonPropertyName("aliasMetadata")]
+    public IDictionary<string, string>? AliasMetadata { get; set; }
+
+    /// <summary>
     /// The unique name of the auth backend to configure.
     /// Defaults to approle.
     /// Unique name of the auth backend to configure.
@@ -805,6 +846,13 @@ public partial class V1alpha1AuthBackendRoleStatusAtProvider
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
+
+    /// <summary>
+    /// If set, the secret IDs generated using this role will be cluster local. This can only be set during role creation and once set, it can&apos;t be reset later.
+    /// If true, SecretIDs generated against this role will be &apos;local&apos; to the node they were generated on. This means that they will only be valid when used against the same node that they were generated on.
+    /// </summary>
+    [JsonPropertyName("localSecretIds")]
+    public bool? LocalSecretIds { get; set; }
 
     /// <summary>
     /// The namespace to provision the resource in.

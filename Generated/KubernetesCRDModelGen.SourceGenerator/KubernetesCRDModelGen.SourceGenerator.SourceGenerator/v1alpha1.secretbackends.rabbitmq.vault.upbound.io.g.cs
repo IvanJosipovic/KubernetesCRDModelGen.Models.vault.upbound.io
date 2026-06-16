@@ -57,11 +57,35 @@ public enum V1alpha1SecretBackendSpecDeletionPolicyEnum
 
 /// <summary>
 /// Specifies the RabbitMQ management administrator password.
+/// Conflicts with password_wo.
 /// Specifies the RabbitMQ management administrator password
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecForProviderPasswordSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// Specifies the RabbitMQ management administrator password.
+/// This is a write-only field and will not be read back from Vault.
+/// Conflicts with password.
+/// Specifies the RabbitMQ management administrator password. This is a write-only field and will not be read back from Vault.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecForProviderPasswordWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -242,10 +266,29 @@ public partial class V1alpha1SecretBackendSpecForProvider
 
     /// <summary>
     /// Specifies the RabbitMQ management administrator password.
+    /// Conflicts with password_wo.
     /// Specifies the RabbitMQ management administrator password
     /// </summary>
     [JsonPropertyName("passwordSecretRef")]
     public V1alpha1SecretBackendSpecForProviderPasswordSecretRef? PasswordSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies the RabbitMQ management administrator password.
+    /// This is a write-only field and will not be read back from Vault.
+    /// Conflicts with password.
+    /// Specifies the RabbitMQ management administrator password. This is a write-only field and will not be read back from Vault.
+    /// </summary>
+    [JsonPropertyName("passwordWoSecretRef")]
+    public V1alpha1SecretBackendSpecForProviderPasswordWoSecretRef? PasswordWoSecretRef { get; set; }
+
+    /// <summary>
+    /// A version counter for the write-only password_wo field.
+    /// Incrementing this value will trigger an update to the password.
+    /// Required when using password_wo.
+    /// A version counter for the write-only password_wo field. Incrementing this value will trigger an update to the password.
+    /// </summary>
+    [JsonPropertyName("passwordWoVersion")]
+    public double? PasswordWoVersion { get; set; }
 
     /// <summary>
     /// The unique path this backend should be mounted at. Must
@@ -296,11 +339,35 @@ public partial class V1alpha1SecretBackendSpecForProvider
 
 /// <summary>
 /// Specifies the RabbitMQ management administrator password.
+/// Conflicts with password_wo.
 /// Specifies the RabbitMQ management administrator password
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1alpha1SecretBackendSpecInitProviderPasswordSecretRef
+{
+    /// <summary>The key to select.</summary>
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    /// <summary>Name of the secret.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    /// <summary>Namespace of the secret.</summary>
+    [JsonPropertyName("namespace")]
+    public required string Namespace { get; set; }
+}
+
+/// <summary>
+/// Specifies the RabbitMQ management administrator password.
+/// This is a write-only field and will not be read back from Vault.
+/// Conflicts with password.
+/// Specifies the RabbitMQ management administrator password. This is a write-only field and will not be read back from Vault.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1alpha1SecretBackendSpecInitProviderPasswordWoSecretRef
 {
     /// <summary>The key to select.</summary>
     [JsonPropertyName("key")]
@@ -493,10 +560,29 @@ public partial class V1alpha1SecretBackendSpecInitProvider
 
     /// <summary>
     /// Specifies the RabbitMQ management administrator password.
+    /// Conflicts with password_wo.
     /// Specifies the RabbitMQ management administrator password
     /// </summary>
     [JsonPropertyName("passwordSecretRef")]
-    public required V1alpha1SecretBackendSpecInitProviderPasswordSecretRef PasswordSecretRef { get; set; }
+    public V1alpha1SecretBackendSpecInitProviderPasswordSecretRef? PasswordSecretRef { get; set; }
+
+    /// <summary>
+    /// Specifies the RabbitMQ management administrator password.
+    /// This is a write-only field and will not be read back from Vault.
+    /// Conflicts with password.
+    /// Specifies the RabbitMQ management administrator password. This is a write-only field and will not be read back from Vault.
+    /// </summary>
+    [JsonPropertyName("passwordWoSecretRef")]
+    public V1alpha1SecretBackendSpecInitProviderPasswordWoSecretRef? PasswordWoSecretRef { get; set; }
+
+    /// <summary>
+    /// A version counter for the write-only password_wo field.
+    /// Incrementing this value will trigger an update to the password.
+    /// Required when using password_wo.
+    /// A version counter for the write-only password_wo field. Incrementing this value will trigger an update to the password.
+    /// </summary>
+    [JsonPropertyName("passwordWoVersion")]
+    public double? PasswordWoVersion { get; set; }
 
     /// <summary>
     /// The unique path this backend should be mounted at. Must
@@ -877,6 +963,15 @@ public partial class V1alpha1SecretBackendStatusAtProvider
     /// </summary>
     [JsonPropertyName("passwordPolicy")]
     public string? PasswordPolicy { get; set; }
+
+    /// <summary>
+    /// A version counter for the write-only password_wo field.
+    /// Incrementing this value will trigger an update to the password.
+    /// Required when using password_wo.
+    /// A version counter for the write-only password_wo field. Incrementing this value will trigger an update to the password.
+    /// </summary>
+    [JsonPropertyName("passwordWoVersion")]
+    public double? PasswordWoVersion { get; set; }
 
     /// <summary>
     /// The unique path this backend should be mounted at. Must
